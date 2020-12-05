@@ -11,6 +11,36 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  surname: {
+    type: String,
+  },
+  photo: {
+    type: String,
+  },
+  birthDate: {
+    type: Date,
+  },
+  height: [
+    {
+      ft: {
+        type: Number,
+      },
+      inch: {
+        type: Number,
+      },
+    },
+  ],
+  weight: [
+    {
+      kg: {
+        type: Number,
+      },
+    },
+  ],
+  gender: {
+    type: Boolean,
+  },
+  contact: {},
   password: {
     type: String,
     required: true,

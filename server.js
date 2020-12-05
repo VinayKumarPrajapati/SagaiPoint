@@ -6,7 +6,10 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
+const contact = require("./routes/api/contact");
+const family = require("./routes/api/family");
 const requireMatch = require("./routes/api/requireMatch");
+const matchFound = require("./routes/api/matchFound");
 
 const app = express();
 
@@ -32,7 +35,11 @@ require("./config/passport")(passport);
 // Use Routes
 app.use("/api/users", users);
 app.use("/api/profile", profile);
-app.use("/api/requireMatch", requireMatch);
+app.use("/api/posts", posts);
+app.use("/api/family", family);
+app.use("/api/contact", contact);
+app.use("/api/require-match", requireMatch);
+app.use("/api/match-found", matchFound);
 
 const port = process.env.PORT || 5000;
 

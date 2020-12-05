@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
-
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -16,7 +15,30 @@ class Navbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <ul className="navbar-nav ml-auto">
+      <>
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
+
+        <li>
+          <Link to="/gallery">Gallery</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/feed">
+            Post Feed
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
+          </Link>
+        </li>
         <li className="nav-item">
           <Link
             to=""
@@ -33,59 +55,43 @@ class Navbar extends Component {
             Logout
           </Link>
         </li>
-      </ul>
+      </>
     );
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Sign Up
-          </Link>
+      <>
+        <li>
+          <Link to="/register">Sign Up</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/login">
-            Login
-          </Link>
+          <Link to="/login">Login</Link>
         </li>
-      </ul>
+      </>
     );
 
     return (
       <div className="navbar-fixed">
-        <nav id="nav_f" className="default_color" role="navigation">
+        <nav className="red">
           <div className="container">
             <div className="nav-wrapper">
-              <Link to="#" id="logo-container" className="brand-logo">
-                Ristehy Jodo
+              <Link className="navbar-brand" to="/">
+                RistheyJodo
+              </Link>
+              <Link
+                to="#"
+                data-target="mobile-demo"
+                className="sidenav-trigger"
+              >
+                <i className="material-icons">menu</i>
               </Link>
               <ul className="right hide-on-med-and-down">
                 <li>
-                  <Link to="#intro">सेवा</Link>
+                  <Link className="nav-link" to="/profiles">
+                    सभी मैच
+                  </Link>
                 </li>
-                <li>
-                  <Link to="#work">Career</Link>
-                </li>
-                <li>
-                  <Link to="#team">हमारी टीम</Link>
-                </li>
-                <li>
-                  <Link to="#contact">सम्पर्क</Link>
-                </li>
-                <li>
-                  <Link to="#contact">हमारे बारे मे</Link>
-                </li>
-                <li>
-                  <Link to="/login">लॉग इन करें</Link>
-                </li>
+                {isAuthenticated ? authLinks : guestLinks}
               </ul>
-              <Link
-                to="#"
-                data-activates="nav-mobile"
-                className="button-collapse"
-              >
-                <i className="mdi-navigation-menu"></i>
-              </Link>
             </div>
           </div>
         </nav>
