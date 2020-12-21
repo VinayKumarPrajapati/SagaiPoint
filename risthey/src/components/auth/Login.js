@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
+import { Alert } from "@material-ui/lab";
 
 class Login extends Component {
   constructor() {
@@ -53,7 +54,6 @@ class Login extends Component {
 
     return (
       <div className="login">
-        {" "}
         <div className="row">
           <div className="col s12 m6">
             <div className="card blue-grey darken-1">
@@ -67,17 +67,28 @@ class Login extends Component {
                     type="email"
                     value={this.state.email}
                     onChange={this.onChange}
-                    error={errors.email}
                   />
-
+                  {errors.email != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.email}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
                   <TextFieldGroup
                     placeholder="Password"
                     name="password"
                     type="password"
                     value={this.state.password}
                     onChange={this.onChange}
-                    error={errors.password}
                   />
+                  {errors.password != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.password}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
                   <input
                     type="submit"
                     className="btn btn-info btn-block mt-4"

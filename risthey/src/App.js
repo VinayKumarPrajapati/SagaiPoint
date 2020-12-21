@@ -25,6 +25,8 @@ import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
+import Match from "./components/match/Match";
+import { clearCurrentMatch } from "./actions/matchActions";
 
 import "./App.css";
 
@@ -44,6 +46,9 @@ if (localStorage.jwtToken) {
     store.dispatch(logoutUser());
     // Clear current Profile
     store.dispatch(clearCurrentProfile());
+    //Clear All Match
+    store.dispatch(clearCurrentMatch);
+
     // Redirect to login
     window.location.href = "/login";
   }
@@ -96,6 +101,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/match" component={Match} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />

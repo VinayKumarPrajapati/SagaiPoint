@@ -1,5 +1,5 @@
 module.exports = {
   mongoURI:
-    "mongodb+srv://pass123:pass123@cluster0.cq4hu.mongodb.net/ristheyDB?retryWrites=true&w=majority",
+    "mongodb+srv://vinay123:vinay123@cluster0.ofmot.mongodb.net/<dbname>?retryWrites=true&w=majority",
   secretOrKey: "secret",
 };

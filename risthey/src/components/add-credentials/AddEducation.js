@@ -4,6 +4,7 @@ import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Alert } from "@material-ui/lab";
 import { addEducation } from "../../actions/profileActions";
 
 class AddEducation extends Component {
@@ -81,39 +82,69 @@ class AddEducation extends Component {
                   name="school"
                   value={this.state.school}
                   onChange={this.onChange}
-                  error={errors.school}
                 />
+                {errors.school != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.school}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="* डिग्री या प्रमाणन"
                   name="degree"
                   value={this.state.degree}
                   onChange={this.onChange}
-                  error={errors.degree}
-                />
+                />{" "}
+                {errors.degree != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.degree}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="* अध्ययन क्षेत्र (Field of Study)"
                   name="fieldofstudy"
                   value={this.state.fieldofstudy}
                   onChange={this.onChange}
-                  error={errors.fieldofstudy}
                 />
+                {errors.fieldofstudy != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.fieldofstudy}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <h6>तारीख से (From Date)</h6>
                 <TextFieldGroup
                   name="from"
                   type="date"
                   value={this.state.from}
                   onChange={this.onChange}
-                  error={errors.from}
                 />
+                {errors.from != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.from}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <h6>तारीख तक (To Date)</h6>
                 <TextFieldGroup
                   name="to"
                   type="date"
                   value={this.state.to}
                   onChange={this.onChange}
-                  error={errors.to}
                   disabled={this.state.disabled ? "disabled" : ""}
                 />
+                {errors.to != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.to}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <div className="form-check mb-4">
                   <input
                     type="checkbox"
@@ -131,9 +162,15 @@ class AddEducation extends Component {
                   name="description"
                   value={this.state.description}
                   onChange={this.onChange}
-                  error={errors.description}
                   info="मुझे उपलब्धि या किसी बड़ी बात के बारे में बताएं"
                 />
+                {errors.description != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.description}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <input
                   type="submit"
                   value="Submit"

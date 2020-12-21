@@ -7,6 +7,8 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import { createProfile } from "../../actions/profileActions";
+import { Alert } from "@material-ui/lab";
+
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
@@ -78,44 +80,70 @@ class CreateProfile extends Component {
             icon="fab fa-twitter"
             value={this.state.twitter}
             onChange={this.onChange}
-            error={errors.twitter}
           />
-
+          {errors.twitter != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.twitter}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="Facebook Page URL"
             name="facebook"
             icon="fab fa-facebook"
             value={this.state.facebook}
             onChange={this.onChange}
-            error={errors.facebook}
           />
-
+          {errors.facebook != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.facebook}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="Linkedin Profile URL"
             name="linkedin"
             icon="fab fa-linkedin"
             value={this.state.linkedin}
             onChange={this.onChange}
-            error={errors.linkedin}
           />
-
+          {errors.linkedin != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.linkedin}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="YouTube Channel URL"
             name="youtube"
             icon="fab fa-youtube"
             value={this.state.youtube}
             onChange={this.onChange}
-            error={errors.youtube}
           />
-
+          {errors.youtube != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.youtube}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="Instagram Page URL"
             name="instagram"
             icon="fab fa-instagram"
             value={this.state.instagram}
             onChange={this.onChange}
-            error={errors.instagram}
           />
+          {errors.instagram != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.instagram}
+            </Alert>
+          ) : (
+            ""
+          )}
         </div>
       );
     }
@@ -149,67 +177,106 @@ class CreateProfile extends Component {
                   name="handle"
                   value={this.state.handle}
                   onChange={this.onChange}
-                  error={errors.handle}
-                  info=""
                 />
+                {errors.handle != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.handle}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <SelectListGroup
                   placeholder="Status"
                   name="status"
                   value="{this.state.status}"
                   onChange={this.onChange}
                   options={options}
-                  error={errors.status}
-                  info=""
                 />
+                {errors.status != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.status}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Company"
                   name="company"
                   value={this.state.company}
                   onChange={this.onChange}
-                  error={errors.company}
-                  info=""
                 />
+                {errors.company != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.company}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Website"
                   name="website"
                   value={this.state.website}
                   onChange={this.onChange}
-                  error={errors.website}
-                  info=""
                 />
+                {errors.website != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.website}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
                   value={this.state.location}
                   onChange={this.onChange}
-                  error={errors.location}
-                  info=""
                 />
+                {errors.location != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.location}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="* Skills"
                   name="skills"
                   value={this.state.skills}
                   onChange={this.onChange}
-                  error={errors.skills}
-                  info=""
                 />
+                {errors.skills != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.skills}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Github Username"
                   name="githubusername"
                   value={this.state.githubusername}
                   onChange={this.onChange}
-                  error={errors.githubusername}
-                  info=""
                 />
+                {errors.githubusername != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.githubusername}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
                   value={this.state.bio}
                   onChange={this.onChange}
-                  error={errors.bio}
-                  info=""
                 />
-
+                {errors.bio != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.bio}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <div className="mb-3">
                   <button
                     type="button"

@@ -1,6 +1,6 @@
-import React from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
+import React from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
 
 const TextAreaFieldGroup = ({
   name,
@@ -8,14 +8,12 @@ const TextAreaFieldGroup = ({
   value,
   error,
   info,
-  onChange
+  onChange,
 }) => {
   return (
     <div className="form-group">
       <textarea
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
-        })}
+        className={classnames("form-control form-control-lg")}
         placeholder={placeholder}
         name={name}
         value={value}
@@ -33,7 +31,7 @@ TextAreaFieldGroup.propTypes = {
   value: PropTypes.string.isRequired,
   info: PropTypes.string,
   error: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TextAreaFieldGroup;

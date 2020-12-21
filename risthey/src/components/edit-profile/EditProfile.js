@@ -1,33 +1,34 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
-import { createProfile, getCurrentProfile } from '../../actions/profileActions';
-import isEmpty from '../../validation/is-empty';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import InputGroup from "../common/InputGroup";
+import SelectListGroup from "../common/SelectListGroup";
+import { createProfile, getCurrentProfile } from "../../actions/profileActions";
+import isEmpty from "../../validation/is-empty";
+import { Alert } from "@material-ui/lab";
 
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      company: '',
-      website: '',
-      location: '',
-      status: '',
-      skills: '',
-      githubusername: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
-      errors: {}
+      handle: "",
+      company: "",
+      website: "",
+      location: "",
+      status: "",
+      skills: "",
+      githubusername: "",
+      bio: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      youtube: "",
+      instagram: "",
+      errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
@@ -47,32 +48,32 @@ class CreateProfile extends Component {
       const profile = nextProps.profile.profile;
 
       // Bring skills array back to CSV
-      const skillsCSV = profile.skills.join(',');
+      const skillsCSV = profile.skills.join(",");
 
       // If profile field doesnt exist, make empty string
-      profile.company = !isEmpty(profile.company) ? profile.company : '';
-      profile.website = !isEmpty(profile.website) ? profile.website : '';
-      profile.location = !isEmpty(profile.location) ? profile.location : '';
+      profile.company = !isEmpty(profile.company) ? profile.company : "";
+      profile.website = !isEmpty(profile.website) ? profile.website : "";
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
       profile.githubusername = !isEmpty(profile.githubusername)
         ? profile.githubusername
-        : '';
-      profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+        : "";
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
-        : '';
+        : "";
       profile.facebook = !isEmpty(profile.social.facebook)
         ? profile.social.facebook
-        : '';
+        : "";
       profile.linkedin = !isEmpty(profile.social.linkedin)
         ? profile.social.linkedin
-        : '';
+        : "";
       profile.youtube = !isEmpty(profile.social.youtube)
         ? profile.social.youtube
-        : '';
+        : "";
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
-        : '';
+        : "";
 
       // Set component fields state
       this.setState({
@@ -88,7 +89,7 @@ class CreateProfile extends Component {
         facebook: profile.facebook,
         linkedin: profile.linkedin,
         youtube: profile.youtube,
-        instagram: profile.instagram
+        instagram: profile.instagram,
       });
     }
   }
@@ -109,7 +110,7 @@ class CreateProfile extends Component {
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
-      instagram: this.state.instagram
+      instagram: this.state.instagram,
     };
 
     this.props.createProfile(profileData, this.props.history);
@@ -133,59 +134,85 @@ class CreateProfile extends Component {
             icon="fab fa-twitter"
             value={this.state.twitter}
             onChange={this.onChange}
-            error={errors.twitter}
           />
-
+          {errors.twitter != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.twitter}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="Facebook Page URL"
             name="facebook"
             icon="fab fa-facebook"
             value={this.state.facebook}
             onChange={this.onChange}
-            error={errors.facebook}
           />
-
+          {errors.facebook != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.facebook}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="Linkedin Profile URL"
             name="linkedin"
             icon="fab fa-linkedin"
             value={this.state.linkedin}
             onChange={this.onChange}
-            error={errors.linkedin}
           />
-
+          {errors.linkedin != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.linkedin}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="YouTube Channel URL"
             name="youtube"
             icon="fab fa-youtube"
             value={this.state.youtube}
             onChange={this.onChange}
-            error={errors.youtube}
           />
-
+          {errors.youtube != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.youtube}
+            </Alert>
+          ) : (
+            ""
+          )}
           <InputGroup
             placeholder="Instagram Page URL"
             name="instagram"
             icon="fab fa-instagram"
             value={this.state.instagram}
             onChange={this.onChange}
-            error={errors.instagram}
           />
+          {errors.instagram != null ? (
+            <Alert variant="filled" severity="error">
+              {errors.instagram}
+            </Alert>
+          ) : (
+            ""
+          )}
         </div>
       );
     }
 
     // Select options for status
     const options = [
-      { label: '* Select Professional Status', value: 0 },
-      { label: 'Developer', value: 'Developer' },
-      { label: 'Junior Developer', value: 'Junior Developer' },
-      { label: 'Senior Developer', value: 'Senior Developer' },
-      { label: 'Manager', value: 'Manager' },
-      { label: 'Student or Learning', value: 'Student or Learning' },
-      { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
-      { label: 'Intern', value: 'Intern' },
-      { label: 'Other', value: 'Other' }
+      { label: "* Select Professional Status", value: 0 },
+      { label: "Developer", value: "Developer" },
+      { label: "Junior Developer", value: "Junior Developer" },
+      { label: "Senior Developer", value: "Senior Developer" },
+      { label: "Manager", value: "Manager" },
+      { label: "Student or Learning", value: "Student or Learning" },
+      { label: "Instructor or Teacher", value: "Instructor or Teacher" },
+      { label: "Intern", value: "Intern" },
+      { label: "Other", value: "Other" },
     ];
 
     return (
@@ -204,34 +231,58 @@ class CreateProfile extends Component {
                   name="handle"
                   value={this.state.handle}
                   onChange={this.onChange}
-                  error={errors.handle}
                   info="A unique handle for your profile URL. Your full name, company name, nickname"
                 />
+                {errors.handle != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.handle}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <SelectListGroup
                   placeholder="Status"
                   name="status"
                   value={this.state.status}
                   onChange={this.onChange}
                   options={options}
-                  error={errors.status}
                   info="Give us an idea of where you are at in your career"
                 />
+                {errors.status != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.status}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Company"
                   name="company"
                   value={this.state.company}
                   onChange={this.onChange}
-                  error={errors.company}
                   info="Could be your own company or one you work for"
                 />
+                {errors.company != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.company}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Website"
                   name="website"
                   value={this.state.website}
                   onChange={this.onChange}
-                  error={errors.website}
                   info="Could be your own website or a company one"
                 />
+                {errors.website != null ? (
+                  <Alert variant="filled" severity="error">
+                    {errors.website}
+                  </Alert>
+                ) : (
+                  ""
+                )}
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
@@ -270,8 +321,8 @@ class CreateProfile extends Component {
                   <button
                     type="button"
                     onClick={() => {
-                      this.setState(prevState => ({
-                        displaySocialInputs: !prevState.displaySocialInputs
+                      this.setState((prevState) => ({
+                        displaySocialInputs: !prevState.displaySocialInputs,
                       }));
                     }}
                     className="btn btn-light"
@@ -299,12 +350,12 @@ CreateProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
-  errors: state.errors
+  errors: state.errors,
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
