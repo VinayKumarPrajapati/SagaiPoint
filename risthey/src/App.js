@@ -16,10 +16,15 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import Gallery from "./components/dashboard/Gallery";
+import Search from "./components/layout/Search";
+import MatchForYou from "./components/layout/MatchForYou";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
+import AddFamily from "./components/add-credentials/AddFamily";
+import AddFamilyMember from "./components/add-credentials/AddFamilyMember";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
@@ -65,10 +70,15 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/profiles" component={Profiles} />
-              <Route exact path="/profile/:handle" component={Profile} />
+              <Switch>
+                <Route exact path="/profiles" component={Profiles} />
+              </Switch>
+              <PrivateRoute exact path="/profile/:handle" component={Profile} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/gallery" component={Gallery} />
               </Switch>
               <Switch>
                 <PrivateRoute
@@ -87,11 +97,31 @@ class App extends Component {
               <Switch>
                 <PrivateRoute
                   exact
+                  path="/your-match"
+                  component={MatchForYou}
+                />
+              </Switch>
+
+              <Switch>
+                <PrivateRoute
+                  exact
                   path="/add-experience"
                   component={AddExperience}
                 />
               </Switch>
-
+              <Switch>
+                <PrivateRoute exact path="/add-family" component={AddFamily} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/add-family-member"
+                  component={AddFamilyMember}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/search" component={Search} />
+              </Switch>
               <Switch>
                 <PrivateRoute
                   exact

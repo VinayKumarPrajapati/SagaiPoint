@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import ProfileHeader from "./ProfileHeader";
 import ProfileAbout from "./ProfileAbout";
 import ProfileCreds from "./ProfileCreds";
-import ProfileGithub from "./ProfileGithub";
 import Spinner from "../common/Spinner";
 import { getProfileByHandle } from "../../actions/profileActions";
 
@@ -30,37 +28,40 @@ class Profile extends Component {
       profileContent = <Spinner />;
     } else {
       profileContent = (
-        <div>
-          <div className="row">
-            <div className="col-md-6">
-              <Link to="/profiles" className="btn btn-light mb-3 float-left">
-                Back To Profiles
-              </Link>
+        <>
+          {" "}
+          <div className="row gutters-sm">
+            <div className="col-md-4 mb-3">
+              <ProfileHeader profile={profile} />
             </div>
-            <div className="col-md-6" />
+            <div class="col-md-8">
+              <ProfileAbout profile={profile} />
+
+              <ProfileCreds
+                education={profile.education}
+                experience={profile.experience}
+                family={profile.family}
+                familyMember={profile.familyMember}
+              />
+            </div>
           </div>
-          <ProfileHeader profile={profile} />
-          <ProfileAbout profile={profile} />
-          <ProfileCreds
-            education={profile.education}
-            experience={profile.experience}
-            // family={profile.family}
-          />
-          {profile.githubusername ? (
-            <ProfileGithub username={profile.githubusername} />
-          ) : null}
-        </div>
+        </>
       );
     }
 
     return (
-      <div className="profile">
+      // <div className="profile">
+      //   <div className="container">
+      //     <div className="row">
+      //       <div className="col-md-12">{profileContent}</div>
+      //     </div>
+      //   </div>
+      // </div>
+      <>
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">{profileContent}</div>
-          </div>
+          <div className="main-body">{profileContent}</div>
         </div>
-      </div>
+      </>
     );
   }
 }

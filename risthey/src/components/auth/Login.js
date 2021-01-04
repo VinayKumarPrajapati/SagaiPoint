@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
 import { Alert } from "@material-ui/lab";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Login extends Component {
   constructor() {
@@ -51,49 +53,55 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
+    const notify = (msg) => toast(msg);
 
     return (
-      <div className="login">
+      <div className="register">
         <div className="row">
-          <div className="col s12 m6">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <h1 className="display-4 text-center">Log In</h1>
-                <p className="lead text-center">Sign in to RistheyJodo</p>
-                <form onSubmit={this.onSubmit}>
-                  <TextFieldGroup
-                    placeholder="Email Address"
-                    name="email"
-                    type="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                  />
-                  {errors.email != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.email}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Password"
-                    name="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                  />
-                  {errors.password != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.password}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <input
-                    type="submit"
-                    className="btn btn-info btn-block mt-4"
-                  />
-                </form>
+          <div className="col s6">
+            <div className="col s12 m6">
+              <div className="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <h1 className="display-4 text-center white-text">Login</h1>
+                  <p className="lead text-center">
+                    Login into RistheyJodo Account
+                  </p>
+                  <form onSubmit={this.onSubmit}>
+                    <TextFieldGroup
+                      placeholder="Email Address"
+                      name="email"
+                      type="email"
+                      value={this.state.email}
+                      onChange={this.onChange}
+                    />
+                    {errors.email != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.email}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Password"
+                      name="password"
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.onChange}
+                    />
+                    {errors.password != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.password}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+
+                    <input
+                      type="submit"
+                      className="waves-effect waves-light btn"
+                    ></input>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

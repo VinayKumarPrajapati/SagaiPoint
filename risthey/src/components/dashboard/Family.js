@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Moment from "react-moment";
 import { deleteFamily } from "../../actions/profileActions";
+import { Table } from "antd";
 
 class Family extends Component {
   onDeleteClick(id) {
@@ -10,46 +10,65 @@ class Family extends Component {
   }
 
   render() {
-    const Family = this.props.Family.map((exp) => (
-      <tr key={exp._id}>
-        <td>{exp.company}</td>
-        <td>{exp.title}</td>
-        <td>
-          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
-          {exp.to === null ? (
-            " Now"
-          ) : (
-            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
-          )}
-        </td>
-        <td>
+    const columns = [
+      {
+        title: "पिता का नाम (Father's Name)",
+        dataIndex: "fatherName",
+        key: "fatherName",
+        sorter: true,
+        width: "30%",
+      },
+
+      {
+        title: "माता का नाम (Mother's Name)",
+        dataIndex: "MotherName",
+        key: "MotherName",
+        sorter: true,
+        width: "30%",
+      },
+      {
+        title: "कुल भाई बहन (Total Siblings)",
+        dataIndex: "siblings",
+        key: "siblings",
+        sorter: true,
+        width: "30%",
+      },
+      {
+        title: "अन्य जानकारी (Other Details)",
+        dataIndex: "otherDetails",
+        key: "otherDetails",
+        sorter: true,
+        width: "30%",
+      },
+      {
+        title: "Delete (मिटाना)",
+        dataIndex: "tags",
+        key: "tags",
+        render: (text, record) => (
           <button
-            onClick={this.onDeleteClick.bind(this, exp._id)}
+            onClick={this.onDeleteClick.bind(this, this.props.family._id)}
             className="btn btn-danger"
           >
             Delete
           </button>
-        </td>
-      </tr>
-    ));
+        ),
+      },
+    ];
+
     return (
-      <div className="row">
-        <div className="card blue-grey darken-1">
+      <>
+        {" "}
+        <div className="card blue darken-1">
           <div className="card-content white-text">
-            <h4 className="mb-4">जानकारी संबंधित नौकरी / व्यवसाय</h4>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>कंपनी (Company)</th>
-                  <th>शीर्षक (Title)</th>
-                  <th>वर्षों (Years)</th>
-                  <th />
-                </tr>
-              </thead>
-            </table>
+            <h4 className="mb-4 white-text">परिवार संबंधी जानकारी</h4>
           </div>
         </div>
-      </div>
+        <Table
+          dataSource={this.props.education}
+          columns={columns}
+          onChange={this.handleTableChange}
+        ></Table>
+      </>
     );
   }
 }

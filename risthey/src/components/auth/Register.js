@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
 import { Alert } from "@material-ui/lab";
+import { Button } from "antd";
 
 class Register extends Component {
   constructor() {
@@ -56,75 +57,78 @@ class Register extends Component {
     return (
       <div className="register">
         <div className="row">
-          <div className="col s12 m6">
-            <div className="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <h1 className="display-4 text-center">Sign Up</h1>
-                <p className="lead text-center">
-                  Create your RistheyJodo Account
-                </p>
-                <form noValidate onSubmit={this.onSubmit}>
-                  <TextFieldGroup
-                    placeholder="Name"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.onChange}
-                  />
-                  {errors.name != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.name}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Email"
-                    name="email"
-                    type="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                    info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
-                  />
-                  {errors.email != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.email}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Password"
-                    name="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                  />
-                  {errors.password != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.password}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Confirm Password"
-                    name="password2"
-                    type="password"
-                    value={this.state.password2}
-                    onChange={this.onChange}
-                  />
-                  {errors.password2 != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.password2}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <input
-                    type="submit"
-                    className="btn btn-info btn-block mt-4"
-                  />
-                </form>
+          <div className="col s6">
+            <div className="col s12 m6">
+              <div className="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <h1 className="display-4 text-center white-text">Sign Up</h1>
+                  <p className="lead text-center">
+                    Create your RistheyJodo Account
+                  </p>
+                  <form noValidate onSubmit={this.onSubmit}>
+                    <TextFieldGroup
+                      placeholder="Name"
+                      name="name"
+                      value={this.state.name}
+                      onChange={this.onChange}
+                    />
+                    {errors.name != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.name}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Email"
+                      name="email"
+                      type="email"
+                      value={this.state.email}
+                      onChange={this.onChange}
+                      info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
+                    />
+                    {errors.email != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.email}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Password"
+                      name="password"
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.onChange}
+                    />
+                    {errors.password != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.password}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Confirm Password"
+                      name="password2"
+                      type="password"
+                      value={this.state.password2}
+                      onChange={this.onChange}
+                    />
+                    {errors.password2 != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.password2}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+
+                    <input
+                      type="submit"
+                      className="waves-effect waves-light btn"
+                    ></input>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

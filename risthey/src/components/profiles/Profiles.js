@@ -27,19 +27,21 @@ class Profiles extends Component {
     }
 
     return (
-      <div className="profiles">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="display-4 text-center">Previous Matches</h1>
-              <p className="lead text-center">
-                Browse and connect based on your requirement
-              </p>
+      <>
+        <div>
+          <div>
+            <div className="row">
+              <div className="col-md-12">
+                <h1 className="display-4 text-center">Previous Matches</h1>
+                <p className="lead text-center">
+                  Connect today to find best match for you or your son/daughter
+                </p>
+              </div>
               {profileItems}
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

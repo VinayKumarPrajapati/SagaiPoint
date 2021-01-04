@@ -7,6 +7,8 @@ import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
+import Family from "./Family";
+import FamilyMember from "./FamilyMember";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,13 +32,25 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <p className="lead text-muted">
+            <br />
+            <hr />
+            <p className=" text-white">
               स्वागत हे आपका
-              <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+              <Link
+                to={`/profile/${profile.handle}`}
+                style={{ marginLeft: "10px" }}
+                className="text-light"
+              >
+                {user.name}
+              </Link>
             </p>
-            <ProfileActions />
+            <div>
+              <ProfileActions />
+            </div>
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
+            <Family family={profile.family} />
+            <FamilyMember familyMember={profile.familyMember} />
             <div style={{ marginBottom: "60px" }} />
             <button
               onClick={this.onDeleteClick.bind(this)}
@@ -50,14 +64,18 @@ class Dashboard extends Component {
         // User is logged in but has no profile
         dashboardContent = (
           <div>
-            <p className="lead text-muted">
+            <br />
+
+            <p className="text-white">
               स्वागत हे आपका
+              <br />
               {user.name}
             </p>
             <p>
               आपने अभी तक प्रोफ़ाइल सेटअप नहीं किया है, कृपया कुछ जानकारी जोड़ें
             </p>
-            <Link to="/create-profile" className="btn btn-lg btn-info">
+
+            <Link className="btn btn-lg text-white" to="/create-profile">
               जानकारी जोड़ें
             </Link>
           </div>
@@ -66,14 +84,13 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className="dashboard">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="display-4">पधारो महारे प्लेटफार्म</h1>
-              {dashboardContent}
-            </div>
-          </div>
+      <div className="dashboard text-center">
+        <div className="row text-center">
+          <h1 className="display-4 text-center text-white">
+            पधारो महारे प्लेटफार्म
+          </h1>
+
+          {dashboardContent}
         </div>
       </div>
     );

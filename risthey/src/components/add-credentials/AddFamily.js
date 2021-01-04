@@ -4,18 +4,18 @@ import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Alert } from "@material-ui/lab";
 import { addFamily } from "../../actions/profileActions";
 
 class AddFamily extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
-      title: "",
-      location: "",
-      from: "",
-      to: "",
-      current: false,
+      fatherName: "",
+      motherName: "",
+      siblingsTotal: 0,
+      sisterName: {},
+      brotherName: {},
       description: "",
       errors: {},
       disabled: false,
@@ -36,12 +36,11 @@ class AddFamily extends Component {
     e.preventDefault();
 
     const expData = {
-      company: this.state.company,
-      title: this.state.title,
-      location: this.state.location,
-      from: this.state.from,
-      to: this.state.to,
-      current: this.state.current,
+      fatherName: this.state.fatherName,
+      motherName: this.state.motherName,
+      siblingsTotal: this.state.siblingsTotal,
+      sisterName: this.state.sisterName,
+      brotherName: this.state.brotherName,
       description: this.state.description,
     };
 
@@ -63,85 +62,82 @@ class AddFamily extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="add-Family">
+      <div className="create-profile">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-light">
-                Go Back
-              </Link>
-              <h1 className="display-4 text-center">Add Family</h1>
-              <p className="lead text-center">
-                Add any job or position that you have had in the past or current
-              </p>
-              <small className="d-block pb-3">* = required fields</small>
-              <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="* कंपनी"
-                  name="company"
-                  value={this.state.company}
-                  onChange={this.onChange}
-                  error={errors.company}
-                />
-                <TextFieldGroup
-                  placeholder="* Job Title"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.onChange}
-                  error={errors.title}
-                />
-                <TextFieldGroup
-                  placeholder="Location"
-                  name="location"
-                  value={this.state.location}
-                  onChange={this.onChange}
-                  error={errors.location}
-                />
-                <h6>From Date</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                  error={errors.from}
-                />
-                <h6>To Date</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  error={errors.to}
-                  disabled={this.state.disabled ? "disabled" : ""}
-                />
-                <div className="form-check mb-4">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    name="current"
-                    value={this.state.current}
-                    checked={this.state.current}
-                    onChange={this.onCheck}
-                    id="current"
+            <div className="card blue-grey darken-1 col s12">
+              <div className="col-md-8 m-auto">
+                <Link to="/dashboard" className="btn btn-primary">
+                  Go Back
+                </Link>
+                <h1 className="display-4 text-center text-white">Add Family</h1>
+                <p className="lead text-center text-white">
+                  Add Basic Details of your family
+                </p>
+
+                <small className="d-block pb-3">* = required fields</small>
+                <form onSubmit={this.onSubmit}>
+                  <TextFieldGroup
+                    placeholder="* पिता का नाम"
+                    name="fatherName"
+                    value={this.state.fatherName}
+                    onChange={this.onChange}
                   />
-                  <label htmlFor="current" className="form-check-label">
-                    Current Job
-                  </label>
-                </div>
-                <TextAreaFieldGroup
-                  placeholder="Job Description"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.onChange}
-                  error={errors.description}
-                  info="Tell us about the the position"
-                />
-                <input
-                  type="submit"
-                  value="Submit"
-                  className="btn btn-info btn-block mt-4"
-                />
-              </form>
+                  {errors.fatherName != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.fatherName}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <TextFieldGroup
+                    placeholder="* माता का नाम"
+                    name="motherName"
+                    value={this.state.motherName}
+                    onChange={this.onChange}
+                  />
+                  {errors.motherName != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.motherName}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <TextFieldGroup
+                    placeholder="* भाई बहन की गिनती"
+                    name="siblingsTotal"
+                    value={this.state.siblingsTotal}
+                    onChange={this.onChange}
+                  />
+                  {errors.siblingsTotal != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.siblingsTotal}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <TextAreaFieldGroup
+                    placeholder="पारिवारिक जानकारी जिसे आप साझा करना चाहते हैं"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.onChange}
+                    info="हमें आपकी स्थिति के बारे में बताएं"
+                  />
+                  {errors.description != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.description}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  {errors == null ? this.notify() : ""}
+                  <input
+                    type="submit"
+                    value="Submit"
+                    className="btn btn-info btn-block mt-4"
+                  />
+                </form>
+              </div>
             </div>
           </div>
         </div>

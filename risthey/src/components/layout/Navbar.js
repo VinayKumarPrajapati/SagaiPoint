@@ -1,10 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 import { clearCurrentMatch } from "../../actions/matchActions";
+import { Menu } from "antd";
+import {
+  LogoutOutlined,
+  AppstoreOutlined,
+  DashboardOutlined,
+  MessageOutlined,
+  ContactsOutlined,
+  FileSearchOutlined,
+  HeartOutlined,
+} from "@ant-design/icons";
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -18,30 +29,29 @@ class Navbar extends Component {
 
     const authLinks = (
       <>
-        <li>
+        <Menu.Item key="home">
           <Link to="/home">Home</Link>
-        </li>
-        <li>
+        </Menu.Item>
+        <Menu.Item key="search" icon={<FileSearchOutlined />}>
           <Link to="/search">Search</Link>
-        </li>
+        </Menu.Item>
 
-        <li>
+        <Menu.Item key="gallery">
           <Link to="/gallery">Gallery</Link>
-        </li>
-        <li>
+        </Menu.Item>
+        <Menu.Item key="contact" icon={<ContactsOutlined />}>
           <Link to="/contact">Contact</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/feed">
-            Post Feed
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
-        <li className="nav-item">
+        </Menu.Item>
+        <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
+          <Link to="/dashboard">Dashboard</Link>
+        </Menu.Item>
+        <Menu.Item key="feed" icon={<MessageOutlined />}>
+          <Link to="/feed">Post Feed</Link>
+        </Menu.Item>
+        <Menu.Item key="yourMatch" icon={<HeartOutlined />}>
+          <Link to="/your-match">Matches for You</Link>
+        </Menu.Item>
+        <Menu.Item key="logout" className="float-right">
           <Link
             to=""
             onClick={this.onLogoutClick.bind(this)}
@@ -54,50 +64,52 @@ class Navbar extends Component {
               style={{ width: "25px", marginRight: "5px" }}
               title="You must have a Gravatar connected to your email to display an image"
             />
-            Logout
+            Logout <LogoutOutlined />
           </Link>
-        </li>
+        </Menu.Item>
       </>
     );
+    // <></>
 
     const guestLinks = (
       <>
-        <li>
+        <Menu.Item
+          key="register"
+          icon={<AppstoreOutlined />}
+          className="float-right"
+        >
           <Link to="/register">Sign Up</Link>
-        </li>
-        <li className="nav-item">
+        </Menu.Item>
+        <Menu.Item
+          key="login"
+          icon={<AppstoreOutlined />}
+          className="float-right"
+        >
           <Link to="/login">Login</Link>
-        </li>
+        </Menu.Item>
       </>
     );
 
     return (
-      <div className="navbar-fixed">
-        <nav className="red">
-          <div className="container">
-            <div className="nav-wrapper">
-              <Link className="navbar-brand" to="/">
-                RistheyJodo
-              </Link>
-              <Link
-                to="#"
-                data-target="mobile-demo"
-                className="sidenav-trigger"
-              >
-                <i className="material-icons">menu</i>
-              </Link>
-              <ul className="right hide-on-med-and-down">
-                <li>
-                  <Link className="nav-link" to="/profiles">
-                    सभी मैच
-                  </Link>
-                </li>
-                {isAuthenticated ? authLinks : guestLinks}
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+      <>
+        {" "}
+        <Menu
+          // onClick={this.handleClick}
+          // selectedKeys={[current]}
+          mode="horizontal"
+        >
+          <Menu.Item key="symbol">
+            <Link to="/" className="h3">
+              RistheyJodo
+            </Link>
+          </Menu.Item>
+
+          <Menu.Item key="match" icon={<AppstoreOutlined />}>
+            <Link to="/profiles">सभी मैच</Link>
+          </Menu.Item>
+          {isAuthenticated ? authLinks : guestLinks}
+        </Menu>
+      </>
     );
   }
 }

@@ -1,27 +1,78 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Layout, Menu, Breadcrumb, Button } from "antd";
 
-const ProfileActions = () => {
-  return (
-    <div className="btn-group mb-4" role="group">
-      <Link to="/edit-profile" className="btn btn-light">
-        <i className="fas fa-user-circle text-info mr-1" /> प्रोफ़ाइल जानकारी
-        बदलें
-      </Link>
-      <Link to="/add-experience" className="btn btn-light">
-        <i className="fab fa-black-tie text-info mr-1" />
-        अनुभव जोड़ें
-      </Link>
-      <Link to="/add-education" className="btn btn-light">
-        <i className="fas fa-graduation-cap text-info mr-1" />
-        शिक्षा जोड़ें
-      </Link>
-      <Link to="/add-family" className="btn btn-light">
-        <i className="fas fa-graduation-cap text-info mr-1" />
-        परिवार की जानकारी जोड़ें
-      </Link>
-    </div>
-  );
-};
+import { Link } from "react-router-dom";
+import {
+  ProfileOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  DesktopOutlined,
+  ContainerOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
+
+const { SubMenu } = Menu;
+const { Header, Content, Footer } = Layout;
+
+class ProfileActions extends React.Component {
+  state = {
+    collapsed: false,
+  };
+
+  toggleCollapsed = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        {" "}
+        <div style={{ width: 256 }}>
+          <Button
+            type="primary"
+            onClick={this.toggleCollapsed}
+            style={{ marginBottom: 16 }}
+          >
+            {React.createElement(
+              this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
+            )}
+          </Button>
+          <Menu
+            defaultSelectedKeys={["1"]}
+            defaultOpenKeys={["sub1"]}
+            mode="inline"
+            theme="dark"
+            inlineCollapsed={this.state.collapsed}
+          >
+            <Menu.Item key="1" icon={<ProfileOutlined />}>
+              प्रोफ़ाइल जानकारी बदलें
+              <Link to="/edit-profile"></Link>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<DesktopOutlined />}>
+              अनुभव जोड़ें
+              <Link to="/add-experience"></Link>
+            </Menu.Item>
+            <Menu.Item key="3" icon={<ContainerOutlined />}>
+              शिक्षा जोड़ें
+              <Link to="/add-education"></Link>
+            </Menu.Item>
+
+            <SubMenu
+              key="sub1"
+              icon={<MailOutlined />}
+              title="परिवार की जानकारी जोड़ें"
+            >
+              <Menu.Item key="5">
+                <Link to="/add-family"> परिवार के सदस्य की जानकारी जोड़ें</Link>
+              </Menu.Item>
+            </SubMenu>
+          </Menu>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default ProfileActions;

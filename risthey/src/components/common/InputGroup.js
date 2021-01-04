@@ -19,7 +19,7 @@ const InputGroup = ({
         </span>
       </div>
       <input
-        className={classnames("form-control form-control-lg")}
+        className={classnames("form-control form-control-lg text-white")}
         placeholder={placeholder}
         name={name}
         value={value}

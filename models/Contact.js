@@ -8,11 +8,10 @@ const ContactSchema = new Schema({
     ref: "users",
   },
 
-  email: { type: String, required: true },
+  email: { type: String },
 
   contactNumber: {
     type: Number,
-    required: true,
   },
   address: {
     type: String,

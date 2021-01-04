@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Alert } from "@material-ui/lab";
 import { addEducation } from "../../actions/profileActions";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 class AddEducation extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +33,11 @@ class AddEducation extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
+  notify = () => toast("Education Details has been successfully Added");
 
   onSubmit(e) {
     e.preventDefault();
+    this.notify();
 
     const eduData = {
       school: this.state.school,
@@ -64,119 +67,130 @@ class AddEducation extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="add-education">
+      <div className="create-profile">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-light">
-                Go Back
-              </Link>
-              <h1 className="display-4 text-center">शिक्षा जोड़ें</h1>
-              <p className="lead text-center">
-                किसी भी स्कूल, बूटकैंप, आदि को जोड़ें जिसे आपने भाग लिया है
-              </p>
-              <small className="d-block pb-3">* = आवश्यक जानकारी</small>
-              <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="* स्कूल"
-                  name="school"
-                  value={this.state.school}
-                  onChange={this.onChange}
-                />
-                {errors.school != null ? (
-                  <Alert variant="filled" severity="error">
-                    {errors.school}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                <TextFieldGroup
-                  placeholder="* डिग्री या प्रमाणन"
-                  name="degree"
-                  value={this.state.degree}
-                  onChange={this.onChange}
-                />{" "}
-                {errors.degree != null ? (
-                  <Alert variant="filled" severity="error">
-                    {errors.degree}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                <TextFieldGroup
-                  placeholder="* अध्ययन क्षेत्र (Field of Study)"
-                  name="fieldofstudy"
-                  value={this.state.fieldofstudy}
-                  onChange={this.onChange}
-                />
-                {errors.fieldofstudy != null ? (
-                  <Alert variant="filled" severity="error">
-                    {errors.fieldofstudy}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                <h6>तारीख से (From Date)</h6>
-                <TextFieldGroup
-                  name="from"
-                  type="date"
-                  value={this.state.from}
-                  onChange={this.onChange}
-                />
-                {errors.from != null ? (
-                  <Alert variant="filled" severity="error">
-                    {errors.from}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                <h6>तारीख तक (To Date)</h6>
-                <TextFieldGroup
-                  name="to"
-                  type="date"
-                  value={this.state.to}
-                  onChange={this.onChange}
-                  disabled={this.state.disabled ? "disabled" : ""}
-                />
-                {errors.to != null ? (
-                  <Alert variant="filled" severity="error">
-                    {errors.to}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                <div className="form-check mb-4">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    name="current"
-                    value={this.state.current}
-                    checked={this.state.current}
-                    onChange={this.onCheck}
-                    id="current"
+            <div className="card blue-grey darken-1 col s12">
+              <div className="col-md-8 m-auto">
+                <Link to="/dashboard" className="btn btn-primary">
+                  Go Back
+                </Link>
+                <h1 className="display-4 text-center text-white">
+                  शिक्षा जोड़ें
+                </h1>
+                <p className="lead text-center text-white">
+                  किसी भी स्कूल, बूटकैंप, आदि को जोड़ें
+                </p>
+                <ToastContainer />
+
+                <small className="d-block pb-3">* = आवश्यक जानकारी</small>
+                <form onSubmit={this.onSubmit}>
+                  <TextFieldGroup
+                    placeholder="* स्कूल"
+                    name="school"
+                    value={this.state.school}
+                    onChange={this.onChange}
                   />
-                  <label htmlFor="current" className="form-check-label"></label>
-                </div>
-                <TextAreaFieldGroup
-                  placeholder=" उपलब्धि"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.onChange}
-                  info="मुझे उपलब्धि या किसी बड़ी बात के बारे में बताएं"
-                />
-                {errors.description != null ? (
-                  <Alert variant="filled" severity="error">
-                    {errors.description}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                <input
-                  type="submit"
-                  value="Submit"
-                  className="btn btn-info btn-block mt-4"
-                />
-              </form>
+                  {errors.school != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.school}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <TextFieldGroup
+                    placeholder="* डिग्री या प्रमाणन"
+                    name="degree"
+                    value={this.state.degree}
+                    onChange={this.onChange}
+                  />{" "}
+                  {errors.degree != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.degree}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <TextFieldGroup
+                    placeholder="* अध्ययन क्षेत्र (Field of Study)"
+                    name="fieldofstudy"
+                    value={this.state.fieldofstudy}
+                    onChange={this.onChange}
+                  />
+                  {errors.fieldofstudy != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.fieldofstudy}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <br />
+                  <h6 className="text-white">तारीख से (From Date)</h6>
+                  <TextFieldGroup
+                    name="from"
+                    type="date"
+                    value={this.state.from}
+                    onChange={this.onChange}
+                  />
+                  {errors.from != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.from}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <br />
+                  <h6 className="text-white">तारीख तक (To Date)</h6>
+                  <TextFieldGroup
+                    name="to"
+                    type="date"
+                    value={this.state.to}
+                    onChange={this.onChange}
+                    disabled={this.state.disabled ? "disabled" : ""}
+                  />
+                  {errors.to != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.to}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <div className="form-check mb-4">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      name="current"
+                      value={this.state.current}
+                      checked={this.state.current}
+                      onChange={this.onCheck}
+                      id="current"
+                    />
+                    <label
+                      htmlFor="current"
+                      className="form-check-label"
+                    ></label>
+                  </div>
+                  <TextAreaFieldGroup
+                    placeholder=" उपलब्धि"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.onChange}
+                    info="मुझे उपलब्धि या किसी बड़ी बात के बारे में बताएं"
+                  />
+                  {errors.description != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.description}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                  <input
+                    type="submit"
+                    value="Submit"
+                    className="btn btn-info btn-block mt-4"
+                  />
+                </form>
+              </div>
             </div>
           </div>
         </div>

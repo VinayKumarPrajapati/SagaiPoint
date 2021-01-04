@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 const TextFieldGroup = ({
   name,
   placeholder,
@@ -12,6 +11,8 @@ const TextFieldGroup = ({
   return (
     <div>
       <input
+        className="white-text"
+        style={{ padding: "100 50px", margin: "10px", width: "380px" }}
         type={type}
         placeholder={placeholder}
         name={name}

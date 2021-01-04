@@ -5,13 +5,11 @@ const Schema = mongoose.Schema;
 const BusinessSchema = new Schema({
   name: {
     type: String,
-    required: true,
   },
-  field: { type: String, required: true },
+  field: { type: String },
 
   income: {
     type: String,
-    required: true,
   },
   years: {
     type: Number,

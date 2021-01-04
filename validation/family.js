@@ -4,20 +4,15 @@ const isEmpty = require("./is-empty");
 module.exports = function validateFamilyInput(data) {
   let errors = {};
 
-  data.title = !isEmpty(data.title) ? data.title : "";
-  data.company = !isEmpty(data.company) ? data.company : "";
-  data.from = !isEmpty(data.from) ? data.from : "";
+  data.fatherName = !isEmpty(data.fatherName) ? data.fatherName : "";
+  data.motherName = !isEmpty(data.motherName) ? data.motherName : "";
 
-  if (Validator.isEmpty(data.title)) {
-    errors.title = "Job title field is required";
+  if (Validator.isEmpty(data.fatherName)) {
+    errors.fatherName = "Father's Name field is required";
   }
 
-  if (Validator.isEmpty(data.company)) {
-    errors.company = "Company field is required";
-  }
-
-  if (Validator.isEmpty(data.from)) {
-    errors.from = "From date field is required";
+  if (Validator.isEmpty(data.motherName)) {
+    errors.motherName = "Mother's Name field is required";
   }
 
   return {

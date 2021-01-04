@@ -73,6 +73,32 @@ export const addExperience = (expData, history) => (dispatch) => {
     );
 };
 
+// Add Family
+export const addFamily = (expData, history) => (dispatch) => {
+  axios
+    .post("/api/profile/family", expData)
+    .then((res) => history.push("/dashboard"))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
+// Add Family Member
+export const addFamilyMember = (expData, history) => (dispatch) => {
+  axios
+    .post("/api/profile/family-member", expData)
+    .then((res) => history.push("/dashboard"))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
 // Add education
 export const addEducation = (eduData, history) => (dispatch) => {
   axios
@@ -90,6 +116,42 @@ export const addEducation = (eduData, history) => (dispatch) => {
 export const deleteExperience = (id) => (dispatch) => {
   axios
     .delete(`/api/profile/experience/${id}`)
+    .then((res) =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
+// Delete Family
+export const deleteFamily = (id) => (dispatch) => {
+  axios
+    .delete(`/api/profile/family/${id}`)
+    .then((res) =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data,
+      })
+    )
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
+// Delete Family Member
+export const deleteFamilyMember = (id) => (dispatch) => {
+  axios
+    .delete(`/api/profile/family-member/${id}`)
     .then((res) =>
       dispatch({
         type: GET_PROFILE,

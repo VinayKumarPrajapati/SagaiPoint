@@ -1,56 +1,85 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Moment from "react-moment";
 import { deleteEducation } from "../../actions/profileActions";
+import { Table } from "antd";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 class Education extends Component {
   onDeleteClick(id) {
+    this.notify();
     this.props.deleteEducation(id);
   }
+  notify = () => toast("Education Details has been successfully deleted");
 
   render() {
-    const education = this.props.education.map((edu) => (
-      <tr key={edu._id}>
-        <td>{edu.school}</td>
-        <td>{edu.degree}</td>
-        <td>
-          <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
-          {edu.to === null ? (
-            " Now"
-          ) : (
-            <Moment format="YYYY/MM/DD">{edu.to}</Moment>
-          )}
-        </td>
-        <td>
+    this.props.education.map(function (edu, count = 0) {
+      edu.to = new Date(edu.to).toLocaleDateString();
+      edu.from = new Date(edu.from).toLocaleDateString();
+      return [count++, edu];
+    });
+    const columns = [
+      {
+        title: "स्कूल (School))",
+        dataIndex: "school",
+        key: "school",
+        sorter: true,
+        width: "30%",
+      },
+      {
+        title: "डिग्री (Degree)",
+        dataIndex: "degree",
+        key: "degree",
+        sorter: true,
+        width: "30%",
+      },
+      {
+        title: "वर्षों (Years)",
+        dataIndex: "years",
+        key: "years",
+        sorter: true,
+        width: "30%",
+      },
+      {
+        title: "वर्षों (edu.from)",
+        dataIndex: "from",
+        key: "from",
+        sorter: true,
+        width: "10%",
+      },
+      {
+        title: "वर्षों (edu.to)",
+        dataIndex: "to",
+        key: "to",
+        width: "10%",
+        sorter: true,
+      },
+      {
+        title: "Delete (मिटाना)",
+        dataIndex: "tags",
+        key: "tags",
+        render: (text, record) => (
           <button
-            onClick={this.onDeleteClick.bind(this, edu._id)}
+            onClick={this.onDeleteClick.bind(this, this.props.education._id)}
             className="btn btn-danger"
           >
             Delete
           </button>
-        </td>
-      </tr>
-    ));
+        ),
+      },
+    ];
+
     return (
-      <div className="row">
-        <div className="card blue-grey darken-1">
+      <>
+        <div className="card blue darken-1">
           <div className="card-content white-text">
-            <h4 className="mb-4">शिक्षा से संबंधित जानकारी</h4>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>स्कूल (School)</th>
-                  <th>डिग्री (Degree)</th>
-                  <th>वर्षों (Years)</th>
-                  <th />
-                </tr>
-                {education}
-              </thead>
-            </table>
+            <h4 className="mb-4 white-text">शिक्षा से संबंधित जानकारी</h4>
           </div>
         </div>
-      </div>
+        <ToastContainer />
+        <Table dataSource={this.props.education} columns={columns}></Table>
+      </>
     );
   }
 }

@@ -9,7 +9,7 @@ const ProfileSchema = new Schema({
   },
   handle: {
     type: String,
-    required: true,
+
     max: 40,
   },
   company: {
@@ -23,16 +23,11 @@ const ProfileSchema = new Schema({
   },
   status: {
     type: String,
-    // required: true
   },
   skills: {
     type: [String],
-    required: true,
   },
   bio: {
-    type: String,
-  },
-  githubusername: {
     type: String,
   },
 
@@ -40,18 +35,15 @@ const ProfileSchema = new Schema({
     {
       title: {
         type: String,
-        required: true,
       },
       company: {
         type: String,
-        required: true,
       },
       location: {
         type: String,
       },
       from: {
         type: Date,
-        required: true,
       },
       to: {
         type: Date,
@@ -69,19 +61,15 @@ const ProfileSchema = new Schema({
     {
       school: {
         type: String,
-        required: true,
       },
       degree: {
         type: String,
-        required: true,
       },
       fieldofstudy: {
         type: String,
-        required: true,
       },
       from: {
         type: Date,
-        required: true,
       },
       to: {
         type: Date,
@@ -95,14 +83,14 @@ const ProfileSchema = new Schema({
       },
     },
   ],
-  family: [
-    {
-      family: {
-        type: Schema.Types.ObjectId,
-        ref: "family",
-      },
-    },
-  ],
+  family: {
+    type: Schema.Types.ObjectId,
+    ref: "users",
+  },
+  familyMember: {
+    type: Schema.Types.ObjectId,
+    ref: "users",
+  },
   social: {
     youtube: {
       type: String,
@@ -125,5 +113,4 @@ const ProfileSchema = new Schema({
     default: Date.now,
   },
 });
-
 module.exports = Profile = mongoose.model("profile", ProfileSchema);

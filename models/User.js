@@ -17,15 +17,15 @@ const UserSchema = new Schema({
   photo: {
     type: String,
   },
+  salaryIncome: {
+    type: String,
+  },
   birthDate: {
     type: Date,
   },
   height: [
     {
-      ft: {
-        type: Number,
-      },
-      inch: {
+      cm: {
         type: Number,
       },
     },
@@ -40,7 +40,43 @@ const UserSchema = new Schema({
   gender: {
     type: Boolean,
   },
-  contact: {},
+  canDrive: {
+    type: String,
+    enum: ["TWO-WHEELER", "FOUR-WHEELER", "NO"],
+    default: "NO",
+  },
+  occupationStatus: {
+    type: String,
+    enum: ["JOB", "BUSINESS", "STUDY", "IDLE"],
+    default: "IDLE",
+  },
+  married: {
+    type: Boolean,
+  },
+  marriedWithChild: {
+    type: Boolean,
+  },
+  tad: {
+    type: String,
+  },
+  district: {
+    type: String,
+  },
+  handicap: {
+    type: Boolean,
+  },
+  specs: {
+    type: Boolean,
+  },
+  manglik: {
+    type: Boolean,
+  },
+  suni: {
+    type: Boolean,
+  },
+  gotra: {
+    type: Boolean,
+  },
   password: {
     type: String,
     required: true,
@@ -48,6 +84,16 @@ const UserSchema = new Schema({
   avatar: {
     type: String,
   },
+  contactDetails: {
+    type: Schema.Types.ObjectId,
+    ref: "contact",
+  },
+  familyDetails: {
+    type: Schema.Types.ObjectId,
+    ref: "family",
+  },
+  hobby: [{ type: [String] }],
+  likings: [{ type: [String] }],
   date: {
     type: Date,
     default: Date.now,
