@@ -61,7 +61,7 @@ class Login extends Component {
           <div className="col s6">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
-                <div class="card-content white-text text-center">
+                <div className="card-content white-text text-center">
                   <h1 className="display-4 text-center white-text">Login</h1>
                   <p className="lead text-center">
                     Login into Sagai Point Account

@@ -34,7 +34,7 @@ class Profile extends Component {
             <div className="col-md-4 mb-3">
               <ProfileHeader profile={profile} />
             </div>
-            <div class="col-md-8">
+            <div className="col-md-8">
               <ProfileAbout profile={profile} />
 
               <ProfileCreds

@@ -8,9 +8,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "risthey": "npm start --prefix risthey",
-    "dev": "concurrently \"npm run server\" \"npm run risthey\"", 
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=false npm install --prefix risthey && npm run build --prefix risthey"
+    "dev": "concurrently \"npm run server\" \"npm run risthey\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix risthey && npm run build --prefix risthey"
   },
   "author": "vinay prajapati",
   "license": "ISC",
@@ -34,6 +33,7 @@
     "passport-jwt": "^4.0.0",
     "react-bootstrap": "^1.4.0",
     "react-toastify": "^6.2.0",
+    "redux-devtools-extension": "^2.13.8",
     "reqwest": "^2.0.5",
     "validate-phone-number-node-js": "0.0.1",
     "validator": "^13.1.17"

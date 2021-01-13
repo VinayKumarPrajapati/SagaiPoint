@@ -86,10 +86,10 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard text-center">
-        <div className="row text-center">
-          <h1 className="display-4 text-center text-white">
+        <div className="row">
+          <div className="card-content card-panel teal lighten-2 text-white text-center">
             पधारो महारे प्लेटफार्म
-          </h1>
+          </div>
 
           {dashboardContent}
         </div>

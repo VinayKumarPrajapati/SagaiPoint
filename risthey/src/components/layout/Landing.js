@@ -17,24 +17,20 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4 text-white">Sagai Point</h1>
+                <div className="card-panel teal lighten-2">
+                  <h1 className="display-3 mb-4 text-white">Sagai Point</h1>
+                </div>
                 <p className="lead">
-                  <div class="card-panel teal lighten-2">
+                  <div className="card-panel teal lighten-2">
                     Create a profile/portfolio, share Materimonial Resume and
                     connect with your future life-partner
                   </div>
                 </p>
                 <hr />
-                <Link
-                  to="/register"
-                  className="btn btn-lg btn-info mr-2 text-white"
-                >
+                <Link to="/register" className="btn btn-lg btn-info mr-2">
                   Register
                 </Link>
-                <Link
-                  to="/login"
-                  className="btn btn-lg btn-info mr-2 text-white"
-                >
+                <Link to="/login" className="btn btn-lg btn-info mr-2">
                   Login
                 </Link>
               </div>

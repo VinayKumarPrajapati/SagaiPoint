@@ -32,7 +32,7 @@ house.push(<Option key="house10">5 BHK Flat </Option>);
 const vehicle = [];
 
 vehicle.push(<Option key="vehicle1">2 wheeler Bike </Option>);
-vehicle.push(<Option key="vehicle3">3 wheeler Vehicle </Option>);
+vehicle.push(<Option key="vehicle3">4 wheeler Vehicle </Option>);
 vehicle.push(<Option key="vehicle2">2 wheeler Activa </Option>);
 
 const income = [];

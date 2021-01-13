@@ -500,7 +500,7 @@ class MatchForYou extends Component {
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" className="btn btn-primary">
                     Request Contact Details
                   </button>
                 </div>
