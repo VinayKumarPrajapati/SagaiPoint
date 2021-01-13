@@ -1,4 +1,7 @@
+const { default: validator } = require("validator");
 const Validator = require("validator");
+const validatePhoneNumber = require("validate-phone-number-node-js");
+
 const isEmpty = require("./is-empty");
 
 module.exports = function validateRegisterInput(data) {
@@ -6,6 +9,7 @@ module.exports = function validateRegisterInput(data) {
 
   data.name = !isEmpty(data.name) ? data.name : "";
   data.phoneNumber = !isEmpty(data.phoneNumber) ? data.phoneNumber : "";
+
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
 
@@ -20,9 +24,10 @@ module.exports = function validateRegisterInput(data) {
   if (Validator.isEmpty(data.phoneNumber)) {
     errors.phoneNumber = "Phone number field is required";
   }
-  // if (Validator.isLength(data.phoneNumber, { min: 10, max: 10 })) {
-  //   errors.phoneNumber = "Phone number must have 10 Digits";
-  // }
+
+  if (!validatePhoneNumber.validate(data.phoneNumber)) {
+    errors.phoneNumber = "Please enter valid Phone Number";
+  }
 
   if (Validator.isEmpty(data.password)) {
     errors.password = "Password field is required";

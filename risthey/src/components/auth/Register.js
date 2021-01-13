@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
 import { Alert } from "@material-ui/lab";
-import { Button } from "antd";
 
 class Register extends Component {
   constructor() {
