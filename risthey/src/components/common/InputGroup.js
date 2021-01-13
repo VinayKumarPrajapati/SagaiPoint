@@ -2,15 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const InputGroup = ({
-  name,
-  placeholder,
-  value,
-  error,
-  icon,
-  type,
-  onChange,
-}) => {
+const InputGroup = ({ name, placeholder, value, error, icon, onChange }) => {
   return (
     <div className="input-group mb-3">
       <div className="input-group-prepend">
@@ -19,7 +11,7 @@ const InputGroup = ({
         </span>
       </div>
       <input
-        className={classnames("form-control form-control-lg text-white")}
+        className={classnames("form-control text-white")}
         placeholder={placeholder}
         name={name}
         value={value}

@@ -226,7 +226,7 @@ class CreateProfile extends Component {
                   Go Back
                 </Link>
                 <h1 className="display-4 text-center text-white">
-                  Edit Profile
+                  Edit Profile (प्रोफ़ाइल संपादित करें )
                 </h1>
                 <small className="d-block pb-3">* = required fields</small>
                 <ToastContainer />

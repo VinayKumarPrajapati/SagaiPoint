@@ -11,7 +11,6 @@ import {
   LogoutOutlined,
   AppstoreOutlined,
   DashboardOutlined,
-  MessageOutlined,
   ContactsOutlined,
   FileSearchOutlined,
   HeartOutlined,
@@ -33,26 +32,24 @@ class Navbar extends Component {
     const authLinks = (
       <>
         <Menu.Item key="home" icon={<HomeOutlined />}>
-          <Link to="/home">Home</Link>
+          <Link to="/home">होम</Link>
         </Menu.Item>
         <Menu.Item key="search" icon={<FileSearchOutlined />}>
-          <Link to="/search">Search</Link>
+          <Link to="/search">सर्च</Link>
         </Menu.Item>
 
         <Menu.Item key="gallery" icon={<FileImageOutlined />}>
-          <Link to="/gallery">Gallery</Link>
+          <Link to="/gallery">गैलरी</Link>
         </Menu.Item>
         <Menu.Item key="contact" icon={<ContactsOutlined />}>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact">कांटेक्ट</Link>
         </Menu.Item>
         <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard">डैशबोर्ड</Link>
         </Menu.Item>
-        <Menu.Item key="feed" icon={<MessageOutlined />}>
-          <Link to="/feed">Post Feed</Link>
-        </Menu.Item>
+
         <Menu.Item key="yourMatch" icon={<HeartOutlined />}>
-          <Link to="/your-match">Matches for You</Link>
+          <Link to="/your-match">आपके मैच</Link>
         </Menu.Item>
         <Menu.Item key="logout" className="float-right">
           <Link
@@ -81,14 +78,14 @@ class Navbar extends Component {
           icon={<AppstoreOutlined />}
           className="float-right"
         >
-          <Link to="/register">Sign Up</Link>
+          <Link to="/register">रजिस्टर करें</Link>
         </Menu.Item>
         <Menu.Item
           key="login"
           icon={<AppstoreOutlined />}
           className="float-right"
         >
-          <Link to="/login">Login</Link>
+          <Link to="/login">लॉग इन करें</Link>
         </Menu.Item>
       </>
     );
@@ -98,7 +95,7 @@ class Navbar extends Component {
         <Menu mode="horizontal">
           <Menu.Item key="symbol">
             <Link to="/" className="h3">
-              <img src={require("./sagai.jpg")} alt="sagaiPoint" />
+              <img src={require("./sagai.jpg")} alt="सगाई पॉइंट" />
             </Link>
           </Menu.Item>
 

@@ -56,20 +56,22 @@ class Login extends Component {
     const notify = (msg) => toast(msg);
 
     return (
-      <div className="register">
+      <div className="align-items-center">
         <div className="row">
           <div className="col s6">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
                 <div className="card-content white-text text-center">
-                  <h1 className="display-4 text-center white-text">Login</h1>
+                  <h1 className="display-4 text-center white-text">
+                    लॉग इन करें
+                  </h1>
                   <p className="lead text-center">
-                    Login into Sagai Point Account
+                    अपने सगई पॉइंट अकाउंट में लॉगिन करें
                   </p>
                   <br />
                   <form onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="Phone number"
+                      placeholder="Phone number (संपर्क नंबर)"
                       name="phoneNumber"
                       value={this.state.phoneNumber}
                       onChange={this.onChange}
@@ -82,7 +84,7 @@ class Login extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="Password"
+                      placeholder="Password  (पासवर्ड)"
                       name="password"
                       type="password"
                       value={this.state.password}

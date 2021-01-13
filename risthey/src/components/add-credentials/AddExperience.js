@@ -87,7 +87,7 @@ class AddExperience extends Component {
                 <form onSubmit={this.onSubmit}>
                   <TextFieldGroup
                     placeholder="* कंपनी"
-                    name="company"
+                    name="company (कंपनी)"
                     value={this.state.company}
                     onChange={this.onChange}
                     error={errors.company}

@@ -60,13 +60,15 @@ class Register extends Component {
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
                 <div className="card-content white-text text-center">
-                  <h1 className="display-4 text-center white-text">Sign Up</h1>
+                  <h1 className="display-4 text-center white-text">
+                    रजिस्टर करें
+                  </h1>
                   <p className="lead text-center">
-                    Create your Sagai Point Account
+                    अपना सगाई पॉइंट अकाउंट बनाएं
                   </p>
                   <form noValidate onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="Name"
+                      placeholder="Name (नाम)"
                       name="name"
                       value={this.state.name}
                       onChange={this.onChange}
@@ -79,7 +81,7 @@ class Register extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="Phone Number"
+                      placeholder="Phone Number (संपर्क नंबर)"
                       name="phoneNumber"
                       value={this.state.phoneNumber}
                       onChange={this.onChange}
@@ -93,7 +95,7 @@ class Register extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="Password"
+                      placeholder="Password (पासवर्ड)"
                       name="password"
                       type="password"
                       value={this.state.password}
@@ -107,7 +109,7 @@ class Register extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="Confirm Password"
+                      placeholder="Confirm Password (पासवर्ड की पुष्टि कीजिये)"
                       name="password2"
                       type="password"
                       value={this.state.password2}

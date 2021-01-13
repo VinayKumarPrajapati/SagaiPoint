@@ -151,16 +151,28 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: "* Select Your Profession", value: 0 },
-      { label: "Kirana Store", value: "kirana" },
-      { label: "Floor Factory / Mill", value: "mill" },
-      { label: "Job in Factory", value: "Job in Factory" },
-      { label: "Bank Related Job", value: "Bank Related Job" },
+      { label: "* Select Your Profession (अपने पेशे का चयन करें)", value: 0 },
+      { label: "grocery Store (किराना स्टोर)", value: "grocery" },
+      { label: "Floor Factory (फ्लोर फैक्ट्री)", value: "mill" },
+      { label: "Job in MNC", value: "Job in MNC" },
+      {
+        label: "Accountant (अकाउंटेंट)",
+        value: "Accountant",
+      },
+      {
+        label: "Bank Job (बैंक में नौकरी)",
+        value: "Bank",
+      },
+      {
+        label: "salesmen",
+        value: "salesmen",
+      },
       { label: "CA", value: "CA" },
+
       { label: "Lawyer", value: "Lawyer" },
       { label: "Computer Engineer", value: "Computer Engineer" },
-      { label: "Other Job", value: "Other Job" },
-      { label: "Other Business", value: "Other Business" },
+      { label: "Other Job (अन्य नौकरी)", value: "Other Job" },
+      { label: "Other Business (अन्य व्यापार)", value: "Other Business" },
     ];
 
     return (
@@ -180,10 +192,11 @@ class CreateProfile extends Component {
                 </small>
                 <form onSubmit={this.onSubmit}>
                   <TextFieldGroup
-                    placeholder="* प्रोफ़ाइल नाम"
+                    placeholder="* Profile name (प्रोफ़ाइल नाम) "
                     name="handle"
                     value={this.state.handle}
                     onChange={this.onChange}
+                    info="कुछ भी हो सकता है लेकिन यह अद्वितीय होना"
                   />
                   {errors.handle != null ? (
                     <Alert variant="filled" severity="error">
@@ -193,7 +206,7 @@ class CreateProfile extends Component {
                     ""
                   )}
                   <SelectListGroup
-                    placeholder="Status"
+                    placeholder="Status (स्थिति)"
                     name="status"
                     value={this.state.status}
                     onChange={this.onChange}
@@ -201,7 +214,7 @@ class CreateProfile extends Component {
                     error={errors.status}
                   />
                   <p className="text-warning">
-                    Give us an idea about your job or businesss
+                    हमें अपनी नौकरी या व्यवसाय के बारे में बताइये
                   </p>
                   {errors.status != null ? (
                     <Alert variant="filled" severity="error">
@@ -211,7 +224,7 @@ class CreateProfile extends Component {
                     ""
                   )}
                   <TextFieldGroup
-                    placeholder="Company"
+                    placeholder="Company (कंपनी)"
                     name="company"
                     value={this.state.company}
                     onChange={this.onChange}
@@ -224,7 +237,7 @@ class CreateProfile extends Component {
                     ""
                   )}
                   <TextFieldGroup
-                    placeholder="Website"
+                    placeholder="Website (वेबसाइट)"
                     name="website"
                     value={this.state.website}
                     onChange={this.onChange}
@@ -237,7 +250,7 @@ class CreateProfile extends Component {
                     ""
                   )}
                   <TextFieldGroup
-                    placeholder="Location"
+                    placeholder="Location (स्थान)"
                     name="location"
                     value={this.state.location}
                     onChange={this.onChange}
@@ -250,7 +263,7 @@ class CreateProfile extends Component {
                     ""
                   )}
                   <TextFieldGroup
-                    placeholder="* Skills"
+                    placeholder="* Skills (कौशल)"
                     name="skills"
                     value={this.state.skills}
                     onChange={this.onChange}
@@ -263,7 +276,7 @@ class CreateProfile extends Component {
                     ""
                   )}
                   <TextAreaFieldGroup
-                    placeholder="Short Bio"
+                    placeholder="Your Bio (संक्षिप्त अपने बारे में)"
                     name="bio"
                     className="text-white"
                     value={this.state.bio}
@@ -284,11 +297,11 @@ class CreateProfile extends Component {
                           displaySocialInputs: !prevState.displaySocialInputs,
                         }));
                       }}
-                      className="btn btn-primary"
+                      className="btn btn-primary white-text"
                     >
                       Add Social Network Links
                     </button>
-                    <span className="text-warning">Optional</span>
+                    <span className="text-warning">Optional (वैकल्पिक)</span>
                   </div>
                   {socialInputs}
                   <input

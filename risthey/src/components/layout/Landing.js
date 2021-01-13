@@ -17,21 +17,19 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <div className="card-panel teal lighten-2">
-                  <h1 className="display-3 mb-4 text-white">Sagai Point</h1>
-                </div>
+                <h1 className="display-3 mb-4 text-white">सगाई पॉइंट</h1>
                 <p className="lead">
                   <div className="card-panel teal lighten-2">
-                    Create a profile/portfolio, share Materimonial Resume and
-                    connect with your future life-partner
+                    एक प्रोफ़ाइल / पोर्टफोलियो बनाएं, मेटरमोनियल रिज्यूमे साझा
+                    करें और अपने भविष्य के जीवन-साथी के साथ जुड़ें
                   </div>
                 </p>
                 <hr />
                 <Link to="/register" className="btn btn-lg btn-info mr-2">
-                  Register
+                  रजिस्टर करें
                 </Link>
                 <Link to="/login" className="btn btn-lg btn-info mr-2">
-                  Login
+                  लॉग इन करें
                 </Link>
               </div>
             </div>
