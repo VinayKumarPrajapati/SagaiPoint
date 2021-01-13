@@ -151,15 +151,16 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: "* Select Professional Status", value: 0 },
-      { label: "Developer", value: "Developer" },
-      { label: "Junior Developer", value: "Junior Developer" },
-      { label: "Senior Developer", value: "Senior Developer" },
-      { label: "Manager", value: "Manager" },
-      { label: "Student or Learning", value: "Student or Learning" },
-      { label: "Instructor or Teacher", value: "Instructor or Teacher" },
-      { label: "Intern", value: "Intern" },
-      { label: "Other", value: "Other" },
+      { label: "* Select Your Profession", value: 0 },
+      { label: "Kirana Store", value: "kirana" },
+      { label: "Floor Factory / Mill", value: "mill" },
+      { label: "Job in Factory", value: "Job in Factory" },
+      { label: "Bank Related Job", value: "Bank Related Job" },
+      { label: "CA", value: "CA" },
+      { label: "Lawyer", value: "Lawyer" },
+      { label: "Computer Engineer", value: "Computer Engineer" },
+      { label: "Other Job", value: "Other Job" },
+      { label: "Other Business", value: "Other Business" },
     ];
 
     return (
@@ -198,8 +199,10 @@ class CreateProfile extends Component {
                     onChange={this.onChange}
                     options={options}
                     error={errors.status}
-                    info="Give us an idea of where you are at in your career"
                   />
+                  <p className="text-warning">
+                    Give us an idea about your job or businesss
+                  </p>
                   {errors.status != null ? (
                     <Alert variant="filled" severity="error">
                       {errors.status}
@@ -207,7 +210,6 @@ class CreateProfile extends Component {
                   ) : (
                     ""
                   )}
-
                   <TextFieldGroup
                     placeholder="Company"
                     name="company"
@@ -260,7 +262,6 @@ class CreateProfile extends Component {
                   ) : (
                     ""
                   )}
-
                   <TextAreaFieldGroup
                     placeholder="Short Bio"
                     name="bio"
@@ -287,7 +288,7 @@ class CreateProfile extends Component {
                     >
                       Add Social Network Links
                     </button>
-                    <span className="text-muted">Optional</span>
+                    <span className="text-warning">Optional</span>
                   </div>
                   {socialInputs}
                   <input

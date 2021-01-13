@@ -24,12 +24,12 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email }).then((user) => {
+  User.findOne({ phoneNumber: req.body.phoneNumber }).then((user) => {
     if (user) {
-      errors.email = "Email already exists";
+      errors.phoneNumber = "Phone number is already exists";
       return res.status(400).json(errors);
     } else {
-      const avatar = gravatar.url(req.body.email, {
+      const avatar = gravatar.url(req.body.phoneNumber, {
         s: "200", // Size
         r: "pg", // Rating
         d: "mm", // Default
@@ -37,7 +37,7 @@ router.post("/register", (req, res) => {
 
       const newUser = new User({
         name: req.body.name,
-        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
         avatar,
         password: req.body.password,
       });
@@ -67,14 +67,14 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const phoneNumber = req.body.phoneNumber;
   const password = req.body.password;
 
-  // Find user by email
-  User.findOne({ email }).then((user) => {
+  // Find user by phoneNumber
+  User.findOne({ phoneNumber }).then((user) => {
     // Check for user
     if (!user) {
-      errors.email = "User not found";
+      errors.phoneNumber = "User not found";
       return res.status(404).json(errors);
     }
 
@@ -114,7 +114,7 @@ router.get(
     res.json({
       id: req.user.id,
       name: req.user.name,
-      email: req.user.email,
+      phoneNumber: req.user.phoneNumber,
     });
   }
 );

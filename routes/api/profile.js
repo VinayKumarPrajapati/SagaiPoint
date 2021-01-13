@@ -8,7 +8,7 @@ const validateProfileInput = require("../../validation/profile");
 const validateExperienceInput = require("../../validation/experience");
 const validateEducationInput = require("../../validation/education");
 const validateFamilyInput = require("../../validation/family");
-const validateFamilyMemberInput = require("../../validation/familyMember");
+// const validateFamilyMemberInput = require("../../validation/familyMember");
 
 // Load Profile Model
 const Profile = require("../../models/Profile");
@@ -289,33 +289,33 @@ router.post(
 // @route   POST api/profile/family-member
 // @desc    Add family member to profile
 // @access  Private
-router.post(
-  "/family-member",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const { errors, isValid } = validateFamilyMemberInput(req.body);
+// router.post(
+//   "/family-member",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     const { errors, isValid } = validateFamilyMemberInput(req.body);
 
-    // Check Validation
-    if (!isValid) {
-      // Return any errors with 400 status
-      return res.status(400).json(errors);
-    }
+//     // Check Validation
+//     if (!isValid) {
+//       // Return any errors with 400 status
+//       return res.status(400).json(errors);
+//     }
 
-    Profile.findOne({ user: req.user.id }).then((profile) => {
-      const setUpfamilyMember = {
-        fatherName: req.body.fatherName,
-        motherName: req.body.motherName,
-        siblingsTotal: req.body.siblingsTotal,
-        description: req.body.description,
-      };
+//     Profile.findOne({ user: req.user.id }).then((profile) => {
+//       const setUpfamilyMember = {
+//         fatherName: req.body.fatherName,
+//         motherName: req.body.motherName,
+//         siblingsTotal: req.body.siblingsTotal,
+//         description: req.body.description,
+//       };
 
-      // Add to exp array
-      profile.familyMember.unshift(setUpfamilyMember);
+//       // Add to exp array
+//       profile.familyMember.unshift(setUpfamilyMember);
 
-      profile.save().then((profile) => res.json(profile));
-    });
-  }
-);
+//       profile.save().then((profile) => res.json(profile));
+//     });
+//   }
+// );
 
 // @route   DELETE api/profile/education/:exp_id
 // @desc    Delete education from profile
@@ -344,26 +344,26 @@ router.delete(
 // @route   DELETE api/profile/family Member/:fam_id
 // @desc    Delete family Member from profile
 // @access  Private
-router.delete(
-  "/family-member/:fam_id",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Profile.findOne({ user: req.user.id })
-      .then((profile) => {
-        // Get remove index
-        const removeIndex = profile.familyMember
-          .map((item) => item.id)
-          .indexOf(req.params.exp_id);
+// router.delete(
+//   "/family-member/:fam_id",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     Profile.findOne({ user: req.user.id })
+//       .then((profile) => {
+//         // Get remove index
+//         const removeIndex = profile.familyMember
+//           .map((item) => item.id)
+//           .indexOf(req.params.exp_id);
 
-        // Splice out of array
-        profile.familyMember.splice(removeIndex, 1);
+//         // Splice out of array
+//         profile.familyMember.splice(removeIndex, 1);
 
-        // Save
-        profile.save().then((profile) => res.json(profile));
-      })
-      .catch((err) => res.status(404).json(err));
-  }
-);
+//         // Save
+//         profile.save().then((profile) => res.json(profile));
+//       })
+//       .catch((err) => res.status(404).json(err));
+//   }
+// );
 
 // @route   DELETE api/profile
 // @desc    Delete user and profile

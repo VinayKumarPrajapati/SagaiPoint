@@ -13,8 +13,9 @@ const ContactSchema = new Schema({
   contactNumber: {
     type: Number,
   },
-  address: {
-    type: String,
+  addressDetails: {
+    type: Schema.Types.ObjectId,
+    ref: "address",
   },
   currentAddress: {
     type: String,

@@ -17,7 +17,7 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4 text-white">RistheyJodo</h1>
+                <h1 className="display-3 mb-4 text-white">Sagai Point</h1>
                 <p className="lead">
                   <div class="card-panel teal lighten-2">
                     Create a profile/portfolio, share Materimonial Resume and

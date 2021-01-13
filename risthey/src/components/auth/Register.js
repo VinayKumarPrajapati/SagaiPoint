@@ -12,7 +12,7 @@ class Register extends Component {
     super();
     this.state = {
       name: "",
-      email: "",
+      phoneNumber: "",
       password: "",
       password2: "",
       errors: {},
@@ -43,7 +43,7 @@ class Register extends Component {
 
     const newUser = {
       name: this.state.name,
-      email: this.state.email,
+      phoneNumber: this.state.phoneNumber,
       password: this.state.password,
       password2: this.state.password2,
     };
@@ -60,10 +60,10 @@ class Register extends Component {
           <div className="col s6">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
-                <div class="card-content white-text">
+                <div class="card-content white-text text-center">
                   <h1 className="display-4 text-center white-text">Sign Up</h1>
                   <p className="lead text-center">
-                    Create your RistheyJodo Account
+                    Create your Sagai Point Account
                   </p>
                   <form noValidate onSubmit={this.onSubmit}>
                     <TextFieldGroup
@@ -80,16 +80,15 @@ class Register extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="Email"
-                      name="email"
-                      type="email"
-                      value={this.state.email}
+                      placeholder="Phone Number"
+                      name="phoneNumber"
+                      value={this.state.phoneNumber}
                       onChange={this.onChange}
-                      info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
+                      info="This site uses Gravatar so if you want a profile image, use a Gravatar phoneNumber"
                     />
-                    {errors.email != null ? (
+                    {errors.phoneNumber != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.email}
+                        {errors.phoneNumber}
                       </Alert>
                     ) : (
                       ""

@@ -251,7 +251,7 @@ class CreateProfile extends Component {
                     value={this.state.status}
                     onChange={this.onChange}
                     options={options}
-                    info="Give us an idea of where you are at in your career"
+                    info="Give us an idea about your job or businesss"
                   />
                   {errors.status != null ? (
                     <Alert variant="filled" severity="error">

@@ -4,17 +4,15 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/profileActions";
-
 import { Provider } from "react-redux";
 import store from "./store";
-
 import PrivateRoute from "./components/common/PrivateRoute";
-
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Contact from "./components/dashboard/Contact";
 import Dashboard from "./components/dashboard/Dashboard";
 import Gallery from "./components/dashboard/Gallery";
 import Search from "./components/layout/Search";
@@ -24,7 +22,7 @@ import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import AddFamily from "./components/add-credentials/AddFamily";
-import AddFamilyMember from "./components/add-credentials/AddFamilyMember";
+// import AddFamilyMember from "./components/add-credentials/AddFamilyMember";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
@@ -58,7 +56,6 @@ if (localStorage.jwtToken) {
     window.location.href = "/login";
   }
 }
-
 class App extends Component {
   render() {
     return (
@@ -66,6 +63,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+
             <Route exact path="/" component={Landing} />
             <div className="container">
               <Route exact path="/register" component={Register} />
@@ -79,6 +77,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/gallery" component={Gallery} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/contact" component={Contact} />
               </Switch>
               <Switch>
                 <PrivateRoute
@@ -112,13 +113,13 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/add-family" component={AddFamily} />
               </Switch>
-              <Switch>
+              {/* <Switch>
                 <PrivateRoute
                   exact
                   path="/add-family-member"
                   component={AddFamilyMember}
                 />
-              </Switch>
+              </Switch> */}
               <Switch>
                 <PrivateRoute exact path="/search" component={Search} />
               </Switch>

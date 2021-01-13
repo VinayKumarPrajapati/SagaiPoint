@@ -8,7 +8,7 @@ import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Family from "./Family";
-import FamilyMember from "./FamilyMember";
+// import FamilyMember from "./FamilyMember";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -50,11 +50,12 @@ class Dashboard extends Component {
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
             <Family family={profile.family} />
-            <FamilyMember familyMember={profile.familyMember} />
-            <div style={{ marginBottom: "60px" }} />
+            {/* <FamilyMember familyMember={profile.familyMember} /> */}
+            <div style={{ marginBottom: "60px" }} className="text-white" />
             <button
+              type="button"
               onClick={this.onDeleteClick.bind(this)}
-              className="btn btn-danger"
+              className="btn"
             >
               मेरा एकाउंट हटा दो
             </button>

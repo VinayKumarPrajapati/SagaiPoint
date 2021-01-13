@@ -15,6 +15,8 @@ import {
   ContactsOutlined,
   FileSearchOutlined,
   HeartOutlined,
+  FileImageOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
 class Navbar extends Component {
   onLogoutClick(e) {
@@ -29,14 +31,14 @@ class Navbar extends Component {
 
     const authLinks = (
       <>
-        <Menu.Item key="home">
+        <Menu.Item key="home" icon={<HomeOutlined />}>
           <Link to="/home">Home</Link>
         </Menu.Item>
         <Menu.Item key="search" icon={<FileSearchOutlined />}>
           <Link to="/search">Search</Link>
         </Menu.Item>
 
-        <Menu.Item key="gallery">
+        <Menu.Item key="gallery" icon={<FileImageOutlined />}>
           <Link to="/gallery">Gallery</Link>
         </Menu.Item>
         <Menu.Item key="contact" icon={<ContactsOutlined />}>
@@ -100,7 +102,7 @@ class Navbar extends Component {
         >
           <Menu.Item key="symbol">
             <Link to="/" className="h3">
-              RistheyJodo
+              Sagai Point
             </Link>
           </Menu.Item>
 

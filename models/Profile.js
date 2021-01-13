@@ -85,12 +85,12 @@ const ProfileSchema = new Schema({
   ],
   family: {
     type: Schema.Types.ObjectId,
-    ref: "users",
+    ref: "family",
   },
-  familyMember: {
-    type: Schema.Types.ObjectId,
-    ref: "users",
-  },
+  // familyMember: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "users",
+  // },
   social: {
     youtube: {
       type: String,

@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
 import { Alert } from "@material-ui/lab";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
+      phoneNumber: "",
       password: "",
       errors: {},
     };
@@ -40,7 +40,7 @@ class Login extends Component {
     e.preventDefault();
 
     const userData = {
-      email: this.state.email,
+      phoneNumber: this.state.phoneNumber,
       password: this.state.password,
     };
 
@@ -61,22 +61,22 @@ class Login extends Component {
           <div className="col s6">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
-                <div class="card-content white-text">
+                <div class="card-content white-text text-center">
                   <h1 className="display-4 text-center white-text">Login</h1>
                   <p className="lead text-center">
-                    Login into RistheyJodo Account
+                    Login into Sagai Point Account
                   </p>
+                  <br />
                   <form onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="Email Address"
-                      name="email"
-                      type="email"
-                      value={this.state.email}
+                      placeholder="Phone number"
+                      name="phoneNumber"
+                      value={this.state.phoneNumber}
                       onChange={this.onChange}
                     />
-                    {errors.email != null ? (
+                    {errors.phoneNumber != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.email}
+                        {errors.phoneNumber}
                       </Alert>
                     ) : (
                       ""
@@ -98,7 +98,7 @@ class Login extends Component {
 
                     <input
                       type="submit"
-                      className="waves-effect waves-light btn"
+                      className="waves-effect waves-light btn align-center"
                     ></input>
                   </form>
                 </div>

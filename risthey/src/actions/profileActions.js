@@ -87,17 +87,17 @@ export const addFamily = (expData, history) => (dispatch) => {
 };
 
 // Add Family Member
-export const addFamilyMember = (expData, history) => (dispatch) => {
-  axios
-    .post("/api/profile/family-member", expData)
-    .then((res) => history.push("/dashboard"))
-    .catch((err) =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data,
-      })
-    );
-};
+// export const addFamilyMember = (expData, history) => (dispatch) => {
+//   axios
+//     .post("/api/profile/family-member", expData)
+//     .then((res) => history.push("/dashboard"))
+//     .catch((err) =>
+//       dispatch({
+//         type: GET_ERRORS,
+//         payload: err.response.data,
+//       })
+//     );
+// };
 
 // Add education
 export const addEducation = (eduData, history) => (dispatch) => {
@@ -149,22 +149,22 @@ export const deleteFamily = (id) => (dispatch) => {
 };
 
 // Delete Family Member
-export const deleteFamilyMember = (id) => (dispatch) => {
-  axios
-    .delete(`/api/profile/family-member/${id}`)
-    .then((res) =>
-      dispatch({
-        type: GET_PROFILE,
-        payload: res.data,
-      })
-    )
-    .catch((err) =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data,
-      })
-    );
-};
+// export const deleteFamilyMember = (id) => (dispatch) => {
+//   axios
+//     .delete(`/api/profile/family-member/${id}`)
+//     .then((res) =>
+//       dispatch({
+//         type: GET_PROFILE,
+//         payload: res.data,
+//       })
+//     )
+//     .catch((err) =>
+//       dispatch({
+//         type: GET_ERRORS,
+//         payload: err.response.data,
+//       })
+//     );
+// };
 
 // Delete Education
 export const deleteEducation = (id) => (dispatch) => {

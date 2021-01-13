@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const FamilyMemberSchema = new Schema({
+const FamilySchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "users",
@@ -39,4 +39,4 @@ const FamilyMemberSchema = new Schema({
   },
 });
 
-module.exports = User = mongoose.model("family", FamilyMemberSchema);
+module.exports = User = mongoose.model("family", FamilySchema);

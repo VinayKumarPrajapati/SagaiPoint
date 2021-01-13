@@ -191,7 +191,7 @@ class ProfileCreds extends Component {
         {eduItems.length > 0 ? (
           <ul className="list-group">{eduItems}</ul>
         ) : (
-          <p className="text-center text-primary">
+          <p className="text-white">
             No Education Related Info Available Please Add
           </p>
         )}
@@ -203,7 +203,7 @@ class ProfileCreds extends Component {
         {expItems.length > 0 ? (
           <ul className="list-group">{expItems}</ul>
         ) : (
-          <p className="text-center text-primary">
+          <p className="text-white">
             No Job/Business Related Info Available Please Add
           </p>
         )}

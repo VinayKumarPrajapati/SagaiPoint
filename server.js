@@ -2,13 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const path = require("path");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
 const contact = require("./routes/api/contact");
 const family = require("./routes/api/family");
-const familyMember = require("./routes/api/familyMember");
+// const familyMember = require("./routes/api/familyMember");
 const requireMatch = require("./routes/api/requireMatch");
 const matchFound = require("./routes/api/matchFound");
 
@@ -38,10 +39,20 @@ app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", posts);
 app.use("/api/family", family);
-app.use("/api/family-member", familyMember);
+// app.use("/api/family-member", familyMember);
 app.use("/api/contact", contact);
 app.use("/api/require-match", requireMatch);
 app.use("/api/match-found", matchFound);
+
+//Server Static Assets if in production
+if (process.env.NODE_ENV === "production") {
+  //Set Static Folder
+  app.use(express.static("risthey/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "risthey", "build", "index.html"));
+  });
+}
 
 const port = process.env.PORT || 5000;
 

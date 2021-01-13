@@ -41,7 +41,7 @@ class Profile extends Component {
                 education={profile.education}
                 experience={profile.experience}
                 family={profile.family}
-                familyMember={profile.familyMember}
+                // familyMember={profile.familyMember}
               />
             </div>
           </div>

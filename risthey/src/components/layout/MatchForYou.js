@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button } from "antd";
+import { Link } from "react-router-dom";
+
 import "./MatchForYou.css";
 class MatchForYou extends Component {
   render() {
@@ -47,82 +48,82 @@ class MatchForYou extends Component {
                   </p>
                   <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link active"
                         id="home-tab"
                         data-toggle="tab"
-                        href="#home"
+                        to="#home"
                         role="tab"
                         aria-controls="home"
                         aria-selected="true"
                       >
                         About
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link"
                         id="edu-tab"
                         data-toggle="tab"
-                        href="#edu"
+                        to="#edu"
                         role="tab"
                         aria-controls="edu"
                         aria-selected="false"
                       >
                         Education Related Details
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link"
                         id="exp-tab"
                         data-toggle="tab"
-                        href="#exp"
+                        to="#exp"
                         role="tab"
                         aria-controls="exp"
                         aria-selected="false"
                       >
                         Experience Related Details
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link"
                         id="basic-tab"
                         data-toggle="tab"
-                        href="#basic"
+                        to="#basic"
                         role="tab"
                         aria-controls="basic"
                         aria-selected="false"
                       >
                         Basic Details
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link"
                         id="family-tab"
                         data-toggle="tab"
-                        href="#family"
+                        to="#family"
                         role="tab"
                         aria-controls="family"
                         aria-selected="false"
                       >
                         Family Details
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link"
                         id="profile-tab"
                         data-toggle="tab"
-                        href="#profile"
+                        to="#profile"
                         role="tab"
                         aria-controls="profile"
                         aria-selected="false"
                       >
                         Requirements
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -134,21 +135,21 @@ class MatchForYou extends Component {
               <div className="col-md-4">
                 <div className="profile-work">
                   <p>LINK of social media</p>
-                  <a href="">Website Link</a>
+                  <Link to="">Website Link</Link>
                   <br />
-                  <a href="">facebook</a>
+                  <Link to="">facebook</Link>
                   <br />
-                  <a href="">instagram</a>
+                  <Link to="">instagram</Link>
                   <p>SKILLS</p>
-                  <a href="">skill 1</a>
+                  <Link to="">skill 1</Link>
                   <br />
-                  <a href="">skill 2</a>
+                  <Link to="">skill 2</Link>
                   <br />
-                  <a href="">skill 3</a>
+                  <Link to="">skill 3</Link>
                   <br />
-                  <a href="">skill 4</a>
+                  <Link to="">skill 4</Link>
                   <br />
-                  <a href="">skill 5</a>
+                  <Link to="">skill 5</Link>
                   <br />
                 </div>
               </div>

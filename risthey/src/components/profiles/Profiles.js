@@ -32,8 +32,10 @@ class Profiles extends Component {
           <div>
             <div className="row">
               <div className="col-md-12">
-                <h1 className="display-4 text-center">Previous Matches</h1>
-                <p className="lead text-center">
+                <h1 className="display-4 text-center text-white">
+                  Previous Matches
+                </h1>
+                <p className="lead text-center text-white">
                   Connect today to find best match for you or your son/daughter
                 </p>
               </div>

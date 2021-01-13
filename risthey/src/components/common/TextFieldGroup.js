@@ -12,7 +12,6 @@ const TextFieldGroup = ({
     <div>
       <input
         className="white-text"
-        style={{ padding: "100 50px", margin: "10px", width: "380px" }}
         type={type}
         placeholder={placeholder}
         name={name}
