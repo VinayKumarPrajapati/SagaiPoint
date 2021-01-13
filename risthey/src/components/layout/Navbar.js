@@ -18,6 +18,7 @@ import {
   FileImageOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
+
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -94,15 +95,10 @@ class Navbar extends Component {
 
     return (
       <>
-        {" "}
-        <Menu
-          // onClick={this.handleClick}
-          // selectedKeys={[current]}
-          mode="horizontal"
-        >
+        <Menu mode="horizontal">
           <Menu.Item key="symbol">
             <Link to="/" className="h3">
-              Sagai Point
+              <img src={require("./sagai.jpg")} alt="sagaiPoint" />
             </Link>
           </Menu.Item>
 
