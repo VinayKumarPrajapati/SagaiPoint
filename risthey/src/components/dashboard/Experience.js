@@ -117,7 +117,7 @@ class Experience extends Component {
       <>
         <div className="card blue darken-1">
           <div className="card-content white-text">
-            <h4 className="mb-4 white-text">नौकरी / व्यवसाय संबंधित जानकारी</h4>
+            <h4 className="white-text">नौकरी / व्यवसाय संबंधित जानकारी</h4>
           </div>
         </div>
         <ToastContainer />

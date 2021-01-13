@@ -119,6 +119,7 @@ class Conatct extends Component {
                             className="btn btn-large waves-effect waves-light"
                             type="button"
                             name="action"
+                            onClick=""
                           >
                             Send Message
                           </button>

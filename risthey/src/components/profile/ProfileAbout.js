@@ -18,13 +18,13 @@ class ProfileAbout extends Component {
 
     return (
       <>
-        <div class="card mb-3">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Bio</h6>
+        <div className="card mb-3">
+          <div className="card-body">
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Bio</h6>
               </div>
-              <div class="col-sm-9 text-secondary">
+              <div className="col-sm-9 text-secondary">
                 {isEmpty(profile.bio) ? (
                   <span>{firstName}</span>
                 ) : (
@@ -33,32 +33,32 @@ class ProfileAbout extends Component {
               </div>
             </div>
             <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Email</h6>
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Email</h6>
               </div>
-              <div class="col-sm-9 text-secondary"></div>
+              <div className="col-sm-9 text-secondary"></div>
             </div>
             <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Phone</h6>
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Phone</h6>
               </div>
-              <div class="col-sm-9 text-secondary"></div>
+              <div className="col-sm-9 text-secondary"></div>
             </div>
             <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Mobile</h6>
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Mobile</h6>
               </div>
-              <div class="col-sm-9 text-secondary"></div>
+              <div className="col-sm-9 text-secondary"></div>
             </div>
             <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Address</h6>
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Address</h6>
               </div>
-              <div class="col-sm-9 text-secondary"></div>
+              <div className="col-sm-9 text-secondary"></div>
             </div>
           </div>
         </div>

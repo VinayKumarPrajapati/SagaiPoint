@@ -31,9 +31,10 @@ class AddEducation extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
+    } else {
+      notify = () => toast("Education Details has been successfully Added");
     }
   }
-  notify = () => toast("Education Details has been successfully Added");
 
   onSubmit(e) {
     e.preventDefault();
@@ -103,7 +104,7 @@ class AddEducation extends Component {
                     name="degree"
                     value={this.state.degree}
                     onChange={this.onChange}
-                  />{" "}
+                  />
                   {errors.degree != null ? (
                     <Alert variant="filled" severity="error">
                       {errors.degree}
