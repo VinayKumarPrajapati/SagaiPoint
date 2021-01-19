@@ -9,7 +9,7 @@ class Conatct extends Component {
           <div className="row" style={{ marginTop: "50px" }}>
             <Card className="col m20 offset-m1 s12">
               <h2 className="center-align" style={{ marginTop: "10px" }}>
-                Contact US
+                Contact US (संपर्क करें)
               </h2>
               <div className="row">
                 <form className="col s12">
@@ -17,12 +17,12 @@ class Conatct extends Component {
                     <div className="input-field col m6 s12">
                       <i className="mdi-action-perm-identity prefix"></i>
                       <input id="first_name" type="text" className="validate" />
-                      <label for="first_name">First Name</label>
+                      <label for="first_name">First Name (पहला नाम)</label>
                     </div>
                     <div className="input-field col m6 s12">
                       <i className="mdi-action-perm-identity prefix"></i>
                       <input id="last_name" type="text" className="validate" />
-                      <label for="last_name">Last Name</label>
+                      <label for="last_name">Last Name (उपनाम)</label>
                     </div>
                   </div>
                   <div className="row">
@@ -39,7 +39,9 @@ class Conatct extends Component {
                     <div className="input-field col m6 s12">
                       <i className="mdi-action-perm-contact-cal prefix"></i>
                       <input id="company" type="text" className="validate" />
-                      <label for="company">Contact Number</label>
+                      <label for="company">
+                        Contact Number (संपर्क संख्या)
+                      </label>
                     </div>
                   </div>
                   <div className="row">
@@ -49,64 +51,68 @@ class Conatct extends Component {
                         id="message"
                         className="materialize-textarea"
                       ></textarea>
-                      <label for="message">Message</label>
+                      <label for="message">Message (संदेश)</label>
                     </div>
                   </div>
                   <div className="row">
                     <div className="input-field col s12">
-                      <label for="budget">Issues</label>
+                      <label for="budget">Issue (विवाद)</label>
                       <br />
                     </div>
                     <div className="input-field col s12">
                       <select className="browser-default" id="budget">
                         <option value="" selected disabled>
-                          Choose your option
+                          Choose your option (अपना विकल्प चुनें)
                         </option>
-                        <option value="1">Regarding Match</option>
-                        <option value="2">Complains</option>
-                        <option value="3">Other</option>
+                        <option value="1">
+                          Regarding Match (मैच के बारे में )
+                        </option>
+                        <option value="2">Complains (शिकायत)</option>
+                        <option value="3">Other (अन्य)</option>
                       </select>
                     </div>
                   </div>
                   <div className="row">
                     <div className="input-field col s12">
-                      <label>How Did You Find Us?</label>
+                      <label>आपने हमारे बारे में कैसे पता लगाया?</label>
                       <br />
                     </div>
                     <div className="input-field col m3 s6 center-align">
                       <input name="group1" type="radio" id="WhatsApp" />
-                      <label for="WhatsApp">WhatsApp</label>
+                      <label for="WhatsApp">WhatsApp (व्हाट्सप्प)</label>
                     </div>
                     <div className="input-field col m3 s6 center-align">
                       <input name="group1" type="radio" id="otherMember" />
-                      <label for="otherMember">Other Member</label>
+                      <label for="otherMember">Other Member (अन्य सदस्य)</label>
                     </div>
                     <div className="input-field col m3 s6 center-align">
                       <input name="group1" type="radio" id="store" />
-                      <label for="store">Call From US</label>
+                      <label for="store">Call From US (हमारी तरफ से कॉल)</label>
                     </div>
                     <div className="input-field col m3 s6 center-align">
                       <input name="group1" type="radio" id="other" />
-                      <label for="other">Other</label>
+                      <label for="other">Other (अन्य)</label>
                     </div>
                   </div>
                   <div className="divider"></div>
                   <div className="row">
                     <div className="input-field col s12">
-                      <label>Communication Preferences</label>
+                      <label>
+                        Communication Preferences (संचार प्राथमिकताएं)
+                      </label>
                       <br />
                     </div>
                     <div className="input-field col m4 s12 center-align">
                       <input name="group2" type="checkbox" id="emailComm" />
-                      <label for="emailComm">Email</label>
+                      <label for="emailComm">Email (ईमेल)</label>
                     </div>
                     <div className="input-field col m4 s12 center-align">
                       <input name="group2" type="checkbox" id="callComm" />
-                      <label for="callComm">Call Me</label>
+                      <label for="callComm">Call Me (मुझे फ़ोन करो)</label>
                     </div>
                     <div className="input-field col m4 s12 center-align">
                       <input name="group2" type="checkbox" id="WhatsAppm" />
-                      <label for="WhatsAppm">WhatsApp</label>
+                      <label for="WhatsAppm">WhatsApp (व्हाट्सप्प)</label>
                     </div>
                   </div>
                   <div className="divider"></div>
@@ -121,7 +127,7 @@ class Conatct extends Component {
                             name="action"
                             onClick=""
                           >
-                            Send Message
+                            Send Message (मेसेज भेजें)
                           </button>
                         </center>
                       </p>

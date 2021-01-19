@@ -17,12 +17,7 @@ class Gallery extends Component {
     previewVisible: false,
     previewImage: "",
     previewTitle: "",
-    fileList: [
-      {
-        uid: "-5",
-        name: "image.png",
-      },
-    ],
+    fileList: [],
   };
 
   handleCancel = () => this.setState({ previewVisible: false });

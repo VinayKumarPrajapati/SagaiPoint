@@ -6,7 +6,7 @@ class MatchForYou extends Component {
   render() {
     return (
       <>
-        <div className="container emp-profile">
+        {/* <div className="container emp-profile">
           <form method="post">
             <div className="row">
               <div className="col-md-4">
@@ -15,36 +15,31 @@ class MatchForYou extends Component {
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                     alt=""
                   />
-                  <div className="file btn btn-lg btn-primary">
-                    Image 1{/* <input type="file" name="file" /> */}
-                  </div>
+                  <div className="file btn btn-lg btn-primary"></div>
                 </div>
                 <div className="profile-img">
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                     alt=""
                   />
-                  <div className="file btn btn-lg btn-primary">
-                    Image 2{/* <input type="file" name="file" /> */}
-                  </div>
+                  <div className="file btn btn-lg btn-primary"></div>
                 </div>
                 <div className="profile-img">
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                     alt=""
                   />
-                  <div className="file btn btn-lg btn-primary">
-                    Image 3{/* <input type="file" name="file" /> */}
-                  </div>
+                  <div className="file btn btn-lg btn-primary"></div>
                 </div>
               </div>
 
               <div className="col-md-6">
                 <div className="profile-head">
                   <h5>Batman Ironman</h5>
-                  <h6>Title</h6>
+                  <h6>Title (शीर्षक)</h6>
                   <p className="proile-rating">
-                    Requirements Matched : <span>8/10</span>
+                    Requirements Matched (आवश्यकताओं का मिलान हुआ):
+                    <span> 8/10</span>
                   </p>
                   <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item">
@@ -57,7 +52,7 @@ class MatchForYou extends Component {
                         aria-controls="home"
                         aria-selected="true"
                       >
-                        About
+                        About (उसके बारे में)
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -70,7 +65,7 @@ class MatchForYou extends Component {
                         aria-controls="edu"
                         aria-selected="false"
                       >
-                        Education Related Details
+                        Education (शिक्षा)
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -83,7 +78,7 @@ class MatchForYou extends Component {
                         aria-controls="exp"
                         aria-selected="false"
                       >
-                        Experience Related Details
+                        Experience (अनुभव)
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -96,7 +91,7 @@ class MatchForYou extends Component {
                         aria-controls="basic"
                         aria-selected="false"
                       >
-                        Basic Details
+                        Basic Details (मूल विवरण)
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -109,7 +104,7 @@ class MatchForYou extends Component {
                         aria-controls="family"
                         aria-selected="false"
                       >
-                        Family Details
+                        Family (परिवार)
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -122,34 +117,32 @@ class MatchForYou extends Component {
                         aria-controls="profile"
                         aria-selected="false"
                       >
-                        Requirements
+                        Requirements (आवश्यकता)
                       </Link>
                     </li>
                   </ul>
                 </div>
               </div>
-
-              <div className="col-md-2">{}</div>
             </div>
             <div className="row">
               <div className="col-md-4">
                 <div className="profile-work">
-                  <p>LINK of social media</p>
+                  <p>LINK of social media (सोशल मीडिया लिंक)</p>
                   <Link to="">Website Link</Link>
+                  <br /> <br />
+                  <Link to="">Facebook</Link>
                   <br />
-                  <Link to="">facebook</Link>
+                  <Link to="">Instagram</Link>
+                  <p>SKILLS (कौशल)</p>
+                  <Link to="">skill 1 (कौशल 1)</Link>
                   <br />
-                  <Link to="">instagram</Link>
-                  <p>SKILLS</p>
-                  <Link to="">skill 1</Link>
+                  <Link to="">skill 2 (कौशल 2)</Link>
                   <br />
-                  <Link to="">skill 2</Link>
+                  <Link to="">skill 3 (कौशल 3)</Link>
                   <br />
-                  <Link to="">skill 3</Link>
+                  <Link to="">skill 4 (कौशल 4)</Link>
                   <br />
-                  <Link to="">skill 4</Link>
-                  <br />
-                  <Link to="">skill 5</Link>
+                  <Link to="">skill 5 (कौशल 5)</Link>
                   <br />
                 </div>
               </div>
@@ -163,7 +156,7 @@ class MatchForYou extends Component {
                   >
                     <div className="row">
                       <div className="col-md-6">
-                        <label>User Id</label>
+                        <label>Profile Id (प्रोफ़ाइल आईडी)</label>
                       </div>
                       <div className="col-md-6">
                         <p>Superman</p>
@@ -171,7 +164,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Name</label>
+                        <label>Name (नाम)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -179,7 +172,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Age</label>
+                        <label>Age (उम्र)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -187,7 +180,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Surname</label>
+                        <label>Surname (उपनाम)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -195,7 +188,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Gotra</label>
+                        <label>Gotra (गोत्र)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -203,7 +196,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Height / Weight</label>
+                        <label>Height / Weight (ऊंचाई / वजन)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -211,7 +204,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Specs</label>
+                        <label>Specs (उपनेत्र)</label>
                       </div>
                       <div className="col-md-6">
                         <p></p>
@@ -219,7 +212,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Specially Abled</label>
+                        <label>Specially Abled (विशेष रूप से एबल्ड)</label>
                       </div>
                       <div className="col-md-6">
                         <p></p>
@@ -227,13 +220,14 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Profession</label>
+                        <label>Profession (व्यवसाय)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
                       </div>
                     </div>
                   </div>
+
                   <div
                     className="tab-pane fade show"
                     id="edu"
@@ -242,7 +236,7 @@ class MatchForYou extends Component {
                   >
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Last Education / Degree</label>
+                        <label>Last Education / Degree (अंतिम शिक्षा)</label>
                       </div>
                       <div className="col-md-6">
                         <p>B. Tech</p>
@@ -250,7 +244,9 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>College / University Name</label>
+                        <label>
+                          College / University Name (विश्वविद्यालय का नाम)
+                        </label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -258,7 +254,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Informal Education Details</label>
+                        <label>Informal Education (अनौपचारिक शिक्षा)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -266,7 +262,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Extra Courses</label>
+                        <label>Extra Courses (अतिरिक्त पाठ्यक्रम)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -274,7 +270,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Achievements</label>
+                        <label>Achievements (उपलब्धियों)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -289,15 +285,17 @@ class MatchForYou extends Component {
                   >
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Current Company / Business name</label>
-                      </div>
+                        <label>
+                          Current Company / Business (वर्तमान कंपनी / व्यापार)
+                        </label>
+                      </div> 
                       <div className="col-md-6">
                         <p>Google</p>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Job title</label>
+                        <label>Job title (नौकरी का नाम)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -305,7 +303,9 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Privious Company / Business</label>
+                        <label>
+                          Privious Company / Business (निजी कंपनी / व्यापार)
+                        </label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -313,7 +313,7 @@ class MatchForYou extends Component {
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Field of Experience</label>
+                        <label>Field of Experience (अनुभव का क्षेत्र)</label>
                       </div>
                       <div className="col-md-6">
                         <p>{}</p>
@@ -501,8 +501,209 @@ class MatchForYou extends Component {
                     </div>
                   </div>
                   <button type="button" className="btn btn-primary">
-                    Request Contact Details
+                    Request Contact (संपर्क का अनुरोध करें)
                   </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div> */}
+        <div className="container emp-profile">
+          <form method="post">
+            <div className="row">
+              <div className="col-md-4">
+                <div className="profile-img">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                    alt=""
+                  />
+                  <div className="file btn btn-lg btn-primary">
+                    Change Photo
+                    <input type="file" name="file" />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="profile-head">
+                  <h5>Kshiti Ghelani</h5>
+                  <h6>Web Developer and Designer</h6>
+                  <p className="proile-rating">
+                    RANKINGS : <span>8/10</span>
+                  </p>
+                  <ul className="nav nav-tabs" id="myTab" role="tablist">
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link active"
+                        id="home-tab"
+                        data-toggle="tab"
+                        to="#home"
+                        role="tab"
+                        aria-controls="home"
+                        aria-selected="true"
+                      >
+                        About (उसके बारे में)
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        id="edu-tab"
+                        data-toggle="tab"
+                        to="#edu"
+                        role="tab"
+                        aria-controls="edu"
+                        aria-selected="false"
+                      >
+                        Education (शिक्षा)
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        id="exp-tab"
+                        data-toggle="tab"
+                        to="#exp"
+                        role="tab"
+                        aria-controls="exp"
+                        aria-selected="false"
+                      >
+                        Experience (अनुभव)
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        id="basic-tab"
+                        data-toggle="tab"
+                        to="#basic"
+                        role="tab"
+                        aria-controls="basic"
+                        aria-selected="false"
+                      >
+                        Basic Details (मूल विवरण)
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        id="family-tab"
+                        data-toggle="tab"
+                        to="#family"
+                        role="tab"
+                        aria-controls="family"
+                        aria-selected="false"
+                      >
+                        Family (परिवार)
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        id="profile-tab"
+                        data-toggle="tab"
+                        to="#profile"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                      >
+                        Requirements (आवश्यकता)
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <a
+                        className="nav-link"
+                        id="profile-tab"
+                        data-toggle="tab"
+                        href="#profile"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                      >
+                        Timeline
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                <div className="profile-work">
+                  <p>WORK LINK</p>
+                  <a href="">Website Link</a>
+                  <br />
+                  <a href="">Bootsnipp Profile</a>
+                  <br />
+                  <a href="">Bootply Profile</a>
+                  <p>SKILLS</p>
+                  <a href="">Web Designer</a>
+                  <br />
+                  <a href="">Web Developer</a>
+                  <br />
+                  <a href="">WordPress</a>
+                  <br />
+                  <a href="">WooCommerce</a>
+                  <br />
+                  <a href="">PHP, .Net</a>
+                  <br />
+                </div>
+              </div>
+              <div className="col-md-8">
+                <div className="tab-content profile-tab" id="myTabContent">
+                  <div
+                    className="tab-pane fade"
+                    id="profile"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                  >
+                    <div className="row">
+                      <div className="col-md-6">
+                        <label>Experience</label>
+                      </div>
+                      <div className="col-md-6">
+                        <p>Expert</p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <label>Hourly Rate</label>
+                      </div>
+                      <div className="col-md-6">
+                        <p>10$/hr</p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <label>Total Projects</label>
+                      </div>
+                      <div className="col-md-6">
+                        <p>230</p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <label>English Level</label>
+                      </div>
+                      <div className="col-md-6">
+                        <p>Expert</p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <label>Availability</label>
+                      </div>
+                      <div className="col-md-6">
+                        <p>6 months</p>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <label>Your Bio</label>
+                        <br />
+                        <p>Your detail description</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

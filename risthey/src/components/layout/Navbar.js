@@ -6,18 +6,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 import { clearCurrentMatch } from "../../actions/matchActions";
-import { Menu } from "antd";
-import {
-  LogoutOutlined,
-  AppstoreOutlined,
-  DashboardOutlined,
-  ContactsOutlined,
-  FileSearchOutlined,
-  HeartOutlined,
-  FileImageOutlined,
-  HomeOutlined,
-} from "@ant-design/icons";
-
+import "./Navbar.css";
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -31,27 +20,25 @@ class Navbar extends Component {
 
     const authLinks = (
       <>
-        <Menu.Item key="home" icon={<HomeOutlined />}>
+        <li>
           <Link to="/home">होम</Link>
-        </Menu.Item>
-        <Menu.Item key="search" icon={<FileSearchOutlined />}>
+        </li>
+        <li>
           <Link to="/search">सर्च</Link>
-        </Menu.Item>
-
-        <Menu.Item key="gallery" icon={<FileImageOutlined />}>
+        </li>
+        <li>
           <Link to="/gallery">गैलरी</Link>
-        </Menu.Item>
-        <Menu.Item key="contact" icon={<ContactsOutlined />}>
+        </li>
+        <li>
           <Link to="/contact">कांटेक्ट</Link>
-        </Menu.Item>
-        <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
+        </li>
+        <li>
           <Link to="/dashboard">डैशबोर्ड</Link>
-        </Menu.Item>
-
-        <Menu.Item key="yourMatch" icon={<HeartOutlined />}>
+        </li>
+        <li>
           <Link to="/your-match">आपके मैच</Link>
-        </Menu.Item>
-        <Menu.Item key="logout" className="float-right">
+        </li>
+        <li>
           <Link
             to=""
             onClick={this.onLogoutClick.bind(this)}
@@ -64,46 +51,40 @@ class Navbar extends Component {
               style={{ width: "25px", marginRight: "5px" }}
               title="You must have a Gravatar connected to your email to display an image"
             />
-            Logout <LogoutOutlined />
+            Logout (लॉग आउट)
           </Link>
-        </Menu.Item>
+        </li>
       </>
     );
-    // <></>
 
     const guestLinks = (
       <>
-        <Menu.Item
-          key="register"
-          icon={<AppstoreOutlined />}
-          className="float-right"
-        >
-          <Link to="/register">रजिस्टर करें</Link>
-        </Menu.Item>
-        <Menu.Item
-          key="login"
-          icon={<AppstoreOutlined />}
-          className="float-right"
-        >
+        <li>
+          <Link to="/register" className="float-right">
+            रजिस्टर करें
+          </Link>
+        </li>
+        <li>
           <Link to="/login">लॉग इन करें</Link>
-        </Menu.Item>
+        </li>
       </>
     );
 
     return (
       <>
-        <Menu mode="horizontal">
-          <Menu.Item key="symbol">
-            <Link to="/" className="h3">
-              <img src={require("./sagai.jpg")} alt="सगाई पॉइंट" />
+        <nav>
+          <div className="nav-wrapper">
+            <Link to="/" className="brand-logo">
+              सगाई पॉइंट
             </Link>
-          </Menu.Item>
-
-          <Menu.Item key="match" icon={<AppstoreOutlined />}>
-            <Link to="/profiles">सभी मैच</Link>
-          </Menu.Item>
-          {isAuthenticated ? authLinks : guestLinks}
-        </Menu>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li>
+                <Link to="/profiles">सभी मैच</Link>
+              </li>
+              {isAuthenticated ? authLinks : guestLinks}
+            </ul>
+          </div>
+        </nav>
       </>
     );
   }

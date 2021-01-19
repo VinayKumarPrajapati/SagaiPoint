@@ -31,7 +31,7 @@ class Dashboard extends Component {
       // Check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
-          <div>
+          <div className="row">
             <br />
             <hr />
             <p className=" text-white">
@@ -72,7 +72,7 @@ class Dashboard extends Component {
               <br />
               {user.name}
             </p>
-            <p>
+            <p className="text-white">
               आपने अभी तक प्रोफ़ाइल सेटअप नहीं किया है, कृपया कुछ जानकारी जोड़ें
             </p>
 
