@@ -9,14 +9,16 @@ module.exports = function validateLoginInput(data) {
   data.password = !isEmpty(data.password) ? data.password : "";
 
   if (Validator.isEmpty(data.phoneNumber)) {
-    errors.phoneNumber = "Phone number field is required";
+    errors.phoneNumber =
+      "Phone number field is required  (फ़ोन नंबर आवश्यक है)";
   }
 
   if (!validatePhoneNumber.validate(data.phoneNumber)) {
-    errors.phoneNumber = "Please enter valid Phone Number";
+    errors.phoneNumber =
+      "Please enter valid Phone Number (कृपया सही नंबर डालें)";
   }
   if (Validator.isEmpty(data.password)) {
-    errors.password = "Password field is required";
+    errors.password = "Password field is required (पासवर्ड आवश्यक है)";
   }
 
   return {

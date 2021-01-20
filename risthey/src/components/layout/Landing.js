@@ -2,25 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-// import "../layout/landing/css/bootstrap.min.css";
-// import "../layout/landing/css/material.min.css";
-// import "../layout/landing/css/ripples.min.css";
-// import "../layout/landing/css/main.css";
-// import "../layout/landing/css/responsive.css";
-// import "../layout/landing/css/animate.min.css";
-// import "../layout/landing/js/jquery-2.1.4.min.js";
-// import "../layout/landing/js/bootstrap.min.js";
-// import "../layout/landing/js/ripples.min.js";
-// import "../layout/landing/js/material.min.js";
-// import "../layout/landing/js/wow.js";
-// import "../layout/landing/js/jquery.mmenu.min.all.js";
-// import "../layout/landing/js/count-to.js";
-// import "../layout/landing/js/jquery.inview.min.js";
-// import "../layout/landing/js/main.js";
-// import "../layout/landing/js/classie.js";
-// import "../layout/landing/js/jquery.nav.js";
-// import "../layout/landing/js/smooth-on-scroll.js";
-// import "../layout/landing/js/smooth-scroll.js";
 
 class Landing extends Component {
   componentDidMount() {
@@ -32,23 +13,35 @@ class Landing extends Component {
   render() {
     return (
       <>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
         <div className="landing">
           <div className="dark-overlay landing-inner text-light">
             <div className="container">
               <div className="row">
                 <div className="col-md-12 text-center">
-                  <h1 className="display-3 mb-4 text-white">सगाई पॉइंट</h1>
+                  <h1 className="display-3 mb-4 white-text">सगाई पॉइंट</h1>
                   <p className="lead">
-                    <div className="card-panel teal lighten-2">
+                    <div className="card-panel teal lighten-2 white-text">
                       एक प्रोफ़ाइल / पोर्टफोलियो बनाएं, मेटरमोनियल रिज्यूमे साझा
                       करें और अपने भविष्य के जीवन-साथी के साथ जुड़ें
                     </div>
                   </p>
                   <hr />
-                  <Link to="/register" className="btn btn-lg btn-info mr-2">
+
+                  <Link
+                    to="/register"
+                    className="btn btn-secondary text-white"
+                    style={{ marginTop: "20px" }}
+                  >
                     रजिस्टर करें
                   </Link>
-                  <Link to="/login" className="btn btn-lg btn-info mr-2">
+                  <Link
+                    to="/login"
+                    className="btn btn-primary white-text text-white"
+                    style={{ marginLeft: "20px", marginTop: "20px" }}
+                  >
                     लॉग इन करें
                   </Link>
                 </div>

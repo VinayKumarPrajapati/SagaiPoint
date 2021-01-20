@@ -217,130 +217,140 @@ class CreateProfile extends Component {
     ];
 
     return (
-      <div className="create-profile">
-        <div className="container">
-          <div className="row">
-            <div className="card blue-grey darken-1 col s12">
-              <div className="col-md-8 m-auto">
-                <Link to="/dashboard" className="btn btn-primary">
-                  Go Back
-                </Link>
-                <h1 className="display-4 text-center text-white">
-                  Edit Profile (प्रोफ़ाइल संपादित करें )
-                </h1>
-                <small className="d-block pb-3">* = required fields</small>
-                <ToastContainer />
-                <form onSubmit={this.onSubmit}>
-                  <TextFieldGroup
-                    placeholder="* Profile Handle"
-                    name="handle"
-                    value={this.state.handle}
-                    onChange={this.onChange}
-                    info="A unique handle for your profile URL. Your full name, company name, nickname"
-                  />
-                  {errors.handle != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.handle}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <SelectListGroup
-                    placeholder="Status"
-                    name="status"
-                    value={this.state.status}
-                    onChange={this.onChange}
-                    options={options}
-                    info="Give us an idea about your job or businesss"
-                  />
-                  {errors.status != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.status}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Company"
-                    name="company"
-                    value={this.state.company}
-                    onChange={this.onChange}
-                    info="Could be your own company or one you work for"
-                  />
-                  {errors.company != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.company}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Website"
-                    name="website"
-                    value={this.state.website}
-                    onChange={this.onChange}
-                    info="Could be your own website or a company one"
-                  />
-                  {errors.website != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.website}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="Location"
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.onChange}
-                    error={errors.location}
-                    info="City or city & state suggested (eg. Boston, MA)"
-                  />
-                  <TextFieldGroup
-                    placeholder="* Skills"
-                    name="skills"
-                    value={this.state.skills}
-                    onChange={this.onChange}
-                    error={errors.skills}
-                    info="Please use comma separated values (eg.
+      <>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div className="create-profile">
+          <div className="container">
+            <div className="row">
+              <div className="card blue-grey darken-1 col s12">
+                <div className="col-md-8 m-auto white-text">
+                  <Link to="/dashboard" className="btn btn-primary">
+                    Go Back
+                  </Link>
+                  <h1 className="display-4 text-center white-text">
+                    Edit Profile (प्रोफ़ाइल परिवर्तन करें)
+                  </h1>
+                  <small className="d-block pb-3">* = required fields</small>
+                  <ToastContainer />
+                  <form onSubmit={this.onSubmit}>
+                    <TextFieldGroup
+                      placeholder="* Profile Handle"
+                      name="handle"
+                      value={this.state.handle}
+                      onChange={this.onChange}
+                      info="A unique handle for your profile URL. Your full name, company name, nickname"
+                    />
+                    {errors.handle != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.handle}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <SelectListGroup
+                      placeholder="Status"
+                      name="status"
+                      value={this.state.status}
+                      onChange={this.onChange}
+                      options={options}
+                      info="Give us an idea about your job or businesss"
+                    />
+                    {errors.status != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.status}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Company"
+                      name="company"
+                      value={this.state.company}
+                      onChange={this.onChange}
+                      info="Could be your own company or one you work for"
+                    />
+                    {errors.company != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.company}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Website"
+                      name="website"
+                      value={this.state.website}
+                      onChange={this.onChange}
+                      info="Could be your own website or a company one"
+                    />
+                    {errors.website != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.website}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="Location"
+                      name="location"
+                      value={this.state.location}
+                      onChange={this.onChange}
+                      error={errors.location}
+                      info="City or city & state suggested (eg. Boston, MA)"
+                    />
+                    <TextFieldGroup
+                      placeholder="* Skills"
+                      name="skills"
+                      value={this.state.skills}
+                      onChange={this.onChange}
+                      error={errors.skills}
+                      info="Please use comma separated values (eg.
                     HTML,CSS,JavaScript,PHP"
-                  />
+                    />
 
-                  <TextAreaFieldGroup
-                    placeholder="Short Bio"
-                    name="bio"
-                    value={this.state.bio}
-                    onChange={this.onChange}
-                    error={errors.bio}
-                    info="Tell us a little about yourself"
-                  />
+                    <TextAreaFieldGroup
+                      placeholder="Short Bio"
+                      name="bio"
+                      value={this.state.bio}
+                      onChange={this.onChange}
+                      error={errors.bio}
+                      info="Tell us a little about yourself"
+                    />
 
-                  <div className="mb-3">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        this.setState((prevState) => ({
-                          displaySocialInputs: !prevState.displaySocialInputs,
-                        }));
+                    <div className="mb-3">
+                      <button
+                        type="button"
+                        style={{ marginBottom: "20px" }}
+                        onClick={() => {
+                          this.setState((prevState) => ({
+                            displaySocialInputs: !prevState.displaySocialInputs,
+                          }));
+                        }}
+                        className="btn btn-primary"
+                      >
+                        Add Social Network Links
+                      </button>
+                      <span className="text-muted">Optional</span>
+                    </div>
+                    {socialInputs}
+                    <input
+                      type="submit"
+                      value="Submit"
+                      className="btn btn-info btn-block mt-4"
+                      style={{
+                        marginBottom: "20px",
+                        textAlign: "center",
                       }}
-                      className="btn btn-primary"
-                    >
-                      Add Social Network Links
-                    </button>
-                    <span className="text-muted">Optional</span>
-                  </div>
-                  {socialInputs}
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="btn btn-info btn-block mt-4"
-                  />
-                </form>
+                    />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

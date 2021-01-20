@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-
+import "../auth/login.css";
 const TextAreaFieldGroup = ({
   name,
   placeholder,
@@ -9,11 +9,14 @@ const TextAreaFieldGroup = ({
   error,
   info,
   onChange,
+  icon,
 }) => {
   return (
     <div className="form-group">
+      <i className="material-icons prefix">{icon}</i>
+
       <textarea
-        className={classnames("form-control form-control-lg text-white")}
+        className={classnames("form-control form-control-lg black-text")}
         placeholder={placeholder}
         name={name}
         value={value}

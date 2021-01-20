@@ -29,14 +29,12 @@ class Profile extends Component {
     } else {
       profileContent = (
         <>
-          {" "}
-          <div className="row gutters-sm">
-            <div className="col-md-4 mb-3">
+          <div className="row">
+            <div className="col s12 m6">
               <ProfileHeader profile={profile} />
             </div>
-            <div className="col-md-8">
+            <div className="col s12 m6">
               <ProfileAbout profile={profile} />
-
               <ProfileCreds
                 education={profile.education}
                 experience={profile.experience}

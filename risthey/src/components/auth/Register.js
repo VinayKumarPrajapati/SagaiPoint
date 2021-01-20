@@ -54,86 +54,95 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="register">
-        <div className="row">
-          <div className="col s6">
-            <div className="col s12 m6">
-              <div className="card blue-grey darken-1">
-                <div className="card-content white-text text-center">
-                  <h1 className="display-4 text-center white-text">
-                    रजिस्टर करें
-                  </h1>
-                  <p className="lead text-center">
-                    अपना सगाई पॉइंट अकाउंट बनाएं
-                  </p>
-                  <form noValidate onSubmit={this.onSubmit}>
-                    <TextFieldGroup
-                      placeholder="Name (नाम)"
-                      name="name"
-                      value={this.state.name}
-                      onChange={this.onChange}
-                    />
-                    {errors.name != null ? (
-                      <Alert variant="filled" severity="error">
-                        {errors.name}
-                      </Alert>
-                    ) : (
-                      ""
-                    )}
-                    <TextFieldGroup
-                      placeholder="Phone Number (संपर्क नंबर)"
-                      name="phoneNumber"
-                      value={this.state.phoneNumber}
-                      onChange={this.onChange}
-                      info="This site uses Gravatar so if you want a profile image, use a Gravatar phoneNumber"
-                    />
-                    {errors.phoneNumber != null ? (
-                      <Alert variant="filled" severity="error">
-                        {errors.phoneNumber}
-                      </Alert>
-                    ) : (
-                      ""
-                    )}
-                    <TextFieldGroup
-                      placeholder="Password (पासवर्ड)"
-                      name="password"
-                      type="password"
-                      value={this.state.password}
-                      onChange={this.onChange}
-                    />
-                    {errors.password != null ? (
-                      <Alert variant="filled" severity="error">
-                        {errors.password}
-                      </Alert>
-                    ) : (
-                      ""
-                    )}
-                    <TextFieldGroup
-                      placeholder="Confirm Password (पासवर्ड की पुष्टि कीजिये)"
-                      name="password2"
-                      type="password"
-                      value={this.state.password2}
-                      onChange={this.onChange}
-                    />
-                    {errors.password2 != null ? (
-                      <Alert variant="filled" severity="error">
-                        {errors.password2}
-                      </Alert>
-                    ) : (
-                      ""
-                    )}
-
-                    <input
-                      type="submit"
-                      className="waves-effect waves-light btn"
-                    ></input>
-                  </form>
+      <>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div id="login-page" className="row" style={{ marginTop: "20px" }}>
+          <div className="col s12 z-depth-6 card-panel">
+            <div className="card-content valign center">
+              <h5 className="card-title" style={{ marginTop: "20px" }}>
+                रजिस्टर करें
+              </h5>
+              <p className="card-text">अपना सगाई पॉइंट अकाउंट बनाएं</p>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div className="input-field col s12 black-text">
+                  <TextFieldGroup
+                    placeholder="Name (नाम)"
+                    name="name"
+                    icon="person_outline"
+                    value={this.state.name}
+                    onChange={this.onChange}
+                  />
+                  {errors.name != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.name}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                </div>{" "}
+                <div className="input-field col s12 black-text">
+                  <TextFieldGroup
+                    placeholder="Phone Number (संपर्क नंबर)"
+                    name="phoneNumber"
+                    value={this.state.phoneNumber}
+                    onChange={this.onChange}
+                    icon="local_phone"
+                    info="This site uses Gravatar so if you want a profile image, use a Gravatar phoneNumber"
+                  />
+                  {errors.phoneNumber != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.phoneNumber}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                </div>{" "}
+                <div className="input-field col s12 black-text">
+                  <TextFieldGroup
+                    placeholder="Password (पासवर्ड)"
+                    name="password"
+                    type="password"
+                    icon="lock_outline"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                  />
+                  {errors.password != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.password}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
+                </div>{" "}
+                <div className="input-field col s12 black-text">
+                  <TextFieldGroup
+                    placeholder="Confirm Password (पासवर्ड की पुष्टि कीजिये)"
+                    name="password2"
+                    type="password"
+                    icon="lock_outline"
+                    value={this.state.password2}
+                    onChange={this.onChange}
+                  />
+                  {errors.password2 != null ? (
+                    <Alert variant="filled" severity="error">
+                      {errors.password2}
+                    </Alert>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              </div>
+                <input
+                  type="submit"
+                  className="waves-effect waves-light btn"
+                  style={{ marginBottom: "20px" }}
+                ></input>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

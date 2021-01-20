@@ -74,7 +74,7 @@ router.post("/login", (req, res) => {
   User.findOne({ phoneNumber }).then((user) => {
     // Check for user
     if (!user) {
-      errors.phoneNumber = "User not found";
+      errors.phoneNumber = "User not found (यह फ़ोन नंबर रजिस्टर नहीं है)";
       return res.status(404).json(errors);
     }
 
@@ -97,7 +97,7 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
-        errors.password = "Password incorrect";
+        errors.password = "Password incorrect (गलत पासवर्ड)";
         return res.status(400).json(errors);
       }
     });

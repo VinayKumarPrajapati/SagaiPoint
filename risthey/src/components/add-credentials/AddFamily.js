@@ -62,86 +62,94 @@ class AddFamily extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="create-profile">
-        <div className="container">
-          <div className="row">
-            <div className="card blue-grey darken-1 col s12">
-              <div className="col-md-8 m-auto">
-                <Link to="/dashboard" className="btn btn-primary">
-                  Go Back
-                </Link>
-                <h1 className="display-4 text-center text-white">Add Family</h1>
-                <p className="lead text-center text-white">
-                  Add Basic Details of your family
-                </p>
+      <>
+        {" "}
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div className="create-profile">
+          <div className="container">
+            <div className="row">
+              <div className="card blue-grey darken-1 col s12">
+                <div className="col-md-8 m-auto">
+                  <Link to="/dashboard" className="btn btn-primary">
+                    Go Back
+                  </Link>
+                  <h1 className="display-4 text-center text-white">
+                    Add Family
+                  </h1>
+                  <p className="lead text-center text-white">
+                    Add Basic Details of your family
+                  </p>
 
-                <small className="d-block pb-3">* = required fields</small>
-                <form onSubmit={this.onSubmit}>
-                  <TextFieldGroup
-                    placeholder="* पिता का नाम"
-                    name="fatherName"
-                    value={this.state.fatherName}
-                    onChange={this.onChange}
-                  />
-                  {errors.fatherName != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.fatherName}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="* माता का नाम"
-                    name="motherName"
-                    value={this.state.motherName}
-                    onChange={this.onChange}
-                  />
-                  {errors.motherName != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.motherName}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextFieldGroup
-                    placeholder="* भाई बहन की गिनती"
-                    name="siblingsTotal"
-                    value={this.state.siblingsTotal}
-                    onChange={this.onChange}
-                  />
-                  {errors.siblingsTotal != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.siblingsTotal}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  <TextAreaFieldGroup
-                    placeholder="पारिवारिक जानकारी जिसे आप साझा करना चाहते हैं"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.onChange}
-                    info="हमें आपकी स्थिति के बारे में बताएं"
-                  />
-                  {errors.description != null ? (
-                    <Alert variant="filled" severity="error">
-                      {errors.description}
-                    </Alert>
-                  ) : (
-                    ""
-                  )}
-                  {errors == null ? this.notify() : ""}
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="btn btn-info btn-block mt-4"
-                  />
-                </form>
+                  <small className="d-block pb-3">* = required fields</small>
+                  <form onSubmit={this.onSubmit}>
+                    <TextFieldGroup
+                      placeholder="* पिता का नाम"
+                      name="fatherName"
+                      value={this.state.fatherName}
+                      onChange={this.onChange}
+                    />
+                    {errors.fatherName != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.fatherName}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="* माता का नाम"
+                      name="motherName"
+                      value={this.state.motherName}
+                      onChange={this.onChange}
+                    />
+                    {errors.motherName != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.motherName}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextFieldGroup
+                      placeholder="* भाई बहन की गिनती"
+                      name="siblingsTotal"
+                      value={this.state.siblingsTotal}
+                      onChange={this.onChange}
+                    />
+                    {errors.siblingsTotal != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.siblingsTotal}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <TextAreaFieldGroup
+                      placeholder="पारिवारिक जानकारी जिसे आप साझा करना चाहते हैं"
+                      name="description"
+                      value={this.state.description}
+                      onChange={this.onChange}
+                      info="हमें आपकी स्थिति के बारे में बताएं"
+                    />
+                    {errors.description != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.description}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    {errors == null ? this.notify() : ""}
+                    <input
+                      type="submit"
+                      value="Submit"
+                      className="btn btn-info btn-block mt-4"
+                    />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

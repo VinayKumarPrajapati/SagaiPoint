@@ -47,6 +47,9 @@ class Gallery extends Component {
     );
     return (
       <div>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
         <Upload
           action=""
           listType="picture-card"

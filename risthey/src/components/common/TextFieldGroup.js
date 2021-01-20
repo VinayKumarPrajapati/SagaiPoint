@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../auth/login.css";
 const TextFieldGroup = ({
   name,
   placeholder,
@@ -7,18 +8,22 @@ const TextFieldGroup = ({
   type,
   onChange,
   disabled,
+  icon,
 }) => {
   return (
     <div>
+      <i className="material-icons prefix">{icon}</i>
       <input
-        className="white-text"
         type={type}
-        placeholder={placeholder}
+        id="form1Example1"
+        className="form-control black-text"
         name={name}
         value={value}
         onChange={onChange}
         disabled={disabled}
+        placeholder={placeholder}
       />
+      <label className="form-label" for="form1Example1"></label>
     </div>
   );
 };

@@ -7,5 +7,14 @@
 html,
 body {
   height: 100vh;
-  background: linear-gradient(to bottom, #7927b2, #fb3182);
+}
+
+.navbar .dropdown-menu a:hover {
+  color: #616161 !important;
+}
+.darken-grey-text {
+  color: #2e2e2e;
+}
+.nvbr {
+  background-color: #404acd;
 }

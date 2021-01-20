@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import Spinner from "../common/Spinner";
 import ProfileItem from "./ProfileItem";
 import { getProfiles } from "../../actions/profileActions";
-
+import { Link } from "react-router-dom";
+import "./profile.css";
 class Profiles extends Component {
   componentDidMount() {
     this.props.getProfiles();
@@ -28,18 +29,17 @@ class Profiles extends Component {
 
     return (
       <>
-        <div>
-          <div>
-            <div className="row">
-              <div className="col-md-12">
-                <h1 className="display-4 text-center text-white">पिछले मैच</h1>
-                <p className="lead text-center text-white">
-                  आज आप या आपके बेटे / बेटी के लिए सबसे अच्छा मैच खोजने के लिए
-                  कनेक्ट करें
-                </p>
-              </div>
-              {profileItems}
-            </div>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div className="row">
+          <div className="col-md-12">
+            <br />
+            <h1 className="display-4 text-center white-text">पिछले मैच</h1>
+            <p className="lead text-center white-text">
+              आज आप या आपके बेटे / बेटी के लिए सबसे अच्छा मैच खोजने के लिए
+              कनेक्ट करें
+            </p>
           </div>
         </div>
       </>

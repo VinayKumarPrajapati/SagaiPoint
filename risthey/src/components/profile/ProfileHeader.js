@@ -31,7 +31,6 @@ class ProfileHeader extends Component {
                 <p className="text-muted font-size-sm">
                   {isEmpty(profile.location) ? null : <p>{profile.location}</p>}
                 </p>
-                <button className="btn btn-primary">Follow</button>
                 <button className="btn btn-outline-primary">Message</button>
               </div>
             </div>

@@ -8,6 +8,7 @@ import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Family from "./Family";
+import "./dashboard.css";
 // import FamilyMember from "./FamilyMember";
 
 class Dashboard extends Component {
@@ -32,33 +33,40 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div className="row">
+            <div className="bg"></div>
+            <div className="bg bg2"></div>
+            <div className="bg bg3"></div>
             <br />
             <hr />
-            <p className=" text-white">
+            <div className="bg"></div>
+            <div className="bg bg2"></div>
+            <div className="bg bg3"></div>
+            <p className="white-text">
               स्वागत हे आपका
               <Link
                 to={`/profile/${profile.handle}`}
                 style={{ marginLeft: "10px" }}
-                className="text-light"
+                className="light-green accent-3"
               >
                 {user.name}
               </Link>
             </p>
+            <br />
             <div>
               <ProfileActions />
             </div>
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
             <Family family={profile.family} />
-            {/* <FamilyMember familyMember={profile.familyMember} /> */}
-            <div style={{ marginBottom: "60px" }} className="text-white" />
-            <button
-              type="button"
-              onClick={this.onDeleteClick.bind(this)}
-              className="btn"
-            >
-              मेरा एकाउंट हटा दो
-            </button>
+            <div className="center-align" style={{ marginTop: "10px" }}>
+              <button
+                type="button"
+                onClick={this.onDeleteClick.bind(this)}
+                className="btn btn-success center-align"
+              >
+                मेरा एकाउंट हटा दो
+              </button>
+            </div>
           </div>
         );
       } else {
@@ -76,7 +84,7 @@ class Dashboard extends Component {
               आपने अभी तक प्रोफ़ाइल सेटअप नहीं किया है, कृपया कुछ जानकारी जोड़ें
             </p>
 
-            <Link className="btn btn-lg text-white" to="/create-profile">
+            <Link className="btn btn-lg white-text" to="/create-profile">
               जानकारी जोड़ें
             </Link>
           </div>
@@ -86,7 +94,7 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard text-center">
-        <h2 className="white-text"> पधारो महारे प्लेटफार्म</h2>
+        <h2 className="white-text">पधारो महारे प्लेटफार्म</h2>
         <div className="row">{dashboardContent}</div>
       </div>
     );
