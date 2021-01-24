@@ -63,7 +63,6 @@ class AddFamily extends Component {
 
     return (
       <>
-        {" "}
         <div className="bg"></div>
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
@@ -72,13 +71,17 @@ class AddFamily extends Component {
             <div className="row">
               <div className="card blue-grey darken-1 col s12">
                 <div className="col-md-8 m-auto">
-                  <Link to="/dashboard" className="btn btn-primary">
+                  <Link
+                    to="/dashboard"
+                    className="btn btn-primary"
+                    style={{ marginTop: "10px" }}
+                  >
                     Go Back
                   </Link>
-                  <h1 className="display-4 text-center text-white">
+                  <h1 className="display-4 text-center white-text">
                     Add Family
                   </h1>
-                  <p className="lead text-center text-white">
+                  <p className="lead text-center white-text">
                     Add Basic Details of your family
                   </p>
 
@@ -141,7 +144,8 @@ class AddFamily extends Component {
                     <input
                       type="submit"
                       value="Submit"
-                      className="btn btn-info btn-block mt-4"
+                      className="btn btn-info btn-block mt-4 valign-wrapper"
+                      style={{ marginBottom: "10px" }}
                     />
                   </form>
                 </div>

@@ -50,11 +50,15 @@ class ProfileActions extends React.Component {
                 प्रोफ़ाइल जानकारी बदलें
                 <Link to="/edit-profile"></Link>
               </Menu.Item>
-              <Menu.Item key="2" icon={<DesktopOutlined />}>
+              <Menu.Item key="2" icon={<ProfileOutlined />}>
+                आपकी बुनियादी जानकारी
+                <Link to="/edit-profile"></Link>
+              </Menu.Item>
+              <Menu.Item key="3" icon={<DesktopOutlined />}>
                 अनुभव जोड़ें
                 <Link to="/add-experience"></Link>
               </Menu.Item>
-              <Menu.Item key="3" icon={<ContainerOutlined />}>
+              <Menu.Item key="4" icon={<ContainerOutlined />}>
                 शिक्षा जोड़ें
                 <Link to="/add-education"></Link>
               </Menu.Item>
@@ -73,6 +77,7 @@ class ProfileActions extends React.Component {
             </Menu>
           </div>
         </div>
+        <br />
       </>
     );
   }

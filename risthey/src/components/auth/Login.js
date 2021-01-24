@@ -160,7 +160,7 @@ class Login extends Component {
               <div className="row">
                 <div className="input-field col s6 m6 l6">
                   <p className="margin medium-small">
-                    <Link to="/register">Register Now!</Link>
+                    <Link to="/register">अभी रजिस्टर करें!</Link>
                   </p>
                 </div>
               </div>

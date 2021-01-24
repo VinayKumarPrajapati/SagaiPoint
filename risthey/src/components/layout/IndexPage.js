@@ -32,7 +32,7 @@ class IndexPage extends Component {
                 <div className="center promo promo-example">
                   <i className="mdi-social-group"></i>
                   <h5 className="promo-caption">
-                    उपयोगकर्ता अनुभव केंद्रित है{" "}
+                    उपयोगकर्ता अनुभव केंद्रित है
                   </h5>
                   <p className="light center"></p>
                 </div>

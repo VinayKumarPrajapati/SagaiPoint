@@ -20,60 +20,58 @@ class Navbar extends Component {
 
     const authLinks = (
       <>
-        <li className="nav-item">
+        <li>
           <Link className="nav-link" to="/search">
             सर्च
           </Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link className="nav-link" to="/gallery">
             गैलरी
           </Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link className="nav-link" to="/contact">
             कांटेक्ट
           </Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link className="nav-link" to="/dashboard">
             डैशबोर्ड
           </Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link className="nav-link" to="/your-match">
             आपके मैच
           </Link>
         </li>
-        <li className="nav-item">
-          <div className="float-right">
-            <Link
-              to=""
-              className="nav-link"
-              onClick={this.onLogoutClick.bind(this)}
-            >
-              <img
-                className="rounded-circle"
-                src={user.avatar}
-                alt={user.name}
-                style={{ width: "25px", marginRight: "5px" }}
-                title="You must have a Gravatar connected to your email to display an image"
-              />
-              Logout (लॉग आउट)
-            </Link>
-          </div>
+        <li>
+          <Link
+            to=""
+            className="nav-link"
+            onClick={this.onLogoutClick.bind(this)}
+          >
+            <img
+              className="rounded-circle"
+              src={user.avatar}
+              alt={user.name}
+              style={{ width: "25px" }}
+              title="You must have a Gravatar connected to your email to display an image"
+            />
+            &nbsp; &nbsp; Logout (लॉग आउट)
+          </Link>
         </li>
       </>
     );
 
     const guestLinks = (
       <>
-        <li className="nav-item">
+        <li>
           <Link to="/register" className="nav-link">
             रजिस्टर करें
           </Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link to="/login" className="nav-link">
             लॉग इन करें
           </Link>
@@ -117,7 +115,7 @@ class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
+              <li>
                 <Link className="nav-link" to="/profiles">
                   सभी मैच
                 </Link>
@@ -129,7 +127,7 @@ class Navbar extends Component {
         <div className="navbar-fixed">
           <nav className="teal">
             <div className="container">
-              <div className="nav-wrapper">
+              <div className="nav-wrapper text-white white-text">
                 <Link to="/" className="brand-logo">
                   सगाई पॉइंट
                 </Link>
@@ -144,7 +142,7 @@ class Navbar extends Component {
                   <li>
                     <Link to="/profiles"> सभी मैच</Link>
                   </li>
-                  <li>{isAuthenticated ? authLinks : guestLinks}</li>
+                  {isAuthenticated ? authLinks : guestLinks}
                 </ul>
               </div>
             </div>

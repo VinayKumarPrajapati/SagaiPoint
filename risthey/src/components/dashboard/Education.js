@@ -72,13 +72,12 @@ class Education extends Component {
 
     return (
       <>
-        {" "}
         <div className="bg"></div>
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
         <div className="card blue darken-1">
-          <div className="card-content white-text">
-            <h4 className="mb-4 white-text">शिक्षा से संबंधित जानकारी</h4>
+          <div className="card-content white-text valign center">
+            <h4 className="white-text">शिक्षा से संबंधित जानकारी</h4>
           </div>
         </div>
         <ToastContainer />

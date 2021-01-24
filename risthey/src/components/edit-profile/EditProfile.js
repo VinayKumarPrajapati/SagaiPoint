@@ -226,12 +226,16 @@ class CreateProfile extends Component {
             <div className="row">
               <div className="card blue-grey darken-1 col s12">
                 <div className="col-md-8 m-auto white-text">
-                  <Link to="/dashboard" className="btn btn-primary">
+                  <Link
+                    to="/dashboard"
+                    className="btn btn-primary"
+                    style={{ marginTop: "20px" }}
+                  >
                     Go Back
                   </Link>
-                  <h1 className="display-4 text-center white-text">
+                  <h2 className="display-4 text-center white-text">
                     Edit Profile (प्रोफ़ाइल परिवर्तन करें)
-                  </h1>
+                  </h2>
                   <small className="d-block pb-3">* = required fields</small>
                   <ToastContainer />
                   <form onSubmit={this.onSubmit}>
@@ -335,14 +339,12 @@ class CreateProfile extends Component {
                       <span className="text-muted">Optional</span>
                     </div>
                     {socialInputs}
+
                     <input
                       type="submit"
                       value="Submit"
-                      className="btn btn-info btn-block mt-4"
-                      style={{
-                        marginBottom: "20px",
-                        textAlign: "center",
-                      }}
+                      className="btn btn-info btn-block mt-4 "
+                      style={{ marginBottom: "20px" }}
                     />
                   </form>
                 </div>

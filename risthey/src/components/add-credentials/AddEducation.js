@@ -68,7 +68,6 @@ class AddEducation extends Component {
 
     return (
       <>
-        {" "}
         <div className="bg"></div>
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
@@ -80,13 +79,19 @@ class AddEducation extends Component {
             <div className="row">
               <div className="card blue-grey darken-1 col s12">
                 <div className="col-md-8 m-auto">
-                  <Link to="/dashboard" className="btn btn-primary">
+                  <Link
+                    to="/dashboard"
+                    className="btn btn-primary"
+                    style={{ marginTop: "10px" }}
+                  >
                     Go Back
                   </Link>
-                  <h1 className="display-4 text-center text-white">
+                  <br />
+                  <br />
+                  <h1 className="display-4 text-center white-text">
                     शिक्षा जोड़ें
                   </h1>
-                  <p className="lead text-center text-white">
+                  <p className="lead text-center white-text">
                     किसी भी स्कूल, बूटकैंप, आदि को जोड़ें
                   </p>
                   <ToastContainer />
@@ -133,7 +138,8 @@ class AddEducation extends Component {
                       ""
                     )}
                     <br />
-                    <h6 className="text-white">तारीख से (From Date)</h6>
+                    <h6 className="white-text">तारीख से (From Date)</h6>
+
                     <TextFieldGroup
                       name="from"
                       type="date"
@@ -148,7 +154,7 @@ class AddEducation extends Component {
                       ""
                     )}
                     <br />
-                    <h6 className="text-white">तारीख तक (To Date)</h6>
+                    <h6 className="white-text">तारीख तक (To Date)</h6>
                     <TextFieldGroup
                       name="to"
                       type="date"
@@ -195,7 +201,8 @@ class AddEducation extends Component {
                     <input
                       type="submit"
                       value="Submit"
-                      className="btn btn-info btn-block mt-4"
+                      className="btn btn-info btn-block mt-4 valign-wrapper"
+                      style={{ marginBottom: "20px" }}
                     />
                   </form>
                 </div>

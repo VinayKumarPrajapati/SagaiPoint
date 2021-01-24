@@ -44,7 +44,9 @@ const UserSchema = new Schema({
   gender: {
     type: Boolean,
   },
-
+  photos: {
+    type: Array,
+  },
   tad: {
     type: String,
   },

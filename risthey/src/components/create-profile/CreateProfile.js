@@ -9,7 +9,9 @@ import SelectListGroup from "../common/SelectListGroup";
 import { createProfile } from "../../actions/profileActions";
 import { Alert } from "@material-ui/lab";
 import { Select } from "antd";
-
+import { Upload, Button } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import axios from "axios";
 const { Option } = Select;
 
 class CreateProfile extends Component {
@@ -61,10 +63,6 @@ class CreateProfile extends Component {
     };
 
     this.props.createProfile(profileData, this.props.history);
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -145,9 +143,6 @@ class CreateProfile extends Component {
           ) : (
             ""
           )}
-          <div className="bg"></div>
-          <div className="bg bg2"></div>
-          <div className="bg bg3"></div>
         </div>
       );
     }
@@ -180,17 +175,23 @@ class CreateProfile extends Component {
 
     return (
       <div className="create-profile">
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
         <div className="container">
           <div className="row">
             <div className="card blue-grey darken-1 col s12">
               <div className="col-md-8 m-auto">
-                <h1 className="display-4 text-center text-white">
-                  अपना प्रोफ़ाइल बनाए
-                </h1>
-                <p className="lead text-center text-white">
+                <br />
+                <center>
+                  <h2 className="display-4 text-center white-text">
+                    अपना प्रोफ़ाइल बनाए
+                  </h2>
+                </center>
+                <p className="lead text-center white-text">
                   आइए अपनी प्रोफ़ाइल बनाने के लिए कुछ जानकारी प्राप्त करें
                 </p>
-                <small className="d-block pb-3 text-white">
+                <small className="d-block pb-3 white-text">
                   * =आवश्यक जानकारी
                 </small>
                 <form onSubmit={this.onSubmit}>
@@ -199,6 +200,7 @@ class CreateProfile extends Component {
                     name="handle"
                     value={this.state.handle}
                     onChange={this.onChange}
+                    className="white-text"
                     info="कुछ भी हो सकता है लेकिन यह अद्वितीय होना"
                   />
                   {errors.handle != null ? (
@@ -281,7 +283,7 @@ class CreateProfile extends Component {
                   <TextAreaFieldGroup
                     placeholder="Your Bio (संक्षिप्त अपने बारे में)"
                     name="bio"
-                    className="text-white"
+                    className="white-text"
                     value={this.state.bio}
                     onChange={this.onChange}
                   />
@@ -301,17 +303,30 @@ class CreateProfile extends Component {
                         }));
                       }}
                       className="btn btn-primary white-text"
+                      style={{ marginTop: "10px" }}
                     >
                       Add Social Network Links
                     </button>
-                    <span className="text-warning">Optional (वैकल्पिक)</span>
+                    {/* <Upload>
+                      <Button icon={<UploadOutlined />}>Upload</Button>
+                    </Upload> */}
+                    <input
+                      type="file"
+                      onChange={this.fileSelectedHandler.bind()}
+                    />
+                    <span className="white-text" style={{ marginLeft: "20px" }}>
+                      Optional (वैकल्पिक)
+                    </span>
                   </div>
                   {socialInputs}
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="btn btn-info btn-block mt-4"
-                  />
+                  <center>
+                    <input
+                      type="submit"
+                      value="Submit"
+                      className="btn btn-info btn-block mt-4"
+                      style={{ marginTop: "20px", marginBottom: "20px" }}
+                    />
+                  </center>
                 </form>
               </div>
             </div>

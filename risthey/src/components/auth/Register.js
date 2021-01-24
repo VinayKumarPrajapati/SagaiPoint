@@ -81,7 +81,7 @@ class Register extends Component {
                   ) : (
                     ""
                   )}
-                </div>{" "}
+                </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
                     placeholder="Phone Number (संपर्क नंबर)"
@@ -98,7 +98,7 @@ class Register extends Component {
                   ) : (
                     ""
                   )}
-                </div>{" "}
+                </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
                     placeholder="Password (पासवर्ड)"
@@ -115,7 +115,7 @@ class Register extends Component {
                   ) : (
                     ""
                   )}
-                </div>{" "}
+                </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
                     placeholder="Confirm Password (पासवर्ड की पुष्टि कीजिये)"

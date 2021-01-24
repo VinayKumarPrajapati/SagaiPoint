@@ -4,18 +4,17 @@ import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { addExperience } from "../../actions/profileActions";
+import { Alert } from "@material-ui/lab";
+import { addBasic } from "../../actions/profileActions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Alert } from "@material-ui/lab";
-
-class AddExperience extends Component {
+class AddBasic extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
-      title: "",
-      location: "",
+      gotra: "",
+      degree: "",
+      fieldofstudy: "",
       from: "",
       to: "",
       current: false,
@@ -34,23 +33,23 @@ class AddExperience extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
-  notify = () => toast("Experience Details has been successfully Added");
+  notify = () => toast("Basic Details has been successfully Added");
 
   onSubmit(e) {
     e.preventDefault();
     this.notify();
 
-    const expData = {
-      company: this.state.company,
-      title: this.state.title,
-      location: this.state.location,
+    const eduData = {
+      gotra: this.state.gotra,
+      degree: this.state.degree,
+      fieldofstudy: this.state.fieldofstudy,
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
       description: this.state.description,
     };
 
-    this.props.addExperience(expData, this.props.history);
+    this.props.addBasic(eduData, this.props.history);
   }
 
   onChange(e) {
@@ -84,60 +83,89 @@ class AddExperience extends Component {
                   >
                     Go Back
                   </Link>
+                  <br />
+                  <br />
                   <h1 className="display-4 text-center white-text">
-                    Add Experience
+                    शिक्षा जोड़ें
                   </h1>
                   <p className="lead text-center white-text">
-                    Add any job or position that you have had in the past or
-                    current
+                    किसी भी स्कूल, बूटकैंप, आदि को जोड़ें
                   </p>
                   <ToastContainer />
-                  <small className="d-block pb-3">* = required fields</small>
+
+                  <small className="d-block pb-3">* = आवश्यक जानकारी</small>
                   <form onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="* company (कंपनी)"
-                      name="company"
-                      value={this.state.company}
+                      placeholder="* स्कूल"
+                      name="gotra"
+                      value={this.state.gotra}
                       onChange={this.onChange}
                     />
-                    {errors.company != null ? (
+                    {errors.gotra != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.company}
+                        {errors.gotra}
                       </Alert>
                     ) : (
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="* Job Title (जॉब शीर्षक)"
-                      name="title"
-                      value={this.state.title}
+                      placeholder="* डिग्री या प्रमाणन"
+                      name="degree"
+                      value={this.state.degree}
                       onChange={this.onChange}
-                      error={errors.title}
                     />
+                    {errors.degree != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.degree}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
                     <TextFieldGroup
-                      placeholder="Location (स्थान)"
-                      name="location"
-                      value={this.state.location}
+                      placeholder="* अध्ययन क्षेत्र (Field of Study)"
+                      name="fieldofstudy"
+                      value={this.state.fieldofstudy}
                       onChange={this.onChange}
-                      error={errors.location}
                     />
-                    <h6 className="white-text">From Date</h6>
+                    {errors.fieldofstudy != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.fieldofstudy}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <br />
+                    <h6 className="white-text">तारीख से (From Date)</h6>
+
                     <TextFieldGroup
                       name="from"
                       type="date"
                       value={this.state.from}
                       onChange={this.onChange}
-                      error={errors.from}
                     />
-                    <h6 className="white-text">To Date</h6>
+                    {errors.from != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.from}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <br />
+                    <h6 className="white-text">तारीख तक (To Date)</h6>
                     <TextFieldGroup
                       name="to"
                       type="date"
                       value={this.state.to}
                       onChange={this.onChange}
-                      error={errors.to}
                       disabled={this.state.disabled ? "disabled" : ""}
                     />
+                    {errors.to != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.to}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
                     <div className="form-check mb-4">
                       <input
                         type="checkbox"
@@ -148,24 +176,29 @@ class AddExperience extends Component {
                         onChange={this.onCheck}
                         id="current"
                       />
-                      <label htmlFor="current" className="form-check-label">
-                        Current Job
-                      </label>
+                      <label
+                        htmlFor="current"
+                        className="form-check-label"
+                      ></label>
                     </div>
                     <TextAreaFieldGroup
-                      placeholder="Job Description (नौकरी से संबंधित जानकारी)"
+                      placeholder=" उपलब्धि"
                       name="description"
                       value={this.state.description}
                       onChange={this.onChange}
-                      error={errors.description}
-                      className="white-text"
-                      info="Tell us about the the position (हमें स्थिति के बारे में बताएं)"
+                      info="मुझे उपलब्धि या किसी बड़ी बात के बारे में बताएं"
                     />
-
+                    {errors.description != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.description}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
                     <input
                       type="submit"
                       value="Submit"
-                      className="btn btn-info btn-block mt-4"
+                      className="btn btn-info btn-block mt-4 valign-wrapper"
                       style={{ marginBottom: "20px" }}
                     />
                   </form>
@@ -179,8 +212,8 @@ class AddExperience extends Component {
   }
 }
 
-AddExperience.propTypes = {
-  addExperience: PropTypes.func.isRequired,
+AddBasic.propTypes = {
+  addBasic: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
 };
@@ -190,6 +223,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps, { addExperience })(
-  withRouter(AddExperience)
-);
+export default connect(mapStateToProps, { addBasic })(withRouter(AddBasic));

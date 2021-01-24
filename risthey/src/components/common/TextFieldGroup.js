@@ -16,7 +16,6 @@ const TextFieldGroup = ({
       <input
         type={type}
         id="form1Example1"
-        className="form-control black-text"
         name={name}
         value={value}
         onChange={onChange}

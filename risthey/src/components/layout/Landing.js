@@ -32,14 +32,14 @@ class Landing extends Component {
 
                   <Link
                     to="/register"
-                    className="btn btn-secondary text-white"
+                    className="btn btn-primary text-white"
                     style={{ marginTop: "20px" }}
                   >
                     रजिस्टर करें
                   </Link>
                   <Link
                     to="/login"
-                    className="btn btn-primary white-text text-white"
+                    className="btn btn-primary text-white"
                     style={{ marginLeft: "20px", marginTop: "20px" }}
                   >
                     लॉग इन करें

@@ -46,6 +46,17 @@ income.push(<Option key="income4"> 10 LPA to 15 LPA</Option>);
 income.push(<Option key="income5"> 15 LPA to 20 LPA</Option>);
 income.push(<Option key="income6"> 20 LPA +</Option>);
 
+const age = [];
+
+age.push(<Option key="age1">18-20</Option>);
+age.push(<Option key="age2">20-23</Option>);
+age.push(<Option key="age3">23-26</Option>);
+age.push(<Option key="age4">26-29</Option>);
+age.push(<Option key="age5">29-34</Option>);
+age.push(<Option key="age6">34-38</Option>);
+age.push(<Option key="age7">38-42</Option>);
+age.push(<Option key="age8">42+</Option>);
+
 const education = [];
 
 education.push(<Option key="lastEdu1"> Bachelor of Arts</Option>);
@@ -141,6 +152,16 @@ class Search extends Component {
           onChange={handleChange}
         >
           {income}
+        </Select>
+        <br />
+        <br />
+        <Select
+          mode="tags"
+          style={{ width: "100%" }}
+          placeholder="Add Age Related Info (उम्र से संबंधित जानकारी जोड़ें)"
+          onChange={handleChange}
+        >
+          {age}
         </Select>
         <br />
         <br />

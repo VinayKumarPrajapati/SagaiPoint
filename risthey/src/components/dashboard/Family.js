@@ -57,10 +57,9 @@ class Family extends Component {
 
     return (
       <>
-        {" "}
         <div className="card blue darken-1">
-          <div className="card-content white-text">
-            <h4 className="mb-4 white-text">परिवार संबंधी जानकारी</h4>
+          <div className="card-content white-text valign center">
+            <h4 className="white-text">परिवार संबंधी जानकारी</h4>
           </div>
         </div>
         <Table

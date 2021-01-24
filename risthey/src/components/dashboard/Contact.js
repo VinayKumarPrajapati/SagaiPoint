@@ -26,8 +26,8 @@ class Conatct extends Component {
               <div className="screen-body">
                 <div className="screen-body-item left">
                   <div className="app-title">
-                    <span>CONTACT</span>
-                    <span>US</span>
+                    <span>संपर्क</span>
+                    <span>करें</span>
                   </div>
                   <div className="app-contact">CONTACT INFO : +91</div>
                 </div>
@@ -60,7 +60,7 @@ class Conatct extends Component {
                     <div className="app-form-group buttons">
                       <button
                         className="app-form-button"
-                        style={{ marginRight: "120px" }}
+                        style={{ marginRight: "50px" }}
                       >
                         CANCEL
                       </button>

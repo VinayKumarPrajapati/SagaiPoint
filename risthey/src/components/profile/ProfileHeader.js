@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import isEmpty from "../../validation/is-empty";
 import { Link } from "react-router-dom";
-
+import "../layout/MatchForYou.css";
 class ProfileHeader extends Component {
   render() {
     const { profile } = this.props;
 
     return (
       <>
-        <div className="card">
+        {/* <div className="card">
           <Link to="/profiles" className="btn btn-primary mb-3 float-left">
             Back To Profiles
           </Link>
@@ -60,14 +60,14 @@ class ProfileHeader extends Component {
               </h6>
 
               {isEmpty(profile.website) ? null : (
-                <a
+                <Link
                   className="text-primary p-2"
-                  href={profile.website}
+                  to={profile.website}
                   target="_blank"
                 >
                   {profile.website}
                   <i className="fas fa-globe fa-2x" />
-                </a>
+                </Link>
               )}
             </li>
             <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -90,14 +90,14 @@ class ProfileHeader extends Component {
               </h6>
               <span>
                 {isEmpty(profile.social && profile.social.twitter) ? null : (
-                  <a
+                  <Link
                     className="text-white p-2"
-                    href={profile.social.twitter}
+                    to={profile.social.twitter}
                     target="_blank"
                   >
                     {profile.social.twitter}
                     <i className="fab fa-twitter fa-2x" />
-                  </a>
+                  </Link>
                 )}
               </span>
             </li>
@@ -122,16 +122,16 @@ class ProfileHeader extends Component {
                 Instagram
               </h6>
               <span className="text-secondary">
-                {" "}
+                
                 {isEmpty(profile.social && profile.social.instagram) ? null : (
-                  <a
+                  <Link
                     className="text-white p-2"
-                    href={profile.social.instagram}
+                    to={profile.social.instagram}
                     target="_blank"
                   >
                     {profile.social.instagram}
                     <i className="fab fa-instagram fa-2x" />
-                  </a>
+                  </Link>
                 )}
               </span>
             </li>
@@ -155,18 +155,42 @@ class ProfileHeader extends Component {
               </h6>
               <span>
                 {isEmpty(profile.social && profile.social.facebook) ? null : (
-                  <a
+                  <Link
                     className="text-white p-2"
-                    href={profile.social.facebook}
+                    to={profile.social.facebook}
                     target="_blank"
                   >
                     {profile.social.facebook}
                     <i className="fab fa-facebook fa-2x" />
-                  </a>
+                  </Link>
                 )}
               </span>
             </li>
           </ul>
+        </div> */}
+        <div
+          className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+          style={{
+            minHeight: "600px",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+          }}
+        >
+          <span className="mask bg-gradient-default opacity-8"></span>
+
+          <div className="container-fluid d-flex align-items-center">
+            <div className="row">
+              <div className="col-lg-7 col-md-10">
+                <h1 className="display-2 text-white">
+                  Hello {profile.user.name}
+                </h1>
+                <p className="text-white mt-0 mb-5">{profile.user.bio} </p>
+                <Link to="/edit-profile" className="btn btn-info">
+                  Edit profile
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </>
     );

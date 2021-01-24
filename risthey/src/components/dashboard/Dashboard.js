@@ -9,6 +9,7 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Family from "./Family";
 import "./dashboard.css";
+import { NavigateBeforeSharp } from "@material-ui/icons";
 // import FamilyMember from "./FamilyMember";
 
 class Dashboard extends Component {
@@ -38,10 +39,8 @@ class Dashboard extends Component {
             <div className="bg bg3"></div>
             <br />
             <hr />
-            <div className="bg"></div>
-            <div className="bg bg2"></div>
-            <div className="bg bg3"></div>
-            <p className="white-text">
+            <br />
+            <h4 className="white-text">
               स्वागत हे आपका
               <Link
                 to={`/profile/${profile.handle}`}
@@ -50,11 +49,12 @@ class Dashboard extends Component {
               >
                 {user.name}
               </Link>
-            </p>
+            </h4>
             <br />
             <div>
               <ProfileActions />
             </div>
+
             <Experience experience={profile.experience} />
             <Education education={profile.education} />
             <Family family={profile.family} />
@@ -74,29 +74,45 @@ class Dashboard extends Component {
         dashboardContent = (
           <div>
             <br />
-
-            <p className="text-white">
-              स्वागत हे आपका
-              <br />
-              {user.name}
-            </p>
-            <p className="text-white">
-              आपने अभी तक प्रोफ़ाइल सेटअप नहीं किया है, कृपया कुछ जानकारी जोड़ें
-            </p>
-
-            <Link className="btn btn-lg white-text" to="/create-profile">
-              जानकारी जोड़ें
-            </Link>
+            <div className="row">
+              <div className="col s12 m6">
+                <div className="card teal darken-1">
+                  <div className="card-content white-text">
+                    <span className="card-title">
+                      स्वागत हे आपका {user.name}
+                    </span>
+                    <br />
+                    <p className="white-text">
+                      आपने अभी तक प्रोफ़ाइल सेटअप नहीं किया है, कृपया कुछ
+                      जानकारी जोड़ें
+                    </p>
+                    <br />
+                    <br />
+                    <Link
+                      className="btn btn-lg white-text"
+                      to="/create-profile"
+                    >
+                      जानकारी जोड़ें
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       }
     }
 
     return (
-      <div className="dashboard text-center">
-        <h2 className="white-text">पधारो महारे प्लेटफार्म</h2>
-        <div className="row">{dashboardContent}</div>
-      </div>
+      <>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <div className="dashboard text-center">
+          <h2 className="white-text">पधारो महारे प्लेटफार्म</h2>
+          <div className="row">{dashboardContent}</div>
+        </div>
+      </>
     );
   }
 }
