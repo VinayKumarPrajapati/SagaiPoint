@@ -15,6 +15,9 @@ const ProfileSchema = new Schema({
   company: {
     type: String,
   },
+  joborcompany: {
+    type: Boolean,
+  },
   website: {
     type: String,
   },
