@@ -536,7 +536,7 @@ class Landing extends Component {
                       className="waves-effect waves-light btn"
                       style={{ marginLeft: "80px" }}
                     >
-                      भेजें
+                      भेजें (SEND US)
                     </button>
                   </li>
                 </ul>

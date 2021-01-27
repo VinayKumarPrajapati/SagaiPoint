@@ -15,9 +15,8 @@ body {
 
 @media screen and (max-width: 600px) {
   .carousel .carousel-item {
-    width: 400px;
+    width: 300px;
     height: auto;
-    margin-top: -65px;
     margin-left: -10px;
   }
 }
