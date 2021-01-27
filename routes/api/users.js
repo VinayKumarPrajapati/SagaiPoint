@@ -26,7 +26,8 @@ router.post("/register", (req, res) => {
 
   User.findOne({ phoneNumber: req.body.phoneNumber }).then((user) => {
     if (user) {
-      errors.phoneNumber = "Phone number is already exists";
+      errors.phoneNumber =
+        "Phone number already exists. if you have not registered already contact us. at 6239009974 (फ़ोन नंबर पहले से मौजूद है। यदि आपने रजिस्टर नहीं किया है तो हमसे संपर्क करें। 6239009974 पर)";
       return res.status(400).json(errors);
     } else {
       const avatar = gravatar.url(req.body.phoneNumber, {

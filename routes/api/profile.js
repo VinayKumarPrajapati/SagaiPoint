@@ -149,7 +149,8 @@ router.post(
         // Check if handle exists
         Profile.findOne({ handle: profileFields.handle }).then((profile) => {
           if (profile) {
-            errors.handle = "That handle already exists";
+            errors.handle =
+              "That handle already exists. Please try to create another handle. (वह हैंडल पहले से मौजूद है। कृपया एक और हैंडल बनाने का प्रयास करें।)";
             res.status(400).json(errors);
           }
 

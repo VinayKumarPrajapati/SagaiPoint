@@ -168,7 +168,7 @@ class ProfileHeader extends Component {
             </li>
           </ul>
         </div> */}
-        <div
+        {/* <div
           className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
           style={{
             minHeight: "600px",
@@ -190,6 +190,32 @@ class ProfileHeader extends Component {
                 </Link>
               </div>
             </div>
+          </div>
+        </div> */}
+        <div className="card-container">
+          <span className="pro">PRO</span>
+          <img className="round" src={profile.user.avatar} alt="User Photo" />
+          <h3 className="white-text">{profile.user.name}</h3>
+          <h6>New York</h6>
+          <p>
+            {isEmpty(profile.bio) ? null : <span>at {profile.bio}</span>} <br />
+            front-end developer
+          </p>
+          <div className="buttons">
+            <button className="primary">Message</button>
+            <button className="primary ghost">Following</button>
+          </div>
+          <div className="skills">
+            <h6>Skills</h6>
+            <ul>
+              <li>UI / UX</li>
+              <li>Front End Development</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node</li>
+            </ul>
           </div>
         </div>
       </>

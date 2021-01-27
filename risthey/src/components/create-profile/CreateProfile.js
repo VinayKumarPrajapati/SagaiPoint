@@ -9,9 +9,7 @@ import SelectListGroup from "../common/SelectListGroup";
 import { createProfile } from "../../actions/profileActions";
 import { Alert } from "@material-ui/lab";
 import { Select } from "antd";
-import { Upload, Button } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
-import axios from "axios";
+
 const { Option } = Select;
 
 class CreateProfile extends Component {
@@ -26,6 +24,7 @@ class CreateProfile extends Component {
       status: "",
       skills: "",
       bio: "",
+      photos: "",
       twitter: "",
       facebook: "",
       linkedin: "",
@@ -59,10 +58,15 @@ class CreateProfile extends Component {
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
       youtube: this.state.youtube,
+      photos: this.state.photos,
       instagram: this.state.instagram,
     };
 
     this.props.createProfile(profileData, this.props.history);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -143,6 +147,9 @@ class CreateProfile extends Component {
           ) : (
             ""
           )}
+          <div className="bg"></div>
+          <div className="bg bg2"></div>
+          <div className="bg bg3"></div>
         </div>
       );
     }
@@ -182,12 +189,12 @@ class CreateProfile extends Component {
           <div className="row">
             <div className="card blue-grey darken-1 col s12">
               <div className="col-md-8 m-auto">
-                <br />
-                <center>
-                  <h2 className="display-4 text-center white-text">
-                    अपना प्रोफ़ाइल बनाए
-                  </h2>
-                </center>
+                <h1
+                  className="display-4 text-center white-text"
+                  style={{ marginTop: "20px" }}
+                >
+                  अपना प्रोफ़ाइल बनाए
+                </h1>
                 <p className="lead text-center white-text">
                   आइए अपनी प्रोफ़ाइल बनाने के लिए कुछ जानकारी प्राप्त करें
                 </p>
@@ -200,8 +207,7 @@ class CreateProfile extends Component {
                     name="handle"
                     value={this.state.handle}
                     onChange={this.onChange}
-                    className="white-text"
-                    info="कुछ भी हो सकता है लेकिन यह अद्वितीय होना"
+                    info="you can use anything like spiderman123 etc. but you can not use which is taken by someone already.  आप कुछ भी इस्तेमाल कर सकते हैं जैसे कि स्पाइडरमैन123 आदि। लेकिन आप उपयोग नहीं कर सकते हैं जो पहले से ही किसी के द्वारा लिया गया है।"
                   />
                   {errors.handle != null ? (
                     <Alert variant="filled" severity="error">
@@ -294,6 +300,28 @@ class CreateProfile extends Component {
                   ) : (
                     ""
                   )}
+
+                  <div className="file-field input-field">
+                    <div className="btn">
+                      <p id="align-top"> कृपया फोटो अपलोड करें</p>
+                      <input
+                        type="file"
+                        value={this.state.photos}
+                        onChange={this.onChange}
+                      />
+                      {errors.photos != null ? (
+                        <Alert variant="filled" severity="error">
+                          {errors.photos}
+                        </Alert>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+
+                    <div className="file-path-wrapper white-text">
+                      <input className="file-path validate" type="text" />
+                    </div>
+                  </div>
                   <div className="mb-3">
                     <button
                       type="button"
@@ -303,20 +331,10 @@ class CreateProfile extends Component {
                         }));
                       }}
                       className="btn btn-primary white-text"
-                      style={{ marginTop: "10px" }}
                     >
                       Add Social Network Links
                     </button>
-                    {/* <Upload>
-                      <Button icon={<UploadOutlined />}>Upload</Button>
-                    </Upload> */}
-                    <input
-                      type="file"
-                      onChange={this.fileSelectedHandler.bind()}
-                    />
-                    <span className="white-text" style={{ marginLeft: "20px" }}>
-                      Optional (वैकल्पिक)
-                    </span>
+                    <span className="white-text">Optional (वैकल्पिक)</span>
                   </div>
                   {socialInputs}
                   <center>
@@ -324,7 +342,7 @@ class CreateProfile extends Component {
                       type="submit"
                       value="Submit"
                       className="btn btn-info btn-block mt-4"
-                      style={{ marginTop: "20px", marginBottom: "20px" }}
+                      style={{ marginBottom: "10px" }}
                     />
                   </center>
                 </form>

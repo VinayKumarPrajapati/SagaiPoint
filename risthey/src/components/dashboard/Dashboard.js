@@ -37,6 +37,7 @@ class Dashboard extends Component {
             <div className="bg"></div>
             <div className="bg bg2"></div>
             <div className="bg bg3"></div>
+            <img src={profile.user.photo} />
             <br />
             <hr />
             <br />

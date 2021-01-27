@@ -9,20 +9,17 @@ module.exports = function validateProfileInput(data) {
   data.skills = !isEmpty(data.skills) ? data.skills : "";
 
   if (!Validator.isLength(data.handle, { min: 2, max: 40 })) {
-    errors.handle = "Handle needs to between 2 and 4 characters";
+    errors.handle =
+      "Handle needs to between 2 and 40 characters (हैंडल को 2 से 40 के बीच की जरूरत है।)";
   }
 
   if (Validator.isEmpty(data.handle)) {
-    errors.handle = "Profile handle is required";
-  }
-
-  if (Validator.isEmpty(data.skills)) {
-    errors.skills = "Skills field is required";
+    errors.handle = "Profile handle is required (प्रोफ़ाइल हैंडल आवश्यक है।)";
   }
 
   if (!isEmpty(data.youtube)) {
     if (!Validator.isURL(data.youtube)) {
-      errors.youtube = "Not a valid URL";
+      errors.youtube = "Not a valid URL (मान्य URL नहीं है)";
     }
   }
 

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 import { clearCurrentMatch } from "../../actions/matchActions";
+import logo from "./sagai-logo.png";
 import "./Navbar.css";
 import "./NavbarJS.js";
 class Navbar extends Component {
@@ -22,7 +23,7 @@ class Navbar extends Component {
       <>
         <li>
           <Link className="nav-link" to="/search">
-            सर्च
+            आवश्यकताएं जोड़ें
           </Link>
         </li>
         <li>
@@ -129,7 +130,12 @@ class Navbar extends Component {
             <div className="container">
               <div className="nav-wrapper text-white white-text">
                 <Link to="/" className="brand-logo">
-                  सगाई पॉइंट
+                  <img
+                    className="rounded-circle"
+                    src={logo}
+                    alt="सगाई पॉइंट"
+                    style={{ width: "80px", marginTop: "-30px" }}
+                  />
                 </Link>
                 <Link
                   to="#"

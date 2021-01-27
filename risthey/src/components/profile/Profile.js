@@ -7,6 +7,7 @@ import ProfileCreds from "./ProfileCreds";
 import Spinner from "../common/Spinner";
 import { Link } from "react-router-dom";
 import { getProfileByHandle } from "../../actions/profileActions";
+import "./profile.css";
 
 class Profile extends Component {
   componentDidMount() {
@@ -82,9 +83,13 @@ class Profile extends Component {
 
     return (
       <>
-        <div className="container">
+        {/* <div className="container">
           <div className="main-body">{profileContent}</div>
-        </div>
+        </div> */}
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        <ProfileHeader profile={profile} />
       </>
     );
   }
