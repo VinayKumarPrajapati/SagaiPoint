@@ -4,6 +4,9 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import "./landing.css";
 import "./landingjs";
+import wedImg from "../../img/wedding-1.jpg";
+import wedImg1 from "../../img/wedding-2.jpg";
+import wedImg2 from "../../img/wedding-3.jpg";
 class Landing extends Component {
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
@@ -200,9 +203,20 @@ class Landing extends Component {
         </div>{" "}
         */}
         <section className="slider">
-          <ul className="slides">
+          <div className="row">
+            <div class="col s4">
+              <img className="" width="600" src={wedImg} />
+            </div>
+            <div class="col s4">
+              <img className="" width="600" src={wedImg1} />
+            </div>
+            <div class="col s4">
+              <img className="" width="600" src={wedImg2} />
+            </div>
+          </div>
+          {/* <ul className="slides">
             <li>
-              <img src="" alt="" />
+              <img src={wedImg} alt="" />
               <div className="caption center-align">
                 <h2></h2>
                 <h5 className="light grey-text text-lighten-3 hide-on-small-only"></h5>
@@ -210,7 +224,7 @@ class Landing extends Component {
               </div>
             </li>
             <li>
-              <img src="" alt="" />
+              <img src={require("../../img/wedding-1.jpg")} alt="" />
               <div className="caption left-align">
                 <h2></h2>
                 <h5 className="light grey-text text-lighten-3 hide-on-small-only"></h5>
@@ -225,12 +239,9 @@ class Landing extends Component {
                 <Link to="#" className="btn btn-large"></Link>
               </div>
             </li>
-          </ul>
+          </ul> */}
         </section>
-        <section
-          id="search"
-          className="section section-search teal darken-1 white-text center scrollspy"
-        >
+        <section className="section section-search teal darken-1 white-text center scrollspy">
           <div className="container">
             <div className="row">
               <div className="col s12">
