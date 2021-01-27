@@ -203,7 +203,7 @@ class Landing extends Component {
         </div>{" "}
         */}
         <section className="slider">
-          <div className="row">
+          {/* <div className="row">
             <div class="col s4">
               <img className="responsive-img" src={wedImg} alt="wedding img" />
             </div>
@@ -213,6 +213,17 @@ class Landing extends Component {
             <div class="col s4">
               <img className="responsive-img" src={wedImg2} alt="wedding img" />
             </div>
+          </div> */}
+          <div className="carousel">
+            <Link className="carousel-item" to="#one!">
+              <img src={wedImg} alt="wedding image" />
+            </Link>
+            <Link className="carousel-item" to="#two!">
+              <img src={wedImg1} alt="wedding image" />
+            </Link>
+            <Link className="carousel-item" to="#three!">
+              <img src={wedImg2} alt="wedding image" />
+            </Link>
           </div>
         </section>
         {/* <ul className="slides">

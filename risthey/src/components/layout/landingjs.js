@@ -19,3 +19,8 @@ M.ScrollSpy.init(ss, {});
 // Material Boxed
 const mb = document.querySelectorAll(".materialboxed");
 M.Materialbox.init(mb, {});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".carousel");
+  var instances = M.Carousel.init(elems);
+});
