@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Select } from "antd";
-import "./search.css";
+
 const { Option } = Select;
 
 const city = [];

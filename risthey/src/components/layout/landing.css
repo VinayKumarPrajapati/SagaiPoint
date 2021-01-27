@@ -5,9 +5,19 @@ body {
 }
 
 .carousel .carousel-item {
-  width: 700px;
+  width: 330px;
+  height: auto;
 }
 
 .carousel {
-  margin-top: -100px;
+  margin-top: -180px;
+}
+
+@media screen and (max-width: 600px) {
+  .carousel .carousel-item {
+    width: 400px;
+    height: auto;
+    margin-top: -65px;
+    margin-left: -10px;
+  }
 }

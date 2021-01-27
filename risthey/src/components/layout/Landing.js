@@ -202,7 +202,7 @@ class Landing extends Component {
            </div>
         </div>{" "}
         */}
-        <section className="slider">
+        <section className="slider pink lighten-3">
           {/* <div className="row">
             <div class="col s4">
               <img className="responsive-img" src={wedImg} alt="wedding img" />
