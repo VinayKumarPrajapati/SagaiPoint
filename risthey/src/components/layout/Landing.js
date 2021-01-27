@@ -205,16 +205,17 @@ class Landing extends Component {
         <section className="slider">
           <div className="row">
             <div class="col s4">
-              <img className="" width="600" src={wedImg} />
+              <img className="responsive-img" src={wedImg} alt="wedding img" />
             </div>
             <div class="col s4">
-              <img className="" width="600" src={wedImg1} />
+              <img className="responsive-img" src={wedImg1} alt="wedding img" />
             </div>
             <div class="col s4">
-              <img className="" width="600" src={wedImg2} />
+              <img className="responsive-img" src={wedImg2} alt="wedding img" />
             </div>
           </div>
-          {/* <ul className="slides">
+        </section>
+        {/* <ul className="slides">
             <li>
               <img src={wedImg} alt="" />
               <div className="caption center-align">
@@ -240,7 +241,7 @@ class Landing extends Component {
               </div>
             </li>
           </ul> */}
-        </section>
+
         <section className="section section-search teal darken-1 white-text center scrollspy">
           <div className="container">
             <div className="row">
