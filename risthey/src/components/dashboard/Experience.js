@@ -42,7 +42,7 @@ class Experience extends Component {
   fetch = (params = {}) => {
     this.setState({ loading: true });
     reqwest({
-      url: "https://randomuser.me/api",
+      url: "",
       method: "get",
       type: "json",
       data: getRandomuserParams(params),

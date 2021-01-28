@@ -57,52 +57,6 @@ class Login extends Component {
     const notify = (msg) => toast(msg);
 
     return (
-      // <div className="row">
-      //   <div className="col-sm-6 text-center" style={{ marginTop: "30px" }}>
-      //     <div className="card">
-      //       <div className="card-body">
-      //         <h5 className="card-title">लॉग इन करें</h5>
-      //         <p className="card-text"> अपने सगई पॉइंट अकाउंट में लॉगिन करें</p>
-
-      //         <br />
-      //         <form onSubmit={this.onSubmit}>
-      // <TextFieldGroup
-      //   placeholder="Phone number (संपर्क नंबर)"
-      //   name="phoneNumber"
-      //   value={this.state.phoneNumber}
-      //   onChange={this.onChange}
-      // />
-      // {errors.phoneNumber != null ? (
-      //   <Alert variant="filled" severity="error">
-      //     {errors.phoneNumber}
-      //   </Alert>
-      // ) : (
-      //   ""
-      // )}
-      //           <TextFieldGroup
-      //             placeholder="Password  (पासवर्ड)"
-      //             name="password"
-      //             type="password"
-      //             value={this.state.password}
-      //             onChange={this.onChange}
-      //           />
-      //           {errors.password != null ? (
-      //             <Alert variant="filled" severity="error">
-      //               {errors.password}
-      //             </Alert>
-      //           ) : (
-      //             ""
-      //           )}
-
-      //           <input
-      //             type="submit"
-      //             className="waves-effect waves-light btn align-center"
-      //           ></input>
-      //         </form>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
       <>
         <div className="bg"></div>
         <div className="bg bg2"></div>
@@ -113,13 +67,14 @@ class Login extends Component {
               <div className="card-content valign center">
                 <div>
                   <br />
-                  <h5>लॉग इन करें</h5>
-                  <p>अपने सगई पॉइंट अकाउंट में लॉगिन करें</p>
+                  <div className="card-action teal lighten-1">
+                    <h3 className="white-text">अपने अकाउंट में लॉगिन करें</h3>
+                  </div>
                 </div>
                 <br />
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
-                    placeholder="Phone number (संपर्क नंबर)"
+                    placeholder="(संपर्क नंबर) Phone number"
                     name="phoneNumber"
                     value={this.state.phoneNumber}
                     onChange={this.onChange}
@@ -135,7 +90,7 @@ class Login extends Component {
                 </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
-                    placeholder="Password (पासवर्ड)"
+                    placeholder="(पासवर्ड) Password "
                     name="password"
                     type="password"
                     value={this.state.password}

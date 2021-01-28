@@ -8,10 +8,35 @@ import wedImg from "../../img/wedding-1.jpg";
 import wedImg1 from "../../img/wedding-2.jpg";
 import wedImg2 from "../../img/wedding-3.jpg";
 class Landing extends Component {
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      errors: {},
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+      message: this.state.message,
+    };
+
+    this.props.registerUser(newUser, this.props.history);
   }
 
   render() {
@@ -200,7 +225,7 @@ class Landing extends Component {
             <div className="col s12 m4 center-align"></div>
 
            </div>
-        </div>{" "}
+        </div>
         */}
         <section className="slider pink lighten-3">
           {/* <div className="row">
@@ -293,7 +318,7 @@ class Landing extends Component {
                     <i className="material-icons large teal-text">add_task</i>
                     <h5>आपके लिए सब कुछ तैयार है।</h5>
                     <p>
-                      हम आपके लिए सबसे अच्छा मैच खोजेंगे और आपको सूचित करेगा।
+                      हम आपके लिए सबसे अच्छा मैच खोजेंगे और आपको सूचित करेंगे।
                     </p>
                     <br />
                     <p>
@@ -301,8 +326,8 @@ class Landing extends Component {
                     </p>
                     <br />
                     <p>
-                      बहुत ही प्रतिभाशाली / कुशल टीम को आपके अनुष्ठानों से
-                      संबंधित सभी विवरण मिलेंगे।
+                      बहुत ही प्रतिभाशाली / कुशल टीम आपके अनुष्ठानों से संबंधित
+                      सभी जानकारी का ध्यान रखेगी।
                     </p>
                   </div>
                 </div>
@@ -341,20 +366,20 @@ class Landing extends Component {
                     </i>
                     <h5>प्रयोग करने में आसान।</h5>
                     <p>
-                      बहुत ही प्रतिभाशाली / कुशल टीम को आपके अनुष्ठानों से
-                      संबंधित सभी विवरण मिलेंगे।
+                      {/* बहुत ही प्रतिभाशाली / कुशल टीम को आपके अनुष्ठानों से
+                      संबंधित सभी विवरण मिलेंगे। */}
                     </p>
                     <br />
                     <p>
-                      यदि आप किसी भी उपयोग करते समय पाएंगे तो हम समस्या का
-                      समाधान करेंगे।
+                      यदि आप इस वेबसाइट का उपयोग करते समय समस्या पाते हैं तो हम
+                      इस समस्या का समाधान करेंगे।
                     </p>
                     <br />
                     <p>
                       सरल कोई जटिल संरचना नहीं। <br />
-                      केवल महत्वपूर्ण विकल्प
+                      केवल महत्वपूर्ण विकल्प।
                     </p>
-
+                    <br />
                     <p>हिंदी भाषा में, जो हर कोई समझ सकता है।</p>
                   </div>
                 </div>
@@ -413,41 +438,6 @@ class Landing extends Component {
                 <h4 className="white-text">
                   सर्वश्रेष्ठ मैच और सर्वश्रेष्ठ सेवा के लिए।
                 </h4>
-                <Link
-                  to="htttps://facebook.com"
-                  target="_blank"
-                  className="white-text"
-                >
-                  <i className="fab fa-facebook fa-4x"></i>
-                </Link>
-                <Link
-                  to="htttps://twitter.com"
-                  target="_blank"
-                  className="white-text"
-                >
-                  <i className="fab fa-twitter fa-4x"></i>
-                </Link>
-                <Link
-                  to="htttps://linkedin.com"
-                  target="_blank"
-                  className="white-text"
-                >
-                  <i className="fab fa-linkedin fa-4x"></i>
-                </Link>
-                <Link
-                  to="htttps://googleplus.com"
-                  target="_blank"
-                  className="white-text"
-                >
-                  <i className="fab fa-google-plus fa-4x"></i>
-                </Link>
-                <Link
-                  to="htttps://pinterest.com"
-                  target="_blank"
-                  className="white-text"
-                >
-                  <i className="fab fa-pinterest fa-4x"></i>
-                </Link>
               </div>
             </div>
           </div>
@@ -473,26 +463,54 @@ class Landing extends Component {
               <div className="col s12 m6">
                 <div className="card-panel grey lighten-3">
                   <h5>कृपया इस फॉर्म को भरें। </h5>
-                  <div className="input-field">
-                    <input type="text" id="name" />
-                    <label for="name">Name (नाम)</label>
-                  </div>
-                  <div className="input-field">
-                    <input type="email" id="email" />
-                    <label for="email">Email (ईमेल)</label>
-                  </div>
-                  <div className="input-field">
-                    <input type="text" id="phone" />
-                    <label for="phone">Phone (फ़ोन)</label>
-                  </div>
-                  <div className="input-field">
-                    <textarea
-                      className="materialize-textarea"
-                      id="message"
-                    ></textarea>
-                    <label for="message">Message (संदेश)</label>
-                  </div>
-                  <input type="submit" value="Submit" className="btn" />
+                  <form onSubmit={this.onSubmit}>
+                    <div className="input-field">
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.onChange}
+                      />
+                      <label for="name">Name (नाम)</label>
+                    </div>
+                    <div className="input-field">
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                      />
+                      <label for="email">Email (ईमेल वैकल्पिक) </label>
+                    </div>
+                    <div className="input-field">
+                      <input
+                        type="text"
+                        id="phone"
+                        name="phone"
+                        value={this.state.phone}
+                        onChange={this.onChange}
+                      />
+                      <label for="phone">Phone (फ़ोन)</label>
+                    </div>
+                    <div className="input-field">
+                      <textarea
+                        className="materialize-textarea"
+                        id="message"
+                        name="message"
+                        value={this.state.message}
+                        onChange={this.onChange}
+                      ></textarea>
+                      <label for="message">Message (संदेश)</label>
+                    </div>
+                    <input
+                      type="submit"
+                      value="submit"
+                      className="waves-effect waves-light btn"
+                      style={{ marginBottom: "20px" }}
+                    ></input>
+                  </form>
                 </div>
               </div>
             </div>
@@ -505,7 +523,7 @@ class Landing extends Component {
                 <h5 className="white-text">Powered By SagaiPoint Pvt. Ltd.</h5>
                 <p className="grey-text text-lighten-4">
                   <span className="valign-wrapper">
-                    <i className="material-icons small teal-text">home</i>{" "}
+                    <i className="material-icons small teal-text">home</i>
                     &nbsp; Ahmedabad
                   </span>
                 </p>
@@ -531,13 +549,12 @@ class Landing extends Component {
                   <br />
                   <br />
                   <li>
-                    <button
+                    <input
                       type="submit"
                       className="waves-effect waves-light btn"
-                      style={{ marginLeft: "80px" }}
-                    >
-                      भेजें (SEND US)
-                    </button>
+                      style={{ marginBottom: "20px" }}
+                      value="भेजें (SEND US)"
+                    ></input>
                   </li>
                 </ul>
               </div>

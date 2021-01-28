@@ -4,3 +4,13 @@
 .input-field input[type="text"] {
   color: #000000 !important;
 }
+
+#login-page {
+  max-width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  #login-page {
+    width: 300px;
+  }
+}

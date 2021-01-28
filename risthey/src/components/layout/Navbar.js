@@ -145,9 +145,9 @@ class Navbar extends Component {
                   <i className="material-icons">menu</i>
                 </Link>
                 <ul className="right hide-on-med-and-down">
-                  <li>
+                  {/* <li>
                     <Link to="/profiles"> सभी मैच</Link>
-                  </li>
+                  </li> */}
                   {isAuthenticated ? authLinks : guestLinks}
                 </ul>
               </div>
@@ -155,9 +155,9 @@ class Navbar extends Component {
           </nav>
         </div>
         <ul className="sidenav" id="mobile-demo">
-          <li>
+          {/* <li>
             <Link to="/profiles"> सभी मैच</Link>
-          </li>
+          </li> */}
           <li>{isAuthenticated ? authLinks : guestLinks}</li>
         </ul>
       </>

@@ -61,14 +61,14 @@ class Register extends Component {
         <div id="login-page" className="row" style={{ marginTop: "20px" }}>
           <div className="col s12 z-depth-6 card-panel">
             <div className="card-content valign center">
-              <h5 className="card-title" style={{ marginTop: "20px" }}>
-                रजिस्टर करें
-              </h5>
-              <p className="card-text">अपना सगाई पॉइंट अकाउंट बनाएं</p>
+              <h5 className="card-title" style={{ marginTop: "20px" }}></h5>
+              <div className="card-action teal lighten-1">
+                <h3 className="white-text">अपने अकाउंट में रजिस्टर करें</h3>
+              </div>
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
-                    placeholder="Name (नाम)"
+                    placeholder="(नाम) Name"
                     name="name"
                     icon="person_outline"
                     value={this.state.name}
@@ -84,7 +84,7 @@ class Register extends Component {
                 </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
-                    placeholder="Phone Number (संपर्क नंबर)"
+                    placeholder="(संपर्क नंबर) Phone Number"
                     name="phoneNumber"
                     value={this.state.phoneNumber}
                     onChange={this.onChange}
@@ -101,7 +101,7 @@ class Register extends Component {
                 </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
-                    placeholder="Password (पासवर्ड)"
+                    placeholder="(पासवर्ड) Password"
                     name="password"
                     type="password"
                     icon="lock_outline"
@@ -118,7 +118,7 @@ class Register extends Component {
                 </div>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
-                    placeholder="Confirm Password (पासवर्ड की पुष्टि कीजिये)"
+                    placeholder="(पासवर्ड की पुष्टि कीजिये) Confirm Password"
                     name="password2"
                     type="password"
                     icon="lock_outline"
