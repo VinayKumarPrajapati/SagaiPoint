@@ -2,42 +2,113 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import "./landing.css";
+import axios from "axios";
 import "./landingjs";
 import wedImg from "../../img/wedding-1.jpg";
 import wedImg1 from "../../img/wedding-2.jpg";
 import wedImg2 from "../../img/wedding-3.jpg";
 class Landing extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      errors: {},
-    };
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     name: "",
+  //     email: "",
+  //     phone: "",
+  //     message: "",
+  //     errors: {},
+  //   };
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+  //   this.onChange = this.onChange.bind(this);
+  //   this.onSubmit = this.onSubmit.bind(this);
+  // }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+  // onChange(e) {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // }
 
-  onSubmit(e) {
-    e.preventDefault();
+  // onSubmit(e) {
+  //   e.preventDefault();
 
-    const newUser = {
+  //   const newUser = {
+  //     name: this.state.name,
+  //     email: this.state.email,
+  //     phone: this.state.phone,
+  //     message: this.state.message,
+  //   };
+
+  //   this.props.registerUser(newUser, this.props.history);
+  // }
+
+  state = {
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    sent: false,
+  };
+
+  handleName = (e) => {
+    this.setState({
+      name: e.target.name,
+    });
+  };
+
+  handleEmail = (e) => {
+    this.setState({
+      email: e.target.email,
+    });
+  };
+
+  handleMessage = (e) => {
+    this.setState({
+      message: e.target.message,
+    });
+  };
+
+  handlePhone = (e) => {
+    this.setState({
+      phone: e.target.phone,
+    });
+  };
+
+  formSubmit = (e) => {
+    e.prevDefault();
+
+    let data = {
       name: this.state.name,
       email: this.state.email,
       phone: this.state.phone,
       message: this.state.message,
     };
+    axios
+      .post("/api/form", data)
+      .then((res) => {
+        this.setState(
+          {
+            sent: true,
+          },
+          this.resetForm()
+        );
+      })
+      .catch(() => {
+        console.log("Message not sent");
+      });
+  };
 
-    this.props.registerUser(newUser, this.props.history);
-  }
+  //For reseting intial data
+  resetForm = () => {
+    this.setState({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+    setTimeout(() => {
+      this.setState({
+        sent: false,
+      });
+    }, 3000);
+  };
 
   render() {
     return (
@@ -470,7 +541,7 @@ class Landing extends Component {
                         id="name"
                         name="name"
                         value={this.state.name}
-                        onChange={this.onChange}
+                        onChange={this.handleName}
                       />
                       <label for="name">Name (नाम)</label>
                     </div>
@@ -480,7 +551,7 @@ class Landing extends Component {
                         id="email"
                         name="email"
                         value={this.state.email}
-                        onChange={this.onChange}
+                        onChange={this.handleEmail}
                       />
                       <label for="email">Email (ईमेल वैकल्पिक) </label>
                     </div>
@@ -490,7 +561,7 @@ class Landing extends Component {
                         id="phone"
                         name="phone"
                         value={this.state.phone}
-                        onChange={this.onChange}
+                        onChange={this.handlePhone}
                       />
                       <label for="phone">Phone (फ़ोन)</label>
                     </div>
@@ -500,7 +571,7 @@ class Landing extends Component {
                         id="message"
                         name="message"
                         value={this.state.message}
-                        onChange={this.onChange}
+                        onChange={this.handleMessage}
                       ></textarea>
                       <label for="message">Message (संदेश)</label>
                     </div>

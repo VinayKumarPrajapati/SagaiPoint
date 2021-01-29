@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import isEmpty from "../../validation/is-empty";
-import { Link } from "react-router-dom";
-import "../layout/MatchForYou.css";
 class ProfileHeader extends Component {
   render() {
     const { profile } = this.props;

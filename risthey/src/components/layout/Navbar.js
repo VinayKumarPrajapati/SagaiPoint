@@ -6,7 +6,6 @@ import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 import { clearCurrentMatch } from "../../actions/matchActions";
 import logo from "./sagai-logo.png";
-import "./Navbar.css";
 import "./NavbarJS.js";
 class Navbar extends Component {
   onLogoutClick(e) {

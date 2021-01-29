@@ -7,7 +7,6 @@ import { Alert } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./login.css";
 class Login extends Component {
   constructor() {
     super();

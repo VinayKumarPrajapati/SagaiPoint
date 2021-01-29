@@ -7,7 +7,6 @@ import ProfileCreds from "./ProfileCreds";
 import Spinner from "../common/Spinner";
 import { Link } from "react-router-dom";
 import { getProfileByHandle } from "../../actions/profileActions";
-import "./profile.css";
 
 class Profile extends Component {
   componentDidMount() {

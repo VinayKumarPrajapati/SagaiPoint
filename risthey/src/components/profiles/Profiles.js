@@ -5,7 +5,7 @@ import Spinner from "../common/Spinner";
 import ProfileItem from "./ProfileItem";
 import { getProfiles } from "../../actions/profileActions";
 import { Link } from "react-router-dom";
-import "./profile.css";
+
 class Profiles extends Component {
   componentDidMount() {
     this.props.getProfiles();

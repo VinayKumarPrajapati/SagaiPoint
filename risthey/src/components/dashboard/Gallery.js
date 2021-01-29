@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./gallery.css";
 import { Upload, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 
