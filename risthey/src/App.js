@@ -25,7 +25,7 @@ import AddFamily from "./components/add-credentials/AddFamily";
 // import AddFamilyMember from "./components/add-credentials/AddFamilyMember";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
-import Post from "./components/post/Post";
+
 import NotFound from "./components/not-found/NotFound";
 import Match from "./components/match/Match";
 import { clearCurrentMatch } from "./actions/matchActions";

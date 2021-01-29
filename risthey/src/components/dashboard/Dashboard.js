@@ -8,7 +8,6 @@ import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Family from "./Family";
-import { NavigateBeforeSharp } from "@material-ui/icons";
 // import FamilyMember from "./FamilyMember";
 
 class Dashboard extends Component {

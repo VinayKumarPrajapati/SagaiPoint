@@ -114,7 +114,7 @@ class ProfileAbout extends Component {
                       <div className="form-group focused">
                         <label
                           className="form-control-label"
-                          for="input-username"
+                          htmlFor="input-username"
                         >
                           Username
                         </label>
@@ -123,7 +123,10 @@ class ProfileAbout extends Component {
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group">
-                        <label className="form-control-label" for="input-email">
+                        <label
+                          className="form-control-label"
+                          htmlFor="input-email"
+                        >
                           Email address
                         </label>
                         <input
@@ -140,7 +143,7 @@ class ProfileAbout extends Component {
                       <div className="form-group focused">
                         <label
                           className="form-control-label"
-                          for="input-first-name"
+                          htmlFor="input-first-name"
                         >
                           First name
                         </label>
@@ -157,7 +160,7 @@ class ProfileAbout extends Component {
                       <div className="form-group focused">
                         <label
                           className="form-control-label"
-                          for="input-last-name"
+                          htmlFor="input-last-name"
                         >
                           Last name
                         </label>
@@ -183,7 +186,7 @@ class ProfileAbout extends Component {
                       <div className="form-group focused">
                         <label
                           className="form-control-label"
-                          for="input-address"
+                          htmlFor="input-address"
                         >
                           Address
                         </label>
@@ -200,7 +203,10 @@ class ProfileAbout extends Component {
                   <div className="row">
                     <div className="col-lg-4">
                       <div className="form-group focused">
-                        <label className="form-control-label" for="input-city">
+                        <label
+                          className="form-control-label"
+                          htmlFor="input-city"
+                        >
                           City
                         </label>
                         <input
@@ -216,7 +222,7 @@ class ProfileAbout extends Component {
                       <div className="form-group focused">
                         <label
                           className="form-control-label"
-                          for="input-country"
+                          htmlFor="input-country"
                         >
                           Country
                         </label>
@@ -233,7 +239,7 @@ class ProfileAbout extends Component {
                       <div className="form-group">
                         <label
                           className="form-control-label"
-                          for="input-country"
+                          htmlFor="input-country"
                         >
                           Postal code
                         </label>

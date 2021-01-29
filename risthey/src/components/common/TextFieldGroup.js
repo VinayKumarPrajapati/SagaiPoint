@@ -21,7 +21,7 @@ const TextFieldGroup = ({
         disabled={disabled}
         placeholder={placeholder}
       />
-      <label className="form-label" for="form1Example1"></label>
+      <label className="form-label" htmlFor="form1Example1"></label>
     </div>
   );
 };

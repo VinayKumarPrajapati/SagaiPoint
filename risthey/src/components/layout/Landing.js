@@ -311,13 +311,13 @@ class Landing extends Component {
             </div>
           </div> */}
           <div className="carousel">
-            <Link className="carousel-item" to="#one!">
+            <Link className="carousel-item" to="">
               <img src={wedImg} alt="wedding image" />
             </Link>
-            <Link className="carousel-item" to="#two!">
+            <Link className="carousel-item" to="">
               <img src={wedImg1} alt="wedding image" />
             </Link>
-            <Link className="carousel-item" to="#three!">
+            <Link className="carousel-item" to="">
               <img src={wedImg2} alt="wedding image" />
             </Link>
           </div>
@@ -543,7 +543,7 @@ class Landing extends Component {
                         value={this.state.name}
                         onChange={this.handleName}
                       />
-                      <label for="name">Name (नाम)</label>
+                      <label htmlFor="name">Name (नाम)</label>
                     </div>
                     <div className="input-field">
                       <input
@@ -553,7 +553,7 @@ class Landing extends Component {
                         value={this.state.email}
                         onChange={this.handleEmail}
                       />
-                      <label for="email">Email (ईमेल वैकल्पिक) </label>
+                      <label htmlFor="email">Email (ईमेल वैकल्पिक) </label>
                     </div>
                     <div className="input-field">
                       <input
@@ -563,7 +563,7 @@ class Landing extends Component {
                         value={this.state.phone}
                         onChange={this.handlePhone}
                       />
-                      <label for="phone">Phone (फ़ोन)</label>
+                      <label htmlFor="phone">Phone (फ़ोन)</label>
                     </div>
                     <div className="input-field">
                       <textarea
@@ -573,7 +573,7 @@ class Landing extends Component {
                         value={this.state.message}
                         onChange={this.handleMessage}
                       ></textarea>
-                      <label for="message">Message (संदेश)</label>
+                      <label htmlFor="message">Message (संदेश)</label>
                     </div>
                     <input
                       type="submit"

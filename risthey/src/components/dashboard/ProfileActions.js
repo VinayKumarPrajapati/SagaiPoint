@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb, Button } from "antd";
+import { Menu, Button } from "antd";
 
 import { Link } from "react-router-dom";
 import {
@@ -12,7 +12,6 @@ import {
 } from "@ant-design/icons";
 
 const { SubMenu } = Menu;
-const { Header, Content, Footer } = Layout;
 
 class ProfileActions extends React.Component {
   state = {
