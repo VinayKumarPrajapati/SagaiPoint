@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import axios from "axios";
 import "./landingjs";
 import wedImg from "../../img/wedding-1.jpg";
 import wedImg1 from "../../img/wedding-2.jpg";
@@ -38,77 +37,6 @@ class Landing extends Component {
 
   //   this.props.registerUser(newUser, this.props.history);
   // }
-
-  state = {
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    sent: false,
-  };
-
-  handleName = (e) => {
-    this.setState({
-      name: e.target.name,
-    });
-  };
-
-  handleEmail = (e) => {
-    this.setState({
-      email: e.target.email,
-    });
-  };
-
-  handleMessage = (e) => {
-    this.setState({
-      message: e.target.message,
-    });
-  };
-
-  handlePhone = (e) => {
-    this.setState({
-      phone: e.target.phone,
-    });
-  };
-
-  formSubmit = (e) => {
-    e.prevDefault();
-
-    let data = {
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phone,
-      message: this.state.message,
-    };
-    axios
-      .post("/api/form", data)
-      .then((res) => {
-        this.setState(
-          {
-            sent: true,
-          },
-          this.resetForm()
-        );
-      })
-      .catch(() => {
-        console.log("Message not sent");
-      });
-  };
-
-  //For reseting intial data
-  resetForm = () => {
-    this.setState({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-    setTimeout(() => {
-      this.setState({
-        sent: false,
-      });
-    }, 3000);
-  };
 
   render() {
     return (
@@ -534,35 +462,17 @@ class Landing extends Component {
               <div className="col s12 m6">
                 <div className="card-panel grey lighten-3">
                   <h5>कृपया इस फॉर्म को भरें। </h5>
-                  <form onSubmit={this.onSubmit}>
+                  <form>
                     <div className="input-field">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleName}
-                      />
+                      <input type="text" id="name" name="name" />
                       <label htmlFor="name">Name (नाम)</label>
                     </div>
                     <div className="input-field">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.handleEmail}
-                      />
+                      <input type="email" id="email" name="email" />
                       <label htmlFor="email">Email (ईमेल वैकल्पिक) </label>
                     </div>
                     <div className="input-field">
-                      <input
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        value={this.state.phone}
-                        onChange={this.handlePhone}
-                      />
+                      <input type="text" id="phone" name="phone" />
                       <label htmlFor="phone">Phone (फ़ोन)</label>
                     </div>
                     <div className="input-field">
@@ -570,8 +480,6 @@ class Landing extends Component {
                         className="materialize-textarea"
                         id="message"
                         name="message"
-                        value={this.state.message}
-                        onChange={this.handleMessage}
                       ></textarea>
                       <label htmlFor="message">Message (संदेश)</label>
                     </div>
