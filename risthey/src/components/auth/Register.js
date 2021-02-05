@@ -70,6 +70,7 @@ class Register extends Component {
                   <TextFieldGroup
                     placeholder="(नाम) Name"
                     name="name"
+                    id="name"
                     icon="person_outline"
                     value={this.state.name}
                     onChange={this.onChange}
@@ -86,10 +87,10 @@ class Register extends Component {
                   <TextFieldGroup
                     placeholder="(संपर्क नंबर) Phone Number"
                     name="phoneNumber"
+                    id="phone"
                     value={this.state.phoneNumber}
                     onChange={this.onChange}
                     icon="local_phone"
-                    info="This site uses Gravatar so if you want a profile image, use a Gravatar phoneNumber"
                   />
                   {errors.phoneNumber != null ? (
                     <Alert variant="filled" severity="error">
@@ -99,10 +100,15 @@ class Register extends Component {
                     ""
                   )}
                 </div>
+                <h6 className="black-text">
+                  Make sure your password contains character and digits.
+                  (सुनिश्चित करें कि आपका पासवर्ड में वर्णाक्षर और अंक हो।)
+                </h6>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
                     placeholder="(पासवर्ड) Password"
                     name="password"
+                    id="pass"
                     type="password"
                     icon="lock_outline"
                     value={this.state.password}
@@ -116,11 +122,13 @@ class Register extends Component {
                     ""
                   )}
                 </div>
+                <h5 className="black-text"></h5>
                 <div className="input-field col s12 black-text">
                   <TextFieldGroup
                     placeholder="(पासवर्ड की पुष्टि कीजिये) Confirm Password"
                     name="password2"
                     type="password"
+                    id="pass2"
                     icon="lock_outline"
                     value={this.state.password2}
                     onChange={this.onChange}

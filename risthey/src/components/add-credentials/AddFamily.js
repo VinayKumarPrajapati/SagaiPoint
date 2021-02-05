@@ -78,17 +78,19 @@ class AddFamily extends Component {
                   >
                     Go Back
                   </Link>
-                  <h1 className="display-4 text-center white-text">
-                    Add Family
-                  </h1>
-                  <p className="lead text-center white-text">
-                    Add Basic Details of your family
-                  </p>
 
-                  <small className="d-block pb-3">* = required fields</small>
+                  <center>
+                    <h4 className="display-4 text-center white-text">
+                      Add family related information.
+                      <br /> (परिवार संबंधित जोड़ें।)
+                    </h4>
+                  </center>
+                  <small className="d-block pb-3">
+                    <p className="white-text">* = required fields</p>
+                  </small>
                   <form onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="* पिता का नाम"
+                      placeholder="* पिता का नाम (Father's Name)"
                       name="fatherName"
                       value={this.state.fatherName}
                       onChange={this.onChange}
@@ -101,7 +103,7 @@ class AddFamily extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="* माता का नाम"
+                      placeholder="* माता का नाम (Mother's Name)"
                       name="motherName"
                       value={this.state.motherName}
                       onChange={this.onChange}
@@ -113,6 +115,29 @@ class AddFamily extends Component {
                     ) : (
                       ""
                     )}
+                    <p className="white-text">
+                      * क्या आप अपने माता-पिता के साथ रहते हैं? (Staying with
+                      your parents?)
+                    </p>
+                    <p className="white-text">
+                      <label>
+                        <input name="withFamily" type="radio" />
+                        <span>Yes (हां)</span>
+                      </label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      <label>
+                        <input name="withFamily" type="radio" />
+                        <span>No (नहीं)</span>
+                      </label>
+                    </p>
+                    {errors.withFamily != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.withFamily}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <p className="white-text">* भाई बहन की गिनती</p>
                     <TextFieldGroup
                       placeholder="* भाई बहन की गिनती"
                       name="siblingsTotal"
@@ -126,8 +151,22 @@ class AddFamily extends Component {
                     ) : (
                       ""
                     )}
+                    <p className="white-text">* कुल परिवार के सदस्य।</p>
+                    <TextFieldGroup
+                      placeholder="* कुल परिवार के सदस्य।"
+                      name="familyTotalMember"
+                      value={this.state.familyTotalMember}
+                      onChange={this.onChange}
+                    />
+                    {errors.familyTotalMember != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.familyTotalMember}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
                     <TextAreaFieldGroup
-                      placeholder="पारिवारिक जानकारी जिसे आप साझा करना चाहते हैं"
+                      placeholder="पारिवारिक जानकारी जिसे आप साझा करना चाहते हैं (Info related family)"
                       name="description"
                       value={this.state.description}
                       onChange={this.onChange}
@@ -140,13 +179,14 @@ class AddFamily extends Component {
                     ) : (
                       ""
                     )}
-                    {errors == null ? this.notify() : ""}
-                    <input
-                      type="submit"
-                      value="Submit"
-                      className="btn btn-info btn-block mt-4 valign-wrapper"
-                      style={{ marginBottom: "10px" }}
-                    />
+                    <center>
+                      <input
+                        type="submit"
+                        value="Submit"
+                        className="btn btn-info btn-block mt-4 valign-wrapper"
+                        style={{ marginBottom: "10px" }}
+                      />
+                    </center>
                   </form>
                 </div>
               </div>

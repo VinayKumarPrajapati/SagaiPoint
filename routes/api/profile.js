@@ -2,7 +2,29 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
+const multer = require("multer");
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === "image/jpeg" || file.mimetype == "image/png") {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+});
 // Load Validation
 const validateProfileInput = require("../../validation/profile");
 const validateExperienceInput = require("../../validation/experience");
@@ -25,7 +47,7 @@ router.get(
     const errors = {};
 
     Profile.findOne({ user: req.user.id })
-      .populate("user", ["name", "avatar"])
+      .populate("user", ["name"])
       .then((profile) => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
@@ -44,7 +66,7 @@ router.get("/all", (req, res) => {
   const errors = {};
 
   Profile.find()
-    .populate("user", ["name", "avatar"])
+    .populate("user", ["name"])
     .then((profiles) => {
       if (!profiles) {
         errors.noprofile = "There are no profiles";
@@ -65,7 +87,7 @@ router.get("/handle/:handle", (req, res) => {
   const errors = {};
 
   Profile.findOne({ handle: req.params.handle })
-    .populate("user", ["name", "avatar"])
+    .populate("user", ["name"])
     .then((profile) => {
       if (!profile) {
         errors.noprofile = "There is no profile for this user";
@@ -85,7 +107,7 @@ router.get("/user/:user_id", (req, res) => {
   const errors = {};
 
   Profile.findOne({ user: req.params.user_id })
-    .populate("user", ["name", "avatar"])
+    .populate("user", ["name"])
     .then((profile) => {
       if (!profile) {
         errors.noprofile = "There is no profile for this user";
@@ -104,8 +126,10 @@ router.get("/user/:user_id", (req, res) => {
 // @access  Private
 router.post(
   "/",
+  upload.single("userImage"),
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log(req.file);
     const { errors, isValid } = validateProfileInput(req.body);
 
     // Check Validation
@@ -118,11 +142,16 @@ router.post(
     const profileFields = {};
     profileFields.user = req.user.id;
     if (req.body.handle) profileFields.handle = req.body.handle;
-    if (req.body.company) profileFields.company = req.body.company;
-    if (req.body.website) profileFields.website = req.body.website;
-    if (req.body.location) profileFields.location = req.body.location;
-    if (req.body.bio) profileFields.bio = req.body.bio;
+    if (req.body.gender) profileFields.gender = req.body.gender;
+    if (req.body.phone) profileFields.phone = req.body.phone;
+    if (req.body.phone2) profileFields.phone2 = req.body.phone2;
+    if (req.body.gotra) profileFields.gotra = req.body.gotra;
+    if (req.body.gotra2) profileFields.gotra2 = req.body.gotra2;
     if (req.body.status) profileFields.status = req.body.status;
+    if (req.body.city) profileFields.city = req.body.city;
+    if (req.body.status1) profileFields.status1 = req.body.status1;
+    if (req.body.bio) profileFields.bio = req.body.bio;
+    profileFields.userImage = req.file.path;
     // Skills - Spilt into array
     if (typeof req.body.skills !== "undefined") {
       profileFields.skills = req.body.skills.split(",");

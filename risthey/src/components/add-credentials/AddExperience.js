@@ -5,19 +5,17 @@ import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addExperience } from "../../actions/profileActions";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Alert } from "@material-ui/lab";
 
 class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
-      title: "",
-      location: "",
-      from: "",
-      to: "",
+      workPlace: "",
+      jobTitle: "",
+      cityWorkplace: "",
+      companyAddress: "",
+      salary: "",
       current: false,
       description: "",
       errors: {},
@@ -34,18 +32,16 @@ class AddExperience extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
-  notify = () => toast("Experience Details has been successfully Added");
 
   onSubmit(e) {
     e.preventDefault();
-    this.notify();
 
     const expData = {
-      company: this.state.company,
-      title: this.state.title,
-      location: this.state.location,
-      from: this.state.from,
-      to: this.state.to,
+      workPlace: this.state.workPlace,
+      jobTitle: this.state.jobTitle,
+      cityWorkplace: this.state.cityWorkplace,
+      companyAddress: this.state.companyAddress,
+      salary: this.state.salary,
       current: this.state.current,
       description: this.state.description,
     };
@@ -84,74 +80,119 @@ class AddExperience extends Component {
                   >
                     Go Back
                   </Link>
-                  <h1 className="display-4 text-center white-text">
-                    Add Experience
-                  </h1>
+                  <br />
+                  <h3 className="display-4 text-center white-text">
+                    Add Experience (अनुभव जोड़ें)
+                  </h3>
                   <p className="lead text-center white-text">
-                    Add any job or position that you have had in the past or
-                    current
+                    Add if you have any job or position that you have currently.
+                    <br />
+                    (यदि आपके पास वर्तमान में कोई नौकरी या पद है तो उसे जोड़ें।)
                   </p>
-                  <ToastContainer />
-                  <small className="d-block pb-3">* = required fields</small>
+                  <small className="d-block pb-3 white-text">
+                    * = required fields
+                  </small>
+                  <br />
+                  <br />
                   <form onSubmit={this.onSubmit}>
+                    <p className="white-text">
+                      कार्यस्थल का नाम (Workplace Name)
+                    </p>
                     <TextFieldGroup
-                      placeholder="* company (कंपनी)"
-                      name="company"
-                      value={this.state.company}
+                      placeholder="* कार्यस्थल का नाम (Workplace Name)"
+                      name="workPlace"
+                      value={this.state.workPlace}
                       onChange={this.onChange}
                     />
-                    {errors.company != null ? (
+                    {errors.workPlace != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.company}
+                        {errors.workPlace}
                       </Alert>
                     ) : (
                       ""
                     )}
+                    <p className="white-text">जॉब शीर्षक (Job jobTitle)</p>
                     <TextFieldGroup
-                      placeholder="* Job Title (जॉब शीर्षक)"
-                      name="title"
-                      value={this.state.title}
+                      placeholder="* जॉब शीर्षक (Job Title)"
+                      name="jobTitle"
+                      value={this.state.jobTitle}
                       onChange={this.onChange}
-                      error={errors.title}
+                      error={errors.jobTitle}
                     />
+                    <p className="white-text">
+                      कार्यस्थल शहर (City of Workplace)
+                    </p>
                     <TextFieldGroup
-                      placeholder="Location (स्थान)"
-                      name="location"
-                      value={this.state.location}
+                      placeholder="* कार्यस्थल शहर (City of Workplace)"
+                      name="cityWorkplace"
+                      value={this.state.cityWorkplace}
                       onChange={this.onChange}
-                      error={errors.location}
+                      error={errors.cityWorkplace}
                     />
-                    <h6 className="white-text">From Date</h6>
+                    <p className="white-text">
+                      कंपनी का पता (Address of workPlace)
+                    </p>
                     <TextFieldGroup
-                      name="from"
-                      type="date"
-                      value={this.state.from}
+                      placeholder="* कंपनी का पता (Address of workPlace)"
+                      name="address"
+                      value={this.state.address}
                       onChange={this.onChange}
-                      error={errors.from}
+                      error={errors.address}
                     />
-                    <h6 className="white-text">To Date</h6>
-                    <TextFieldGroup
-                      name="to"
-                      type="date"
-                      value={this.state.to}
+                    <p className="white-text">
+                      Salary Per Annum (प्रति वर्ष वेतन)
+                    </p>
+                    <select
+                      className="browser-default black-text"
+                      style={{ maxWidth: "300px" }}
+                      name="salary"
                       onChange={this.onChange}
-                      error={errors.to}
-                      disabled={this.state.disabled ? "disabled" : ""}
-                    />
-                    <div className="form-check mb-4">
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        name="current"
-                        value={this.state.current}
-                        checked={this.state.current}
-                        onChange={this.onCheck}
-                        id="current"
-                      />
-                      <label htmlFor="current" className="form-check-label">
-                        Current Job
-                      </label>
-                    </div>
+                    >
+                      <option value="" disabled selected>
+                        Choose your Salary (अपना वेतन चुनें)
+                      </option>
+                      <option value="2">
+                        less than 2 LPA (2 लाख से कम प्रतिवर्ष )
+                      </option>
+                      <option value="3">
+                        3 to 4 LPA (3 से 4 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="4">
+                        4 to 5 LPA (4 से 5 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="5">
+                        5 to 6 LPA (5 से 6 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="6">
+                        6 to 7 LPA (6 से 7 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="7">
+                        7 to 8 LPA (7 से 8 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="8">
+                        8 to 9 LPA (8 से 9 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="9">
+                        9 to 10 LPA (9 से 10 लाख प्रतिवर्ष )
+                      </option>
+                      <option value="10">
+                        10 to 11 LPA (10 से 11 लाख प्रतिवर्ष)
+                      </option>
+                      <option value="11">
+                        11 to 12 LPA (11 से 12 लाख प्रतिवर्ष)
+                      </option>
+                      <option value="12">
+                        12 to 15 LPA (12 से 15 लाख प्रतिवर्ष)
+                      </option>
+                      <option value="15">
+                        15 to 20 LPA (15 से 20 लाख प्रतिवर्ष)
+                      </option>
+                      <option value="20">
+                        More than 20 LPA (20 लाख से अधिक प्रतिवर्ष)
+                      </option>
+                    </select>
+                    <br />
+                    <br />
                     <TextAreaFieldGroup
                       placeholder="Job Description (नौकरी से संबंधित जानकारी)"
                       name="description"
@@ -161,13 +202,15 @@ class AddExperience extends Component {
                       className="white-text"
                       info="Tell us about the the position (हमें स्थिति के बारे में बताएं)"
                     />
-
-                    <input
-                      type="submit"
-                      value="Submit"
-                      className="btn btn-info btn-block mt-4"
-                      style={{ marginBottom: "20px" }}
-                    />
+                    <br />
+                    <center>
+                      <input
+                        type="submit"
+                        value="Submit"
+                        className="btn btn-info btn-block mt-4"
+                        style={{ marginBottom: "20px" }}
+                      />
+                    </center>
                   </form>
                 </div>
               </div>

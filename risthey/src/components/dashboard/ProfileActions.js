@@ -51,7 +51,7 @@ class ProfileActions extends React.Component {
               </Menu.Item>
               <Menu.Item key="2" icon={<ProfileOutlined />}>
                 आपकी बुनियादी जानकारी
-                <Link to="/edit-profile"></Link>
+                <Link to="/add-basic"></Link>
               </Menu.Item>
               <Menu.Item key="3" icon={<DesktopOutlined />}>
                 अनुभव जोड़ें

@@ -1,50 +1,81 @@
 import React, { Component } from "react";
-import { Select } from "antd";
+import { Select, Button } from "antd";
 
 const { Option } = Select;
 
 const city = [];
 
-city.push(<Option key="city1">Ahmedabad</Option>);
-city.push(<Option key="city2">Surat</Option>);
-city.push(<Option key="city3">Vadodara</Option>);
-city.push(<Option key="city4">Rajkot</Option>);
-city.push(<Option key="city5">Bhavnagar</Option>);
-city.push(<Option key="city6">Jamnagar</Option>);
-city.push(<Option key="city7">Junagadh</Option>);
-city.push(<Option key="city8">Gandhinagar</Option>);
-city.push(<Option key="city9">Gandhidham</Option>);
-city.push(<Option key="city10">Anand</Option>);
-
+city.push(<Option key="city1">Ahmedabad (अहमदाबाद)</Option>);
+city.push(<Option key="city2">Surat (सूरत)</Option>);
+city.push(<Option key="city3">Vadodara (वडोदरा)</Option>);
+city.push(<Option key="city4">Rajkot (राजकोट)</Option>);
+city.push(<Option key="city5">Bhavnagar (भावनगर)</Option>);
+city.push(<Option key="city6">Jamnagar (जामनगर)</Option>);
+city.push(<Option key="city7">Junagadh (जूनागढ़)</Option>);
+city.push(<Option key="city8">Gandhinagar (गांधीनगर)</Option>);
+city.push(<Option key="city9">Gandhidham (गांधीधाम)</Option>);
+city.push(<Option key="city10">Anand (आनंद)</Option>);
+city.push(<Option key="city11">Mumbai (मुंबई)</Option>);
+city.push(<Option key="city12">Hyderabad (हैदराबाद)</Option>);
+city.push(<Option key="city13">Bangalore (बैंगलोर)</Option>);
+city.push(<Option key="city14">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city15">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city16">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city17">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city18">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city19">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city20">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city21">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city22">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city23">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city24">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city25">Chennai (चेन्नई)</Option>);
+city.push(<Option key="city26">Chennai (चेन्नई)</Option>);
 const house = [];
 
-house.push(<Option key="house1">1 BHK House </Option>);
-house.push(<Option key="house2">2 BHK House </Option>);
-house.push(<Option key="house3">3 BHK House </Option>);
-house.push(<Option key="house4">4 BHK House </Option>);
-house.push(<Option key="house5">5 BHK House </Option>);
-house.push(<Option key="house11">5 BHK House+ </Option>);
-house.push(<Option key="house6">1 BHK Flat </Option>);
-house.push(<Option key="house7">2 BHK Flat </Option>);
-house.push(<Option key="house8">3 BHK Flat </Option>);
-house.push(<Option key="house9">4 BHK Flat </Option>);
-house.push(<Option key="house10">5 BHK Flat </Option>);
-house.push(<Option key="house12">5 BHK Flat+ </Option>);
+house.push(<Option key="house1">1 BHK House (1 BHK हाउस) </Option>);
+house.push(<Option key="house2">2 BHK House (2 BHK हाउस) </Option>);
+house.push(<Option key="house3">3 BHK House (3 BHK हाउस) </Option>);
+house.push(<Option key="house4">4 BHK House (4 BHK हाउस) </Option>);
+house.push(<Option key="house5">5 BHK House (5 BHK हाउस) </Option>);
+house.push(<Option key="house11">5 BHK House+ (5 BHK से अधिक हाउस) </Option>);
+house.push(<Option key="house6">1 BHK Flat (1 BHK फ्लैट) </Option>);
+house.push(<Option key="house7">2 BHK Flat (2 BHK फ्लैट) </Option>);
+house.push(<Option key="house8">3 BHK Flat (3 BHK फ्लैट) </Option>);
+house.push(<Option key="house9">4 BHK Flat (4 BHK फ्लैट) </Option>);
+house.push(<Option key="house10">5 BHK Flat (5 BHK फ्लैट) </Option>);
+house.push(<Option key="house12">5 BHK Flat+ (5 BHK फ्लैट) </Option>);
 
 const vehicle = [];
 
-vehicle.push(<Option key="vehicle1">2 wheeler Bike </Option>);
-vehicle.push(<Option key="vehicle3">4 wheeler Vehicle </Option>);
-vehicle.push(<Option key="vehicle2">2 wheeler Scooty </Option>);
+vehicle.push(<Option key="vehicle1">2 wheeler Bike (2 व्हीलर बाइक) </Option>);
+vehicle.push(
+  <Option key="vehicle3">4 wheeler Vehicle (4 व्हीलर वाहन) </Option>
+);
+vehicle.push(
+  <Option key="vehicle2">2 wheeler Scooty (2 व्हीलर स्कूटी ) </Option>
+);
 
 const income = [];
 
-income.push(<Option key="income1"> less than 3 LPA </Option>);
-income.push(<Option key="income3"> 3 LPA to 5 LPA </Option>);
-income.push(<Option key="income2"> 5 LPA to 10 LPA</Option>);
-income.push(<Option key="income4"> 10 LPA to 15 LPA</Option>);
-income.push(<Option key="income5"> 15 LPA to 20 LPA</Option>);
-income.push(<Option key="income6"> 20 LPA +</Option>);
+income.push(
+  <Option key="income1"> less than 3 LPA (3 लाख से कम प्रतिवर्ष) </Option>
+);
+income.push(
+  <Option key="income3"> 3 LPA to 5 LPA (3 लाख से 5 लाख प्रतिवर्ष) </Option>
+);
+income.push(
+  <Option key="income2"> 5 LPA to 10 LPA (5 लाख से 10 लाख प्रतिवर्ष)</Option>
+);
+income.push(
+  <Option key="income4"> 10 LPA to 15 LPA (10 लाख से 15 लाख प्रतिवर्ष)</Option>
+);
+income.push(
+  <Option key="income5"> 15 LPA to 20 LPA (15 लाख से 20 लाख प्रतिवर्ष)</Option>
+);
+income.push(
+  <Option key="income6"> 20 LPA + (20 लाख से अधिक प्रतिवर्ष)</Option>
+);
 
 const age = [];
 
@@ -107,6 +138,7 @@ class Search extends Component {
         <div className="bg"></div>
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
+
         <div className="card blue darken-1">
           <div className="card-content white-text">
             <h4 className="mb-4 white-text text-center">
@@ -191,6 +223,11 @@ class Search extends Component {
         >
           {fieldOfStudy}
         </Select>
+        <br />
+        <br />
+        <Button type="primary" block>
+          Submit (निवेदन करे)
+        </Button>
       </>
     );
   }

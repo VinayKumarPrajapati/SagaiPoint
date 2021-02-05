@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { deleteComment } from '../../actions/postActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { deleteComment } from "../../actions/postActions";
 
 class CommentItem extends Component {
   onDeleteClick(postId, commentId) {
@@ -19,7 +19,7 @@ class CommentItem extends Component {
               <img
                 className="rounded-circle d-none d-md-block"
                 src={comment.avatar}
-                alt=""
+                alt="avatar"
               />
             </a>
             <br />
@@ -47,11 +47,11 @@ CommentItem.propTypes = {
   deleteComment: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { deleteComment })(CommentItem);

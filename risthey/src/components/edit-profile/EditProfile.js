@@ -5,27 +5,25 @@ import PropTypes from "prop-types";
 import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import InputGroup from "../common/InputGroup";
-import SelectListGroup from "../common/SelectListGroup";
 import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
 import { Alert } from "@material-ui/lab";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 class CreateProfile extends Component {
-  notify = () => toast("Profile information is successfully updated");
-
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
       handle: "",
-      company: "",
-      website: "",
-      location: "",
+      gender: "",
+      phone: "",
+      profileImg: "",
+      phone2: "",
+      gotra: "",
+      userImage: "",
+      gotra2: "",
       status: "",
-      skills: "",
+      city: "",
+      status1: "",
       bio: "",
       twitter: "",
       facebook: "",
@@ -37,8 +35,11 @@ class CreateProfile extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onFileChange = this.onFileChange.bind(this);
   }
-
+  onFileChange(e) {
+    this.setState({ userImage: e.target.files[0] });
+  }
   componentDidMount() {
     this.props.getCurrentProfile();
   }
@@ -52,14 +53,20 @@ class CreateProfile extends Component {
       const profile = nextProps.profile.profile;
 
       // Bring skills array back to CSV
-      const skillsCSV = profile.skills.join(",");
+      // const skillsCSV = profile.skills.join(",");
 
       // If profile field doesnt exist, make empty string
-      profile.company = !isEmpty(profile.company) ? profile.company : "";
-      profile.website = !isEmpty(profile.website) ? profile.website : "";
-      profile.location = !isEmpty(profile.location) ? profile.location : "";
-
+      profile.gender = !isEmpty(profile.gender) ? profile.gender : "";
+      profile.phone = !isEmpty(profile.phone) ? profile.phone : "";
+      profile.phone2 = !isEmpty(profile.phone2) ? profile.phone2 : "";
+      profile.gotra = !isEmpty(profile.gotra) ? profile.gotra : "";
+      profile.gotra2 = !isEmpty(profile.gotra2) ? profile.gotra2 : "";
+      profile.userImage = !isEmpty(profile.userImage) ? profile.userImage : "";
+      profile.status = !isEmpty(profile.status) ? profile.status : "";
+      profile.city = !isEmpty(profile.city) ? profile.city : "";
+      profile.status1 = !isEmpty(profile.status1) ? profile.status1 : "";
       profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
@@ -80,12 +87,17 @@ class CreateProfile extends Component {
       // Set component fields state
       this.setState({
         handle: profile.handle,
-        company: profile.company,
-        website: profile.website,
-        location: profile.location,
+        gender: profile.gender,
+        phone: profile.phone,
+        phone2: profile.phone2,
+        gotra: profile.gotra,
+        gotra2: profile.gotra2,
+        // skills: skillsCSV,
         status: profile.status,
-        skills: skillsCSV,
+        city: profile.city,
+        status1: profile.status1,
         bio: profile.bio,
+
         twitter: profile.twitter,
         facebook: profile.facebook,
         linkedin: profile.linkedin,
@@ -97,16 +109,21 @@ class CreateProfile extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.notify();
 
     const profileData = {
       handle: this.state.handle,
-      company: this.state.company,
-      website: this.state.website,
-      location: this.state.location,
+      gender: this.state.gender,
+      phone: this.state.phone,
+      phone2: this.state.phone2,
+      gotra: this.state.gotra,
+      gotra2: this.state.gotra2,
+      userImage: this.state.userImage,
+      // skills: this.state.skills,
       status: this.state.status,
-      skills: this.state.skills,
+      city: this.state.city,
+      status1: this.state.status1,
       bio: this.state.bio,
+
       twitter: this.state.twitter,
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
@@ -114,7 +131,10 @@ class CreateProfile extends Component {
       instagram: this.state.instagram,
     };
 
-    this.props.createProfile(profileData, this.props.history);
+    const formData = new FormData();
+    formData.append("userImage", this.state.userImage);
+
+    this.props.createProfile(profileData, formData, this.props.history);
   }
 
   onChange(e) {
@@ -236,15 +256,17 @@ class CreateProfile extends Component {
                   <h2 className="display-4 text-center white-text">
                     Edit Profile (प्रोफ़ाइल परिवर्तन करें)
                   </h2>
-                  <small className="d-block pb-3">* = required fields</small>
-                  <ToastContainer />
+                  <small className="d-block pb-3">
+                    <p className="white-text">* = required fields</p>
+                  </small>
+
                   <form onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="* Profile Handle"
+                      placeholder="Profile Handle (दूसरा संपर्क नंबर)"
                       name="handle"
                       value={this.state.handle}
+                      type="hidden"
                       onChange={this.onChange}
-                      info="A unique handle for your profile URL. Your full name, company name, nickname"
                     />
                     {errors.handle != null ? (
                       <Alert variant="filled" severity="error">
@@ -253,14 +275,53 @@ class CreateProfile extends Component {
                     ) : (
                       ""
                     )}
-                    <SelectListGroup
-                      placeholder="Status"
-                      name="status"
-                      value={this.state.status}
+                    <TextFieldGroup
+                      placeholder="Phone Number- 2 (दूसरा संपर्क नंबर)"
+                      name="phone2"
+                      value={this.state.phone2}
                       onChange={this.onChange}
-                      options={options}
-                      info="Give us an idea about your job or businesss"
                     />
+                    {errors.phone2 != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.phone2}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <p className="text-warning">
+                      कृपया हमें अपने शहर के बारे में जानकारी दें।
+                    </p>
+                    <TextFieldGroup
+                      placeholder="your city name (आपके शहर का नाम)"
+                      name="city"
+                      value={this.state.city}
+                      onChange={this.onChange}
+                    />
+                    {errors.city != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.city}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <p className="white-text">
+                      Current Status (आपकी वर्तमान स्थिति / आप अभी क्या कर रहे
+                      हो?)
+                    </p>
+                    <label>
+                      <input name="status" type="radio" />
+                      <span className="white-text">Job (नौकरी)</span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="status" type="radio" />
+                      <span className="white-text">Business (व्यापार)</span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="status" type="radio" />
+                      <span className="white-text">Study (अध्ययन)</span>
+                    </label>
                     {errors.status != null ? (
                       <Alert variant="filled" severity="error">
                         {errors.status}
@@ -268,7 +329,9 @@ class CreateProfile extends Component {
                     ) : (
                       ""
                     )}
-                    <TextFieldGroup
+                    <br />
+                    <br />
+                    {/* <TextFieldGroup
                       placeholder="Company"
                       name="company"
                       value={this.state.company}
@@ -281,48 +344,39 @@ class CreateProfile extends Component {
                       </Alert>
                     ) : (
                       ""
-                    )}
-                    <TextFieldGroup
-                      placeholder="Website"
-                      name="website"
-                      value={this.state.website}
-                      onChange={this.onChange}
-                      info="Could be your own website or a company one"
-                    />
-                    {errors.website != null ? (
-                      <Alert variant="filled" severity="error">
-                        {errors.website}
-                      </Alert>
-                    ) : (
-                      ""
-                    )}
-                    <TextFieldGroup
-                      placeholder="Location"
-                      name="location"
-                      value={this.state.location}
-                      onChange={this.onChange}
-                      error={errors.location}
-                      info="City or city & state suggested (eg. Boston, MA)"
-                    />
-                    <TextFieldGroup
-                      placeholder="* Skills"
-                      name="skills"
-                      value={this.state.skills}
-                      onChange={this.onChange}
-                      error={errors.skills}
-                      info="Please use comma separated values (eg.
-                    HTML,CSS,JavaScript,PHP"
-                    />
-
+                    )} */}
+                    <p className="white-text">
+                      Current Status (आपकी वर्तमान स्थिति / आप अभी क्या कर रहे
+                      हो?)
+                    </p>
+                    <label>
+                      <input name="status1" type="radio" />
+                      <span className="white-text">Job (नौकरी)</span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="status1" type="radio" />
+                      <span className="white-text">Business (व्यापार)</span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="status1" type="radio" />
+                      <span className="white-text">Study (अध्ययन)</span>
+                    </label>
+                    <br />
+                    <br />
+                    <input type="file" onChange={this.onFileChange} />
+                    <br />
+                    <br />
+                    <p>अगर आपसे जुड़ी कोई जानकारी आप देना चाहते हैं।</p>
                     <TextAreaFieldGroup
-                      placeholder="Short Bio"
+                      placeholder="Please write it here. (कृपया उसे यहां लिखें।)"
                       name="bio"
                       value={this.state.bio}
                       onChange={this.onChange}
                       error={errors.bio}
                       info="Tell us a little about yourself"
                     />
-
                     <div className="mb-3">
                       <button
                         type="button"
@@ -336,16 +390,19 @@ class CreateProfile extends Component {
                       >
                         Add Social Network Links
                       </button>
-                      <span className="text-muted">Optional</span>
+                      <span className="text-muted">
+                        &nbsp;&nbsp;&nbsp; Optional
+                      </span>
                     </div>
                     {socialInputs}
-
-                    <input
-                      type="submit"
-                      value="Submit"
-                      className="btn btn-info btn-block mt-4 "
-                      style={{ marginBottom: "20px" }}
-                    />
+                    <center>
+                      <input
+                        type="submit"
+                        value="Submit"
+                        className="btn btn-info btn-block mt-4 "
+                        style={{ marginBottom: "20px" }}
+                      />
+                    </center>
                   </form>
                 </div>
               </div>

@@ -41,203 +41,7 @@ class Landing extends Component {
   render() {
     return (
       <>
-        {/* <div className="bg"></div>
-        <div className="bg bg2"></div>
-        <div className="bg bg3"></div>
-        <div className="landing">
-          <br />
-
-          <div className="dark-overlay landing-inner text-light">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12 text-center">
-                  <h1 className="display-3 mb-4 white-text">सगाई पॉइंट</h1>
-                  <p className="lead">
-                    <div className="card-panel indigo accent-4 white-text center-align">
-                      <h4 className="white-text center-align">
-                        एक प्रोफ़ाइल / पोर्टफोलियो बनाएं, मेटरमोनियल रिज्यूमे
-                        साझा करें और अपने भविष्य के जीवन-साथी के साथ जुड़ें
-                      </h4>
-                    </div>
-                  </p>
-                  <hr />
-
-                  {/* <div className="row">
-                    <div className="col s12 m6 l4">
-                      <div className="card">
-                        <div className="card-content">
-                          <p>
-                            I am a very simple card. I am good at containing
-                            small bits of information. I am convenient because I
-                            require little markup to use effectively.
-                          </p>
-                        </div>
-                        <div className="card-tabs">
-                          <ul className="tabs tabs-fixed-width">
-                            <li className="tab">
-                              <Link to="#test4">Test 1</Link>
-                            </li>
-                            <li className="tab">
-                              <Link className="active" to="#test5">
-                                Test 2
-                              </Link>
-                            </li>
-                            <li className="tab">
-                              <Link to="#test6">Test 3</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="card-content grey lighten-4">
-                          <div id="test4">Test 1</div>
-                          <div id="test5">Test 2</div>
-                          <div id="test6">Test 3</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col s12 m6 l4">
-                      
-                      <div className="card">
-                        <div className="card-content">
-                          <p>
-                            I am a very simple card. I am good at containing
-                            small bits of information. I am convenient because I
-                            require little markup to use effectively.
-                          </p>
-                        </div>
-                        <div className="card-tabs">
-                          <ul className="tabs tabs-fixed-width">
-                            <li className="tab">
-                              <Link to="#test4">Test 1</Link>
-                            </li>
-                            <li className="tab">
-                              <Link className="active" to="#test5">
-                                Test 2
-                              </Link>
-                            </li>
-                            <li className="tab">
-                              <Link to="#test6">Test 3</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="card-content grey lighten-4">
-                          <div id="test4">Test 1</div>
-                          <div id="test5">Test 2</div>
-                          <div id="test6">Test 3</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col s12 m6 l4">
-                      
-                      <div className="card">
-                        <div className="card-content">
-                          <p>
-                            I am a very simple card. I am good at containing
-                            small bits of information. I am convenient because I
-                            require little markup to use effectively.
-                          </p>
-                        </div>
-                        <div className="card-tabs">
-                          <ul className="tabs tabs-fixed-width">
-                            <li className="tab">
-                              <Link to="#test4">Test 1</Link>
-                            </li>
-                            <li className="tab">
-                              <Link className="active" to="#test5">
-                                Test 2
-                              </Link>
-                            </li>
-                            <li className="tab">
-                              <Link to="#test6">Test 3</Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="card-content grey lighten-4">
-                          <div id="test4">Test 1</div>
-                          <div id="test5">Test 2</div>
-                          <div id="test6">Test 3</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
-        {/* <Link
-                    to="/register"
-                    className="btn btn-primary text-white"
-                    style={{ marginTop: "20px" }}
-                  >
-                    रजिस्टर करें
-                  </Link>
-                  <Link
-                    to="/login"
-                    className="btn btn-primary text-white"
-                    style={{ marginLeft: "20px", marginTop: "20px" }}
-                  >
-                    लॉग इन करें
-                  </Link>
-                </div>
-                <br />
-              </div>
-            </div>
-          </div> 
-        </div> */}
-        {/* <div className="navbar navbar-invers menu-wrap">
-          <div className="navbar-header text-center">
-            <Link className="navbar-brand logo-right" to="javascript:void(0)">
-              <i className="mdi-image-timelapse"></i>सगाई पॉइंट
-            </Link>
-          </div>
-          <ul className="nav navbar-nav main-navigation">
-            <li className="active">
-              <Link to="#home">Home</Link>
-            </li>
-            <li>
-              <Link to="#features">Features</Link>
-            </li>
-            <li>
-              <Link to="#why">why</Link>
-            </li>
-            <li>
-              <Link to="#screenshot">Screenshots</Link>
-            </li>
-            <li>
-              <Link to="#testimonial">Testimonial</Link>
-            </li>
-            <li>
-              <Link to="#clients">contract</Link>
-            </li>
-          </ul>
-          <button className="close-button" id="close-button">
-            Close Menu
-          </button>
-        </div>
-
-        <div className="content-wrap"> */}
-        {/*       <div className="container service">
-          <div className="card-panel indigo accent-4">
-            <h4 className=" white-text center-align">
-              सगाई पॉइंट में रजिस्टर क्यों करना चाहिए?
-            </h4>
-          </div>
-
-          <div className="row">
-            <div className="col s12 m4 center-align"></div>
-
-           </div>
-        </div>
-        */}
         <section className="slider pink lighten-3">
-          {/* <div className="row">
-            <div class="col s4">
-              <img className="responsive-img" src={wedImg} alt="wedding img" />
-            </div>
-            <div class="col s4">
-              <img className="responsive-img" src={wedImg1} alt="wedding img" />
-            </div>
-            <div class="col s4">
-              <img className="responsive-img" src={wedImg2} alt="wedding img" />
-            </div>
-          </div> */}
           <div className="carousel">
             <Link className="carousel-item" to="">
               <img src={wedImg} alt="wedding image" />
@@ -250,39 +54,12 @@ class Landing extends Component {
             </Link>
           </div>
         </section>
-        {/* <ul className="slides">
-            <li>
-              <img src={wedImg} alt="" />
-              <div className="caption center-align">
-                <h2></h2>
-                <h5 className="light grey-text text-lighten-3 hide-on-small-only"></h5>
-                <Link to="#" className="btn btn-large"></Link>
-              </div>
-            </li>
-            <li>
-              <img src={require("../../img/wedding-1.jpg")} alt="" />
-              <div className="caption left-align">
-                <h2></h2>
-                <h5 className="light grey-text text-lighten-3 hide-on-small-only"></h5>
-                <Link to="#" className="btn btn-large"></Link>
-              </div>
-            </li>
-            <li>
-              <img src="https://image.ibb.co/mbCVnH/resort3.jpg" alt="" />
-              <div className="caption right-align">
-                <h2></h2>
-                <h5 className="light grey-text text-lighten-3 hide-on-small-only"></h5>
-                <Link to="#" className="btn btn-large"></Link>
-              </div>
-            </li>
-          </ul> */}
-
         <section className="section section-search teal darken-1 white-text center scrollspy">
           <div className="container">
             <div className="row">
               <div className="col s12">
                 <h5 className="white-text">
-                  हम समाज को साथ लाते हैं। आप देश भर में रहने वाले मारु कुंभार
+                  हम समाज को साथ लाते हैं। आप देश भर में रहने वाले मारु कुम्हार
                   (प्रजापति) समाज के लोगों में से सबसे अच्छा मैच पा सकते हैं।
                 </h5>
               </div>
@@ -419,7 +196,7 @@ class Landing extends Component {
             </div>
             <div className="row">
               <div className="col s12 center">
-                <Link to="" className="btn btn-large grey darken-3">
+                <Link to="/#" className="btn btn-large grey darken-3">
                   <i className="material-icons left">phone</i>हमें अभी फ़ोन करें
                   6239009974 पर
                 </Link>
@@ -433,6 +210,11 @@ class Landing extends Component {
               <div className="col s12">
                 <h4>Follow SagaiPoint</h4>
                 <br />
+                <Link to="https://tinyurl.com/sagaipoint" target="_blank">
+                  <h4 className="white-text">
+                    आसान फार्म भरने के लिए यहाँ क्लिक करें।
+                  </h4>
+                </Link>
                 <br />
                 <h4 className="white-text">
                   सर्वश्रेष्ठ मैच और सर्वश्रेष्ठ सेवा के लिए।
@@ -451,12 +233,14 @@ class Landing extends Component {
                   <p>बेझिझक अपने सवाल संदेश में लिखें।</p>
                 </div>
                 <ul className="collection with-header">
-                  <li className="collection-header">
+                  <div className="collection-header">
                     <h4>Location</h4>
-                  </li>
-                  <li className="collection-item">अहमदाबाद</li>
-                  <li className="collection-item">गुजरात, भारत</li>
-                  <li className="collection-item">6239009974 पर संपर्क करें</li>
+                  </div>
+                  <div className="collection-item">अहमदाबाद</div>
+                  <div className="collection-item">गुजरात, भारत</div>
+                  <div className="collection-item">
+                    6239009974 पर संपर्क करें
+                  </div>
                 </ul>
               </div>
               <div className="col s12 m6">
@@ -521,28 +305,24 @@ class Landing extends Component {
               </div>
               <div className="col l4 offset-l2 s12">
                 <h5 className="white-text">कृपया अपनी ईमेल आईडी यहाँ लिखें।</h5>
-                <ul>
-                  <li>
-                    <input type="text" />
-                  </li>
-                  <br />
-                  <br />
-                  <li>
-                    <input
-                      type="submit"
-                      className="waves-effect waves-light btn"
-                      style={{ marginBottom: "20px" }}
-                      value="भेजें (SEND US)"
-                    ></input>
-                  </li>
-                </ul>
+
+                <input type="text" />
+
+                <br />
+                <br />
+                <input
+                  type="submit"
+                  className="waves-effect waves-light btn"
+                  style={{ marginBottom: "20px" }}
+                  value="भेजें (SEND US)"
+                ></input>
               </div>
             </div>
           </div>
           <div className="footer-copyright">
             <div className="container mdl-cell mdl-cell--4-col">
               सगाई पॉइंट प्राइवेट लिमिटेड
-              <Link className="grey-text text-lighten-4 right" href="#!">
+              <Link className="grey-text text-lighten-4 right" to="/#">
                 SagaiPoint Pvt. Ltd.
               </Link>
             </div>

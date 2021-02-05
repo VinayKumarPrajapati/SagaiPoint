@@ -7,6 +7,7 @@ const TextFieldGroup = ({
   type,
   onChange,
   disabled,
+  id,
   icon,
 }) => {
   return (
@@ -14,7 +15,7 @@ const TextFieldGroup = ({
       <i className="material-icons prefix">{icon}</i>
       <input
         type={type}
-        id="form1Example1"
+        id={id}
         name={name}
         value={value}
         onChange={onChange}
@@ -31,6 +32,7 @@ TextFieldGroup.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.string,
 };

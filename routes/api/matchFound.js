@@ -1,5 +1,4 @@
 const express = require("express");
-const { profile_url } = require("gravatar");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");

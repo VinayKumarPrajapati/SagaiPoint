@@ -7,6 +7,7 @@ import { clearCurrentProfile } from "../../actions/profileActions";
 import { clearCurrentMatch } from "../../actions/matchActions";
 import logo from "./sagai-logo.png";
 import "./NavbarJS.js";
+
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -25,11 +26,7 @@ class Navbar extends Component {
             आवश्यकताएं जोड़ें
           </Link>
         </li>
-        <li>
-          <Link className="nav-link" to="/gallery">
-            गैलरी
-          </Link>
-        </li>
+
         <li>
           <Link className="nav-link" to="/contact">
             कांटेक्ट
@@ -51,14 +48,8 @@ class Navbar extends Component {
             className="nav-link"
             onClick={this.onLogoutClick.bind(this)}
           >
-            <img
-              className="rounded-circle"
-              src={user.avatar}
-              alt={user.name}
-              style={{ width: "25px" }}
-              title="You must have a Gravatar connected to your email to display an image"
-            />
-            &nbsp; &nbsp; Logout (लॉग आउट)
+            {user.name}
+            &nbsp; &nbsp; Logout
           </Link>
         </li>
       </>
@@ -81,49 +72,6 @@ class Navbar extends Component {
 
     return (
       <>
-        {/* <div ClassName="navbar-fixed">
-          <nav>
-            <div className="nav-wrapper">
-              <Link to="/" className="brand-logo">
-                सगाई पॉइंट
-              </Link>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
-                  <Link to="/profiles" data-target="mobile-nav">
-                    सभी मैच
-                  </Link>
-                </li>
-                {isAuthenticated ? authLinks : guestLinks}
-              </ul>
-            </div>
-          </nav>
-        </div> */}
-        {/* <nav className="navbar navbar-expand-lg navbar-dark teal mb-4">
-          <Link className="navbar-brand" to="/">
-            सगाई पॉइंट
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li>
-                <Link className="nav-link" to="/profiles">
-                  सभी मैच
-                </Link>
-              </li>
-              {isAuthenticated ? authLinks : guestLinks}
-            </ul>
-          </div>
-        </nav> */}
         <div className="navbar-fixed">
           <nav className="teal">
             <div className="container">
@@ -157,7 +105,7 @@ class Navbar extends Component {
           {/* <li>
             <Link to="/profiles"> सभी मैच</Link>
           </li> */}
-          <li>{isAuthenticated ? authLinks : guestLinks}</li>
+          {isAuthenticated ? authLinks : guestLinks}
         </ul>
       </>
     );

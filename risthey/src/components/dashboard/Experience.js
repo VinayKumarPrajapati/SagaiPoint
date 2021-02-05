@@ -5,8 +5,6 @@ import { deleteExperience } from "../../actions/profileActions";
 import { Table } from "antd";
 import reqwest from "reqwest";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 const getRandomuserParams = (params) => ({
   results: params.pagination.pageSize,
   page: params.pagination.current,
@@ -14,10 +12,8 @@ const getRandomuserParams = (params) => ({
 });
 class Experience extends Component {
   onDeleteClick(id) {
-    this.notify();
     this.props.deleteExperience(id);
   }
-  notify = () => toast("Experience Details has been successfully deleted");
 
   state = {
     data: [],
@@ -120,7 +116,6 @@ class Experience extends Component {
             <h4 className="white-text ">नौकरी / व्यवसाय संबंधित जानकारी</h4>
           </div>
         </div>
-        <ToastContainer />
 
         <Table
           dataSource={this.props.experience}

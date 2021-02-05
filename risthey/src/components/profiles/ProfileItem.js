@@ -67,7 +67,7 @@ class ProfileItem extends Component {
                   <p className="text-muted">
                     {profile.status} <span>| </span>
                     <span>
-                      <Link to="" className="text-pink">
+                      <Link to="/" className="text-pink">
                         {isEmpty(profile.company) ? (
                           ""
                         ) : (

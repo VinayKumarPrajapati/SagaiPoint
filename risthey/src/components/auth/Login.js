@@ -5,8 +5,6 @@ import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
 import { Alert } from "@material-ui/lab";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 class Login extends Component {
   constructor() {
     super();
@@ -53,7 +51,6 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
-    const notify = (msg) => toast(msg);
 
     return (
       <>
@@ -75,6 +72,7 @@ class Login extends Component {
                   <TextFieldGroup
                     placeholder="(संपर्क नंबर) Phone number"
                     name="phoneNumber"
+                    id="phone"
                     value={this.state.phoneNumber}
                     onChange={this.onChange}
                     icon="local_phone"
@@ -92,6 +90,7 @@ class Login extends Component {
                     placeholder="(पासवर्ड) Password "
                     name="password"
                     type="password"
+                    id="pass"
                     value={this.state.password}
                     onChange={this.onChange}
                     icon="lock_outline"

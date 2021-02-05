@@ -19,6 +19,7 @@ import Search from "./components/layout/Search";
 import MatchForYou from "./components/layout/MatchForYou";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
+import AddBasic from "./components/add-credentials/AddBasic";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import AddFamily from "./components/add-credentials/AddFamily";
@@ -93,6 +94,9 @@ class App extends Component {
                   path="/edit-profile"
                   component={EditProfile}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/add-basic" component={AddBasic} />
               </Switch>
               <Switch>
                 <PrivateRoute

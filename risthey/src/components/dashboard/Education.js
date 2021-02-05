@@ -4,14 +4,10 @@ import PropTypes from "prop-types";
 import { deleteEducation } from "../../actions/profileActions";
 import { Table } from "antd";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 class Education extends Component {
   onDeleteClick(id) {
-    this.notify();
     this.props.deleteEducation(id);
   }
-  notify = () => toast("Education Details has been successfully deleted");
 
   render() {
     this.props.education.map(function (edu, count = 0) {
@@ -80,7 +76,6 @@ class Education extends Component {
             <h4 className="white-text">शिक्षा से संबंधित जानकारी</h4>
           </div>
         </div>
-        <ToastContainer />
         <Table dataSource={this.props.education} columns={columns}></Table>
       </>
     );

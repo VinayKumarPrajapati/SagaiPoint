@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Alert } from "@material-ui/lab";
 import { addEducation } from "../../actions/profileActions";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 class AddEducation extends Component {
   constructor(props) {
     super(props);
@@ -33,11 +31,9 @@ class AddEducation extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
-  notify = () => toast("Education Details has been successfully Added");
 
   onSubmit(e) {
     e.preventDefault();
-    this.notify();
 
     const eduData = {
       school: this.state.school,
@@ -88,18 +84,19 @@ class AddEducation extends Component {
                   </Link>
                   <br />
                   <br />
-                  <h1 className="display-4 text-center white-text">
-                    शिक्षा जोड़ें
-                  </h1>
-                  <p className="lead text-center white-text">
-                    किसी भी स्कूल, बूटकैंप, आदि को जोड़ें
-                  </p>
-                  <ToastContainer />
+                  <center>
+                    <h1 className="display-4 text-center white-text">
+                      शिक्षा जोड़ें
+                    </h1>
+                    <p className="lead text-center white-text">
+                      किसी भी स्कूल, बूटकैंप, आदि को जोड़ें
+                    </p>
+                  </center>
 
                   <small className="d-block pb-3">* = आवश्यक जानकारी</small>
                   <form onSubmit={this.onSubmit}>
                     <TextFieldGroup
-                      placeholder="* स्कूल"
+                      placeholder="* स्कूल / विश्वविद्यालय का नाम (School / University)"
                       name="school"
                       value={this.state.school}
                       onChange={this.onChange}
@@ -112,7 +109,7 @@ class AddEducation extends Component {
                       ""
                     )}
                     <TextFieldGroup
-                      placeholder="* डिग्री या प्रमाणन"
+                      placeholder="* डिग्री या प्रमाणन (Degree)"
                       name="degree"
                       value={this.state.degree}
                       onChange={this.onChange}
@@ -198,12 +195,14 @@ class AddEducation extends Component {
                     ) : (
                       ""
                     )}
-                    <input
-                      type="submit"
-                      value="Submit"
-                      className="btn btn-info btn-block mt-4 valign-wrapper"
-                      style={{ marginBottom: "20px" }}
-                    />
+                    <center>
+                      <input
+                        type="submit"
+                        value="Submit"
+                        className="btn btn-info btn-block mt-4 valign-wrapper"
+                        style={{ marginBottom: "20px" }}
+                      />
+                    </center>
                   </form>
                 </div>
               </div>

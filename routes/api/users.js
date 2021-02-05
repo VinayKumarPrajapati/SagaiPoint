@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
@@ -30,16 +29,10 @@ router.post("/register", (req, res) => {
         "Phone number already exists. if you have not registered already contact us. at 6239009974 (फ़ोन नंबर पहले से मौजूद है। यदि आपने रजिस्टर नहीं किया है तो हमसे संपर्क करें। 6239009974 पर)";
       return res.status(400).json(errors);
     } else {
-      const avatar = gravatar.url(req.body.phoneNumber, {
-        s: "200", // Size
-        r: "pg", // Rating
-        d: "mm", // Default
-      });
-
       const newUser = new User({
         name: req.body.name,
         phoneNumber: req.body.phoneNumber,
-        avatar,
+
         password: req.body.password,
       });
 
@@ -83,7 +76,7 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         // User Matched
-        const payload = { id: user.id, name: user.name, avatar: user.avatar }; // Create JWT Payload
+        const payload = { id: user.id, name: user.name }; // Create JWT Payload
 
         // Sign Token
         jwt.sign(

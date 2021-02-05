@@ -16,26 +16,28 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "bootstrap": "^4.5.3",
+    "cloudinary-react": "^1.6.8",
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "firebase": "^8.2.1",
-    "gravatar": "^1.8.1",
+    "firebase": "^8.2.5",
+    "gridfs-stream": "^1.1.1",
     "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
-    "materialize-css": "^1.0.0-rc.2",
-    "mongoose": "^5.10.15",
+    "materialize-css": "^1.0.0",
+    "mongoose": "^5.11.14",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.2.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "redux-devtools-extension": "^2.13.8",
+    "request": "^2.79.0",
     "reqwest": "^2.0.5",
-    "validate-phone-number-node-js": "0.0.1",
-    "validator": "^13.1.17"
+    "validator": "^13.5.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.7"
   }
 }

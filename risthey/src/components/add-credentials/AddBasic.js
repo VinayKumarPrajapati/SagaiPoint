@@ -6,15 +6,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Alert } from "@material-ui/lab";
 import { addBasic } from "../../actions/profileActions";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 class AddBasic extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gotra: "",
+      engaged: "",
       degree: "",
-      fieldofstudy: "",
+      totalSiblings: "",
+      specialEnable: "",
       from: "",
       to: "",
       current: false,
@@ -33,16 +32,15 @@ class AddBasic extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
-  notify = () => toast("Basic Details has been successfully Added");
 
   onSubmit(e) {
     e.preventDefault();
-    this.notify();
 
     const eduData = {
-      gotra: this.state.gotra,
+      engaged: this.state.engaged,
       degree: this.state.degree,
-      fieldofstudy: this.state.fieldofstudy,
+      totalSiblings: this.state.totalSiblings,
+      specialEnable: this.state.specialEnable,
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
@@ -85,88 +83,220 @@ class AddBasic extends Component {
                   </Link>
                   <br />
                   <br />
-                  <h1 className="display-4 text-center white-text">
-                    शिक्षा जोड़ें
-                  </h1>
+                  <h2 className="display-4 text-center white-text">
+                    बुनियादी जानकारी जोड़ें
+                  </h2>
                   <p className="lead text-center white-text">
-                    किसी भी स्कूल, बूटकैंप, आदि को जोड़ें
+                    आपके संबंध में बुनियादी जानकारी।
                   </p>
-                  <ToastContainer />
 
-                  <small className="d-block pb-3">* = आवश्यक जानकारी</small>
+                  <small className="d-block pb-3 white-text">
+                    * = आवश्यक जानकारी
+                  </small>
+                  <br />
+
                   <form onSubmit={this.onSubmit}>
-                    <TextFieldGroup
-                      placeholder="* स्कूल"
-                      name="gotra"
-                      value={this.state.gotra}
+                    <p className="white-text">
+                      Write height in terms of centimetre. (सेंटीमीटर के संदर्भ
+                      में ऊंचाई लिखें।)
+                    </p>
+                    <select
+                      className="browser-default black-text"
+                      style={{ maxWidth: "300px" }}
+                      name="height"
                       onChange={this.onChange}
-                    />
-                    {errors.gotra != null ? (
+                    >
+                      <option value="" disabled selected>
+                        Choose your Height (अपनी ऊंचाई चुनें)
+                      </option>
+                      <option value="145">145-150</option>
+                      <option value="150">150-155</option>
+                      <option value="155">155-160</option>
+                      <option value="160">160-165</option>
+                      <option value="165">165-170</option>
+                      <option value="170">170-175</option>
+                      <option value="175">175-180</option>
+                      <option value="180">180-185</option>
+                      <option value="185">185-190</option>
+                      <option value="190">190-195</option>
+                      <option value="195">195-200</option>
+                      <option value="200">200+</option>
+                    </select>
+                    <p className="white-text">
+                      Write weight in terms of kg. (किलो के हिसाब से वजन लिखिए।)
+                    </p>
+                    <select
+                      className="browser-default black-text"
+                      style={{ maxWidth: "300px" }}
+                      name="weight"
+                      onChange={this.onChange}
+                    >
+                      <option value="" disabled selected>
+                        Choose your Weight (अपना वजन चुनें)
+                      </option>
+                      <option value="30">30-35</option>
+                      <option value="35">35-40</option>
+                      <option value="40">40-45</option>
+                      <option value="45">45-50</option>
+                      <option value="50">50-55</option>
+                      <option value="55">55-60</option>
+                      <option value="60">60-65</option>
+                      <option value="65">65-70</option>
+                      <option value="70">70-75</option>
+                      <option value="75">75-80</option>
+                      <option value="80">80-85</option>
+                      <option value="85">85-90</option>
+                      <option value="90">90-95</option>
+                      <option value="95">95-100</option>
+                      <option value="100">100-105</option>
+                      <option value="105">105+</option>
+                    </select>
+                    <br />
+                    <br />
+                    <p className="white-text">
+                      Had engagement? (पहले सगाई की थी?)
+                    </p>
+                    <label>
+                      <input name="engaged" type="radio" value="Yes" />
+                      <span className="white-text">Yes </span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="engaged" type="radio" value="No" />
+                      <span className="white-text">No </span>
+                    </label>
+                    {errors.engaged != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.gotra}
+                        {errors.engaged}
                       </Alert>
                     ) : (
                       ""
                     )}
-                    <TextFieldGroup
-                      placeholder="* डिग्री या प्रमाणन"
-                      name="degree"
-                      value={this.state.degree}
-                      onChange={this.onChange}
-                    />
-                    {errors.degree != null ? (
+                    <br /> <br />
+                    <br />
+                    <p className="white-text">
+                      Had married? (पहले शादी की थी?)
+                    </p>
+                    <label>
+                      <input name="married" type="radio" value="Yes" />
+                      <span className="white-text">Yes </span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="married" type="radio" value="No" />
+                      <span className="white-text">No </span>
+                    </label>
+                    {errors.married != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.degree}
-                      </Alert>
-                    ) : (
-                      ""
-                    )}
-                    <TextFieldGroup
-                      placeholder="* अध्ययन क्षेत्र (Field of Study)"
-                      name="fieldofstudy"
-                      value={this.state.fieldofstudy}
-                      onChange={this.onChange}
-                    />
-                    {errors.fieldofstudy != null ? (
-                      <Alert variant="filled" severity="error">
-                        {errors.fieldofstudy}
+                        {errors.married}
                       </Alert>
                     ) : (
                       ""
                     )}
                     <br />
-                    <h6 className="white-text">तारीख से (From Date)</h6>
-
+                    <br />
+                    <br />
+                    <p className="white-text">
+                      Are you staying with your parents? (क्या आप अपने माता-पिता
+                      के साथ रहते हैं?)
+                    </p>
+                    <label>
+                      <input name="stayWithParents" type="radio" value="Yes" />
+                      <span className="white-text">Yes </span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="stayWithParents" type="radio" value="No" />
+                      <span className="white-text">No </span>
+                    </label>
+                    {errors.stayWithParents != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.stayWithParents}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <br /> <br />
+                    <br />
+                    <p className="white-text">
+                      Number of your siblings (आपके भाई बहन की संख्या)
+                    </p>
                     <TextFieldGroup
-                      name="from"
-                      type="date"
-                      value={this.state.from}
+                      placeholder="* कुल भाई बहन
+                      (Total Siblings)"
+                      name="totalSiblings"
+                      value={this.state.totalSiblings}
                       onChange={this.onChange}
                     />
-                    {errors.from != null ? (
+                    {errors.totalSiblings != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.from}
+                        {errors.totalSiblings}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <p className="white-text">
+                      Other Details Related to Family (परिवार से संबंधित अन्य
+                      जानकारी)
+                    </p>
+                    <TextFieldGroup
+                      name="familyInfo"
+                      type="text"
+                      placeholder="आपके परिवार से संबंधित जानकारी। (info related to your family)"
+                      value={this.state.familyInfo}
+                      onChange={this.onChange}
+                    />
+                    {errors.familyInfo != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.familyInfo}
+                      </Alert>
+                    ) : (
+                      ""
+                    )}
+                    <p className="white-text">
+                      Are you specially enabled? (क्या आप विशेष रूप से सक्षम
+                      हैं?)
+                    </p>
+                    <label>
+                      <input name="specialEnable" type="radio" value="Yes" />
+                      <span className="white-text">Yes </span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="specialEnable" type="radio" value="No" />
+                      <span className="white-text">No </span>
+                    </label>
+                    {errors.specialEnable != null ? (
+                      <Alert variant="filled" severity="error">
+                        {errors.specialEnable}
                       </Alert>
                     ) : (
                       ""
                     )}
                     <br />
-                    <h6 className="white-text">तारीख तक (To Date)</h6>
-                    <TextFieldGroup
-                      name="to"
-                      type="date"
-                      value={this.state.to}
-                      onChange={this.onChange}
-                      disabled={this.state.disabled ? "disabled" : ""}
-                    />
-                    {errors.to != null ? (
+                    <br />
+                    <p className="white-text">
+                      Do You Wear Specs (क्या आप चश्मा पहनते हैं?)
+                    </p>
+                    <label>
+                      <input name="specs" type="radio" value="Yes" />
+                      <span className="white-text">Yes </span>
+                    </label>
+                    &nbsp; &nbsp; &nbsp;
+                    <label>
+                      <input name="specs" type="radio" value="No" />
+                      <span className="white-text">No </span>
+                    </label>
+                    {errors.specs != null ? (
                       <Alert variant="filled" severity="error">
-                        {errors.to}
+                        {errors.specs}
                       </Alert>
                     ) : (
                       ""
                     )}
-                    <div className="form-check mb-4">
+                    <br />
+                    <br />
+                    {/* <div className="form-check mb-4">
                       <input
                         type="checkbox"
                         className="form-check-input"
@@ -180,13 +310,13 @@ class AddBasic extends Component {
                         htmlFor="current"
                         className="form-check-label"
                       ></label>
-                    </div>
+                    </div> */}
                     <TextAreaFieldGroup
                       placeholder=" उपलब्धि"
                       name="description"
                       value={this.state.description}
                       onChange={this.onChange}
-                      info="मुझे उपलब्धि या किसी बड़ी बात के बारे में बताएं"
+                      info="हमें उपलब्धि या किसी बड़ी बात के बारे में बताएं"
                     />
                     {errors.description != null ? (
                       <Alert variant="filled" severity="error">
@@ -195,12 +325,14 @@ class AddBasic extends Component {
                     ) : (
                       ""
                     )}
-                    <input
-                      type="submit"
-                      value="Submit"
-                      className="btn btn-info btn-block mt-4 valign-wrapper"
-                      style={{ marginBottom: "20px" }}
-                    />
+                    <center>
+                      <input
+                        type="submit"
+                        value="Submit"
+                        className="btn btn-info btn-block mt-4 valign-wrapper"
+                        style={{ marginBottom: "20px" }}
+                      />
+                    </center>
                   </form>
                 </div>
               </div>

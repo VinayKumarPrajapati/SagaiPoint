@@ -190,21 +190,35 @@ class ProfileHeader extends Component {
             </div>
           </div>
         </div> */}
-        <div className="card-container">
+        <div className="card-container" style={{ marginTop: "50px" }}>
           <span className="pro">PRO</span>
-          <img className="round" src={profile.user.avatar} alt="User Photo" />
-          <h3 className="white-text">{profile.user.name}</h3>
-          <h6>New York</h6>
+          <img className="round" src="" alt="User Photo" />
+          <h3 className="white-text"></h3>
+          <h6 className="teal">New York</h6>
           <p>
-            {isEmpty(profile.bio) ? null : <span>at {profile.bio}</span>} <br />
+            {/* {isEmpty(profile.bio) ? (
+              "Please Add Details in Bio कृपया बायो में जानकारी जोड़ें।"
+            ) : (
+              <span>at {profile.bio}</span>
+            )} */}
+            <br />
             front-end developer
+            {/* {isEm} */}
           </p>
           <div className="buttons">
             <button className="primary">Message</button>
-            <button className="primary ghost">Following</button>
+            <button className="primary ghost" style={{ marginLeft: "50px" }}>
+              Following
+            </button>
           </div>
           <div className="skills">
-            <h6>Skills</h6>
+            <h6 className="white-text">Gotra (गोत्र) </h6>
+            <br />
+            <h8 className="white-text">
+              Total Family Member (कुल परिवार के सदस्य)
+            </h8>
+            <br />
+
             <ul>
               <li>UI / UX</li>
               <li>Front End Development</li>

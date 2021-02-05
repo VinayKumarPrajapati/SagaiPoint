@@ -55,7 +55,7 @@ class IndexPage extends Component {
               <div className="col s12 m4 l4">
                 <div className="card">
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -76,7 +76,7 @@ class IndexPage extends Component {
               <div className="col s12 m4 l4">
                 <div className="card">
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -97,7 +97,7 @@ class IndexPage extends Component {
               <div className="col s12 m4 l4">
                 <div className="card">
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -118,7 +118,7 @@ class IndexPage extends Component {
               <div className="col s12 m4 l4">
                 <div className="card">
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -139,7 +139,7 @@ class IndexPage extends Component {
               <div className="col s12 m4 l4">
                 <div className="card">
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -160,7 +160,7 @@ class IndexPage extends Component {
               <div className="col s12 m4 l4">
                 <div className="card">
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -184,7 +184,7 @@ class IndexPage extends Component {
 
         <div className="parallax-container">
           <div className="parallax">
-            <img src="img/parallax1.png" />
+            <img src="img/parallax1.png" alt="example" />
           </div>
         </div>
 
@@ -195,7 +195,7 @@ class IndexPage extends Component {
               <div className="col s12 m3">
                 <div className="card card-avatar">
                   <div className="waves-effect waves-block waves-light">
-                    <img className="activator" src="" />
+                    <img className="activator" src="" alt="example" />
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
@@ -285,18 +285,18 @@ class IndexPage extends Component {
               <div className="col l3 s12">
                 <h5 className="white-text">Social</h5>
                 <ul>
-                  <li>
+                  <div>
                     <a className="white-text" href="">
                       <i className="small fa fa-facebook-square white-text"></i>
                       फेसबुक
                     </a>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <a className="white-text" href="">
                       <i className="small fa fa-linkedin-square white-text"></i>
                       लिंक्डइन
                     </a>
-                  </li>
+                  </div>
                 </ul>
               </div>
             </div>

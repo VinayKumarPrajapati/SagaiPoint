@@ -1,6 +1,5 @@
 const { default: validator } = require("validator");
 const Validator = require("validator");
-const validatePhoneNumber = require("validate-phone-number-node-js");
 
 const isEmpty = require("./is-empty");
 
@@ -9,6 +8,8 @@ module.exports = function validateRegisterInput(data) {
 
   data.name = !isEmpty(data.name) ? data.name : "";
   data.phoneNumber = !isEmpty(data.phoneNumber) ? data.phoneNumber : "";
+  var phoneno = /^\d{10}$/;
+  var letters = /^[A-Za-z]+$/;
 
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
@@ -16,6 +17,9 @@ module.exports = function validateRegisterInput(data) {
   if (!Validator.isLength(data.name, { min: 2, max: 30 })) {
     errors.name =
       "Name must be between 2 and 30 characters (नाम 2 और 30 अक्षरों के बीच होना चाहिए)";
+  }
+  if (!data.name.match(letters)) {
+    errors.name = "Please enter valid Name (कृपया सही नाम डालें)";
   }
 
   if (Validator.isEmpty(data.name)) {
@@ -26,7 +30,12 @@ module.exports = function validateRegisterInput(data) {
     errors.phoneNumber = "Phone number is required (फ़ोन नंबर आवश्यक है)";
   }
 
-  if (!validatePhoneNumber.validate(data.phoneNumber)) {
+  if (!data.phoneNumber.match(phoneno)) {
+    errors.phoneNumber =
+      "Please enter valid Phone Number (कृपया सही नंबर डालें)";
+  }
+
+  if (!data.phoneNumber.match(phoneno)) {
     errors.phoneNumber =
       "Please enter valid Phone Number (कृपया सही नंबर डालें)";
   }

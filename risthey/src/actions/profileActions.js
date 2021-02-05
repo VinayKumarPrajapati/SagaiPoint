@@ -48,9 +48,9 @@ export const getProfileByHandle = (handle) => (dispatch) => {
 };
 
 // Create Profile
-export const createProfile = (profileData, history) => (dispatch) => {
+export const createProfile = (profileData, formData, history) => (dispatch) => {
   axios
-    .post("/api/profile", profileData)
+    .post("/api/profile", formData, profileData)
     .then((res) => history.push("/dashboard"))
     .catch((err) =>
       dispatch({
@@ -64,6 +64,19 @@ export const createProfile = (profileData, history) => (dispatch) => {
 export const addExperience = (expData, history) => (dispatch) => {
   axios
     .post("/api/profile/experience", expData)
+    .then((res) => history.push("/dashboard"))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
+// Add Basic
+export const addBasic = (expData, history) => (dispatch) => {
+  axios
+    .post("/api/profile/basic", expData)
     .then((res) => history.push("/dashboard"))
     .catch((err) =>
       dispatch({
